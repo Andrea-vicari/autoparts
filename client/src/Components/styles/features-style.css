@@ -1,0 +1,54 @@
+/*--------------------------------------------------------------
+# Features component
+--------------------------------------------------------------*/
+
+.features .icon-box {
+    margin-bottom: 20px;
+  }
+
+  .features .icon {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Change below to adapt width and height of the icon */
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+
+  .features .icon i {
+    color: #fff;
+    /*Change below to adapt font size of the icon */
+    font-size: 34px;
+    line-height: 0;
+  }
+
+  .features .icon-box:hover .icon {
+    background: #fff;
+  }
+
+  .features .icon:hover{
+    font-size:36px;
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+}
+
+  .features .title {
+    margin-left: 80px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 23px;
+  }
+
+  .features .title a {
+    color: #343a40;
+  }
+
+
+  .features .description {
+    margin-left: 80px;
+    line-height: 24px;
+    font-size: 18px;
+  }

@@ -1,0 +1,17 @@
+/***
+** Banner intro
+**/
+
+.bg-stripe{
+background-image: url(../../assets/images/stripes_bg.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.bg-network{
+background-image: url(../../assets/images/bg_weights_cropped.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}

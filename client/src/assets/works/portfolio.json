@@ -1,0 +1,51 @@
+
+[{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Portfolio Website",
+    "category":"React",
+    "extLink":"https://cv-react-vite-phi.vercel.app/",
+    "client":"AV Developer",
+    "description":"React Portfolio is a application built using the React library, which allows users to showcase their work, skills, and experiences in a professional manner. It typically includes a combination of text, images, and links to projects, and may also have additional features like a contact form or resume download."
+
+},
+{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Title2",
+    "category":"Jwt",
+    "extLink":"#",
+    "client":"",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat ratione alias corrupti asperiores temporibus repellat magnam, nemo dolore doloremque facere. Suscipit labore sint sequi, nisi vel adipisci inventore quia."
+
+},
+{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Title3",
+    "category":"Javascript",
+    "extLink":"#",
+    "client":"",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat ratione alias corrupti asperiores temporibus repellat magnam, nemo dolore doloremque facere. Suscipit labore sint sequi, nisi vel adipisci inventore quia."
+},
+{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Title4",
+    "category":"Mongo",
+    "extLink":"#",
+    "client":"",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat ratione alias corrupti asperiores temporibus repellat magnam, nemo dolore doloremque facere. Suscipit labore sint sequi, nisi vel adipisci inventore quia."
+},
+{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Title5",
+    "category":"Node",
+    "extLink":"#",
+    "client":"",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat ratione alias corrupti asperiores temporibus repellat magnam, nemo dolore doloremque facere. Suscipit labore sint sequi, nisi vel adipisci inventore quia."
+},
+{
+    "thumbImage":"./portfolio_images/600x400.png",
+    "title":"Title6",
+    "category":"Mongo",
+    "extLink":"#",
+    "client":"",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat ratione alias corrupti asperiores temporibus repellat magnam, nemo dolore doloremque facere. Suscipit labore sint sequi, nisi vel adipisci inventore quia."
+}]

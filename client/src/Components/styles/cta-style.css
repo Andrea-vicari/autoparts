@@ -1,0 +1,18 @@
+/*--------------------
+--Call to action  Styles--
+----------------------*/
+
+.call-to-action h2{
+    margin-top:60px;
+    font-size: 1px;
+}
+@media (max-width: 767px) {
+    .call-to-action .call-to-action-message p,
+    .call-to-action .call-to-action-message strong{
+    font-size:18px;
+    line-height:24px;
+    }
+    .call-to-action .call-to-action-message {
+        text-align:center;
+    }
+}

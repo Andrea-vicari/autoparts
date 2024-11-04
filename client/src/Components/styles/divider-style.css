@@ -1,0 +1,10 @@
+/*--------------------
+-- DIVIDER Style--
+----------------------*/
+.bg-network{
+    background-image: url(../../assets/images/room_bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+}

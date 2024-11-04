@@ -1,0 +1,20 @@
+.visible{
+display: block !important;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.bordered{
+  border: 2px solid yellowgreen;
+}
+
+.modal-fullscreen{
+  width: 99% !important;
+  margin: 0 auto;
+}
+
+.attivo{
+  background-color: red !important;
+}
