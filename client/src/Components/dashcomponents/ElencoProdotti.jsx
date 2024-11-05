@@ -74,23 +74,30 @@ function ElencoProdotti() {
     pusha immagineCaricata in prodottoCopy
   */
 
-  /*
+  
     for (let i = 0; i < prodottoCopy.length; i++) {
 
     for (let keyprodotto in prodottoCopy[i]) {
 
-      // keyprodotto == "immagine" ? delete prodottoCopy[i][keyprodotto] : true
+      keyprodotto == "immagine" ? delete prodottoCopy[i][keyprodotto] : true
+      
+   	let  immagineDaAggiungere = immaginiCopy[i].immagineCaricata
+    	console.log(immagineDaAggiungere)
+	prodottoCopy[i].immagine  = immaginiCopy[i].immagineCaricata 
 
       }
     }
+    
+    
 
-
+  /*
   prodottoCopy.forEach(function callback(value, index) {
     console.log(index)
     console.log(value.unicoID);
-    let immagineDaAggiungere = immaginiCopy[index].immagineCaricata
-    console.log(immagineDaAggiungere)
-    // value.unicoID == immaginiCopy[index].value.idProdotto ? console.log('yes') : console.log('no')
+   //let  immagineDaAggiungere = immaginiCopy[index].immagineCaricata
+    //console.log(immagineDaAggiungere)
+   // value.unicoID == immaginiCopy[index].idProdotto ? console.log('yes') : console.log('no')
+    // prodottoCopy[index].immagine  = immagineDaAggiungere 
   });
   */
 
@@ -161,16 +168,13 @@ function ElencoProdotti() {
                     <div className="col-sm-1">
                       <p>NOME</p>
                     </div>
-                    <div className="col-sm-1">
-                      <p>ID</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>CATEGORIA</p>
+                   <div className="col-sm-1">
+                      <p>CAT.</p>
                     </div>
                     <div className="col-sm-1">
                       <p>MARCA</p>
                     </div>
-                    <div className="col-sm-1">
+                    <div className="col-sm-2">
                       <p>MODELLO</p>
                     </div>
                     <div className="col-sm-1">
@@ -200,16 +204,17 @@ function ElencoProdotti() {
                       <p className="fs-6">{e.nome}</p>
                     </div>
                     <div className="col-sm-1">
-                      <p className="fs-6">{e.codice}</p>
+                      <p className="fs-6">{e.categoria}</p>
                     </div>
                     <div className="col-sm-1">
-                      <p>CATEGORIA</p>
+                      <p>{e.marca}</p>
                     </div>
                     <div className="col-sm-1">
-                      <p>MARCA</p>
+                      <p className="small">{e.modello}</p>
+                      
                     </div>
                     <div className="col-sm-1">
-                      <p>MODELLO</p>
+                      <p className="small">{e.versione}</p>
                     </div>
                     <div className="col-sm-1">
                       <p>VERSIONE</p>
@@ -218,7 +223,7 @@ function ElencoProdotti() {
                       <p>UBICAZIONE</p>
                     </div>
                     <div className="col-sm-1">
-                      <p>PESO</p>
+                      <p>{e.peso}</p>
                     </div>
                     <div className="col-sm-2">
                       <button type="button" className="btn btn-sm btn-outline-primary mx-1">
@@ -252,3 +257,4 @@ function ElencoProdotti() {
 }
 
 export default ElencoProdotti
+
