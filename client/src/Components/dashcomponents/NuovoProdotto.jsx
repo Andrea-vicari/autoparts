@@ -126,8 +126,8 @@ const NuovoProdotto = () =>{
           <div className={"p-3 rounded w-100 " + bgType + textType}>
             <h2 className={textType}>Aggiungi nuovo prodotto</h2>
             <form onSubmit={handleSubmit}>
-
-              <div className="mb-3">
+              <div className="row g-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="nome" className="text-primary">
                   <strong>Nome Prodotto</strong>
                 </label>
@@ -142,7 +142,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="categoria" className="text-primary">
                   <strong>Categoria Prodotto</strong>
                 </label>
@@ -157,7 +157,9 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-               <div className="mb-3">
+              </div>
+              <div className="row g-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="tipologia" className="text-primary">
                   <strong>Tipologia Prodotto</strong>
                 </label>
@@ -172,7 +174,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-               <div className="mb-3">
+               <div className="mb-3 col-md-6">
                 <label htmlFor="descrizione" className="text-primary">
                   <strong>Descrizione Prodotto</strong>
                 </label>
@@ -187,7 +189,9 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-               <div className="mb-3">
+              </div>
+
+               <div className="mb-3 col-md-6">
                 <label htmlFor="codice" className="text-primary">
                   <strong>Codice Prodotto</strong>
                 </label>
@@ -202,7 +206,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-               <div className="mb-3">
+               <div className="mb-3 col-md-6">
                 <label htmlFor="condizione" className="text-primary">
                   <strong>Condizione Prodotto</strong>
                 </label>
@@ -217,7 +221,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="peso" className="text-primary">
                   <strong>Peso Prodotto</strong>
                 </label>
@@ -232,7 +236,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="scaffale" className="text-primary">
                   <strong>Scaffale</strong>
                 </label>
@@ -247,7 +251,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="campata" className="text-primary">
                   <strong>Campata</strong>
                 </label>
@@ -262,7 +266,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="ripiano" className="text-primary">
                   <strong>Ripiano</strong>
                 </label>
@@ -277,7 +281,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="cassetta" className="text-primary">
                   <strong>Cassetta</strong>
                 </label>
@@ -292,7 +296,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="marca" className="text-primary">
                   <strong>Marca</strong>
                 </label>
@@ -307,7 +311,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="modello" className="text-primary">
                   <strong>Modello</strong>
                 </label>
@@ -322,7 +326,7 @@ const NuovoProdotto = () =>{
                   required={true}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 col-md-6">
                 <label htmlFor="versione" className="text-primary">
                   <strong>Versione</strong>
                 </label>

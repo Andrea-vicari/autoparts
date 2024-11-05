@@ -7,15 +7,7 @@ import { useEffect } from 'react';
 
 
 import ScrollToTop from './Components/ScrollToTop';
-// import HomepageOne from './pages/HomepageOne';
-// import AboutUsPage from './pages/AboutUsPage';
-// import ServicePage from './pages/Servicepage';
-// import ContactPage from './pages/ContactPage';
-// import BlogPage from './pages/BlogPage';
-// import PrivacyPage from './pages/PrivacyPage';
-// import FaqPage from './pages/FaqPage';
-// import SinglePost from './pages/SinglePost';
-// import SingleProject from './pages/SingleProject';
+
 import Error404 from './pages/Error404';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -23,21 +15,13 @@ import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
-
-
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
-// import NewBookingPage from './pages/dashpages/NewBookingPage';
-// import SchedaTrainerPage from './pages/dashpages/SchedaTrainerPage';
-// import SchedaUtentePage from './pages/dashpages/SchedaUtentePage';
-// import ElencoSchedeApertePage from './pages/dashpages/ElencoSchedeApertePage';
-// import ElencoSchedeChiusePage from './pages/dashpages/ElencoSchedeChiusePage';
-// import ElencoPrenotazioniUtentePage from './pages/dashpages/ElencoPrenotazioniUtentePage';
-// import ElencoPrenotazioniTrainerPage from './pages/dashpages/ElencoPrenotazioniTrainerPage';
-// import AgendaPage from './pages/dashpages/AgendaPage';
+
 import UploaderPage from './pages/dashpages/UploaderPage';
-// import NutrizionePage from './pages/NutrizionePage';
+import ModificaProdottoPage from './pages/dashpages/ModificaProdottoPage';
+
 function App() {1
 
   const {user} = UseAuthContext()
@@ -63,7 +47,7 @@ function App() {1
         <Routes>
             <Route path="/" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
-            <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
+
 
             <Route path="/*" element={<Error404 />} />
             <Route path="/login" element={user ? <Navigate to="/dashboardpage"/> : <LoginPage />} />
@@ -71,8 +55,10 @@ function App() {1
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
 
-		  <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
+		        <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
             <Route path="/elencoprodotti" element={<ElencoProdottiPage />} />
+            <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
+            <Route path="/modificaprodotto/:id" element={user ? <ModificaProdottoPage /> : <Navigate to="/login"/>} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/uploader" element={<UploaderPage />} />
             <Route path="/sentpassword" element={<SentPassword />} />

@@ -13,17 +13,19 @@ function ElencoProdotti() {
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-  const role = useSelector((state) => state.setRole.value)
 
   const { user } = UseAuthContext()
 
   const [prodotto, setProdotto] = useState([]);
   const [immagine, setImmagine] = useState([]);
 
-  const makePRODOTTICall = async () => {
+  const makeAPICall = async () => {
     try {
       const response = await fetch(`http://localhost:8080/api/prodotti`, { mode: 'cors' });
       const prodotto = await response.json();
+      const responseImg = await fetch(`http://localhost:8080/api/images`, { mode: 'cors' });
+      const immagine = await responseImg.json();
+      setImmagine(immagine)
       setProdotto(prodotto)
 
       console.log({ prodotto })
@@ -35,30 +37,11 @@ function ElencoProdotti() {
 
   useEffect(() => {
     if (user) {
-      makePRODOTTICall();
+      makeAPICall();
     }
 
   }, [user])
 
-  const makeIMMAGINICall = async () => {
-    try {
-      const response = await fetch(`http://localhost:8080/api/images`, { mode: 'cors' });
-      const immagine = await response.json();
-      setImmagine(immagine)
-
-      console.log({ immagine })
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-
-  useEffect(() => {
-    if (user) {
-      makeIMMAGINICall();
-    }
-
-  }, [user])
 
   // Clona array prodotto
   var prodottoCopy = [...prodotto];
@@ -74,32 +57,19 @@ function ElencoProdotti() {
     pusha immagineCaricata in prodottoCopy
   */
 
-  
     for (let i = 0; i < prodottoCopy.length; i++) {
 
     for (let keyprodotto in prodottoCopy[i]) {
 
       keyprodotto == "immagine" ? delete prodottoCopy[i][keyprodotto] : true
-      
-   	let  immagineDaAggiungere = immaginiCopy[i].immagineCaricata
+
+   	let immagineDaAggiungere = immaginiCopy[i].immagineCaricata
     	console.log(immagineDaAggiungere)
-	prodottoCopy[i].immagine  = immaginiCopy[i].immagineCaricata 
+	prodottoCopy[i].immagine  = immaginiCopy[i].immagineCaricata
 
       }
     }
-    
-    
 
-  /*
-  prodottoCopy.forEach(function callback(value, index) {
-    console.log(index)
-    console.log(value.unicoID);
-   //let  immagineDaAggiungere = immaginiCopy[index].immagineCaricata
-    //console.log(immagineDaAggiungere)
-   // value.unicoID == immaginiCopy[index].idProdotto ? console.log('yes') : console.log('no')
-    // prodottoCopy[index].immagine  = immagineDaAggiungere 
-  });
-  */
 
 
   return (
@@ -157,7 +127,7 @@ function ElencoProdotti() {
               <div className="col-md-12">
                 <div className="p-3 mb-2">
 
-                <div className="row bg-body-tertiary pt-3">
+                <div className="row bg-body-secondary pt-3">
                     <div className="col-sm-1">
                       <p>IMMAGINE</p>
 
@@ -192,7 +162,7 @@ function ElencoProdotti() {
                 </div>
                 {prodotto.map((e) => {
                 return (
-                <div className="row pt-2"key={e._id}>
+                <div id='riga-prodotto' className="row pt-2 d-flex mb-2 align-items-center"key={e._id}>
                     <div className="col-sm-1">
                       <img src={`http://localhost:8080/images/${e.immagine}`} style={{ width: 80 }} />
 
@@ -211,7 +181,7 @@ function ElencoProdotti() {
                     </div>
                     <div className="col-sm-1">
                       <p className="small">{e.modello}</p>
-                      
+
                     </div>
                     <div className="col-sm-1">
                       <p className="small">{e.versione}</p>
@@ -226,13 +196,13 @@ function ElencoProdotti() {
                       <p>{e.peso}</p>
                     </div>
                     <div className="col-sm-2">
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
+                      <Link  to={`/modificaprodotto/${e.unicoID}`} state={e.unicoID}type="button" className="btn btn-sm btn-outline-danger mx-1">
                         <i className='bi bi-zoom-in'></i>
-                      </button>
-                      <Link to={`/cancellaprodotto/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-primary mx-1">
+                      </Link>
+                      <Link to={`/cancellaprodotto/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
                         <i className='bi bi-trash'></i>
                       </Link>
-                      <button type="button" className="btn btn-sm btn-outline-primary mx-1">
+                      <button type="button" className="btn btn-sm btn-outline-danger mx-1">
                         <i className='bi bi-printer'></i>
                       </button>
                     </div>

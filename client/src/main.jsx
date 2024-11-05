@@ -24,6 +24,8 @@ import '../src/Components/styles/faq-style.css'
 import '../src/Components/styles/single-post-style.css'
 import '../src/Components/styles/single-project-style.css'
 import '../src/Components/styles/dashboard-style.css'
+import '../src/Components/styles/prodotti-style.css'
+
 // Main CSS Sass
 import './sass/index.scss';
 
