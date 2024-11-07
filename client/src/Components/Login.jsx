@@ -1,3 +1,4 @@
+
 import React from 'react'
 import LoginImg from "../assets/images/sfondo-magazzino.jpg"
 import { useSelector } from 'react-redux'
@@ -32,7 +33,7 @@ function Login() {
           <div className='w-50 mx-auto'>
             <div className="row">
 
-              <div className="col-sm-10 mx-auto pt-5">
+              <div className="bg-body-secondary mt-5 rounded-3 col-sm-10 mx-auto pt-5">
                 <h1 className='text-primary text-uppercase'>Benvenuto!</h1>
                 <p>Accedi per inserire o consultare articoli nel magazzino virtuale</p>
                 <div className={"mx-auto" + textType}>

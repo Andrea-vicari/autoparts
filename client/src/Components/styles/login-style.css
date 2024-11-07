@@ -1,7 +1,7 @@
 /* FOGLIO DI STILE PER LA PAGINA LOGIN/REGISTER/FORGOT PASSWORD ETC.  */
 
 .bg-login{
-  background-image: url(./assets/images/login_bg.jpg) !important;
+  background-image: url(../../assets/images/login.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

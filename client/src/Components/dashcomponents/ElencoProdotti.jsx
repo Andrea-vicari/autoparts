@@ -74,7 +74,7 @@ function ElencoProdotti() {
 
   return (
     <React.Fragment>
-      <div className='container-fluid pt-1 mt-5 bg-stripe'>
+      <div className='container-fluid pt-1 mt-5 bg-login'>
         <div className='container text-center mt-5 pb-1'>
           <h1 className='display-2 text-white text-uppercase'>Elenco Prodotti</h1>
         </div>
