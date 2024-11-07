@@ -1,3 +1,9 @@
+/* FOGLIO DI STILE PER LA PAGINA ELENCO PRODOTTI */
+
+/* HOVER GIALLO ALLA RIGA DI OGNI SINGOLO PRODOTTO */
 #riga-prodotto:hover{
     background-color: yellow
 }
+
+/*FONT SIZE DELL */
+#modello-prodotto{font-size: 0.7rem}

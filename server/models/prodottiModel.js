@@ -10,10 +10,6 @@ const prodottiSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    tipologia:{
-        type: String,
-        required: false
-    },
     descrizione:{
         type: String,
         required: false
@@ -31,7 +27,7 @@ const prodottiSchema = new mongoose.Schema({
         required: false
     },
     scaffale:{
-        type: Number,
+        type: String,
         required: false
     },
     campata:{
@@ -69,7 +65,7 @@ const prodottiSchema = new mongoose.Schema({
     },
     unicoID:{
         type: String,
-        required: true
+        required: false
     }
 
 },{ timestamps:true })

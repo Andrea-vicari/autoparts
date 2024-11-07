@@ -1,8 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { UseAuthContext } from "../../hooks/UseAuthContext";
+import {  Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
+
 import logo from "../../assets/images/logo-magazzino-footer.svg";
+
+var prodSingle
 
 const ModificaProdotto = () =>{
 
@@ -15,9 +19,16 @@ const ModificaProdotto = () =>{
 
   var today = new Date().toDateString()
 
-  console.log(today)
-
-
+  console.log("******")
+  console.log(today)  
+  const { user } = UseAuthContext()
+  console.log(user)
+  
+  let clicked = useLocation(); 
+  prodSingle = clicked.state
+  
+  console.log(prodSingle)
+  
     // Nuovi usestate
     const [nome, setNome] = useState('')
     const [categoria, setCategoria] = useState('')
@@ -40,7 +51,31 @@ const ModificaProdotto = () =>{
 
     // Use state per immagini
     const [file, setFile ] = useState()
+  const [prodottoSingolo, setProdottoSingolo] = useState([]);
+  const [immagineSingola, setImmagineSingola] = useState([]);
 
+  const makeAPICall = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/prodotti/${prodSingle}`, { mode: 'cors' });
+      const prodottoSingolo = await response.json();
+      const responseImg = await fetch(`http://localhost:8080/api/images`, { mode: 'cors' });
+      const immagineSingola = await responseImg.json();
+      setImmagineSingola(immagineSingola)
+      setProdottoSingolo(prodottoSingolo)
+      console.log("======")
+      console.log({prodottoSingolo})
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      makeAPICall();
+    }
+
+  }, [user])
 
 
     const handleSubmit = async (e) =>{
@@ -49,13 +84,13 @@ const ModificaProdotto = () =>{
 
 
         setToday(today)
-        setCodUni(unicoID)
+        
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine, unicoID}
+        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione}
 
-        const response = await fetch('http://localhost:8080/api/prodotti', {
+        const response = await fetch(`http://localhost:8080/api/prodotti/${prodSingle}`, {
 
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify(prodotto),
             headers:{
                 'Content-Type': 'application/json'
@@ -94,6 +129,8 @@ const ModificaProdotto = () =>{
 
 
     }
+	
+    
 
 
 
@@ -104,6 +141,9 @@ const ModificaProdotto = () =>{
     function openModal(){
       document.getElementById('modale_prodotto').classList.add("d-block")
     }
+	
+	console.log("==****==")
+      console.log({prodottoSingolo})
 
 
     return (
@@ -113,6 +153,9 @@ const ModificaProdotto = () =>{
         <div className="d-flex justify-content-center align-items-center py-5">
           <div className={"p-3 rounded w-100 " + bgType + textType}>
             <h2 className={textType}>Visualizza / Modifica prodotto</h2>
+            {prodottoSingolo.map((e) => {
+                return (
+
             <form onSubmit={handleSubmit}>
               <div className="row g-3">
               <div className="mb-3 col-md-6">
@@ -121,7 +164,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci nome Prodotto"
+                  placeholder={e.nome}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -136,7 +179,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci categoria  Prodotto"
+                  placeholder={e.categoria}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -153,7 +196,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci tipologia Prodotto"
+                  placeholder={e.tipologia}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -168,7 +211,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci descrizione Prodotto"
+                  placeholder={e.descrizione}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -185,7 +228,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci codice Prodotto"
+                  placeholder={e.codice}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -200,7 +243,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci condizione Prodotto"
+                  placeholder={e.condizione}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -215,7 +258,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci peso Prodotto"
+                  placeholder={e.peso}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -230,7 +273,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci scaffale"
+                  placeholder={e.scaffale}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -245,7 +288,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci campata"
+                  placeholder={e.campata}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -260,7 +303,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci ripiano"
+                  placeholder={e.ripiano}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -275,7 +318,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci cassetta"
+                  placeholder={e.cassetta}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -290,7 +333,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci marca"
+                  placeholder={e.marca}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -305,7 +348,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci Modello"
+                  placeholder={e.modello}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -320,7 +363,7 @@ const ModificaProdotto = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci Versione"
+                  placeholder={e.versione}
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -331,12 +374,15 @@ const ModificaProdotto = () =>{
               </div>
 
 
-              <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
+              <button type="button" className="btn btn-success" onClick={handleSubmit}>Conferma e salva
   		      </button>
 
 
               {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
             </form>
+            )
+            })}
+
             <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
@@ -378,4 +424,5 @@ const ModificaProdotto = () =>{
 }
 
 export default ModificaProdotto
+
 

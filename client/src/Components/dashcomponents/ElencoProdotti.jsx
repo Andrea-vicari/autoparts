@@ -144,12 +144,16 @@ function ElencoProdotti() {
                     <div className="col-sm-1">
                       <p>MARCA</p>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-1">
                       <p>MODELLO</p>
                     </div>
                     <div className="col-sm-1">
                       <p>VERSIONE</p>
                     </div>
+                    <div className="col-sm-1">
+                      <p>IMMATR.</p>
+                    </div>
+
                     <div className="col-sm-1">
                       <p>UBICAZIONE</p>
                     </div>
@@ -162,7 +166,7 @@ function ElencoProdotti() {
                 </div>
                 {prodotto.map((e) => {
                 return (
-                <div id='riga-prodotto' className="row pt-2 d-flex mb-2 align-items-center"key={e._id}>
+                <div id='riga-prodotto' className="row pt-2 pb-2 d-flex mb-2 align-items-center"key={e._id}>
                     <div className="col-sm-1">
                       <img src={`http://localhost:8080/images/${e.immagine}`} style={{ width: 80 }} />
 
@@ -184,18 +188,24 @@ function ElencoProdotti() {
 
                     </div>
                     <div className="col-sm-1">
-                      <p className="small">{e.versione}</p>
+                      <p id="modello-prodotto">{e.versione}</p>
                     </div>
                     <div className="col-sm-1">
-                      <p>VERSIONE</p>
+                      <p>{e.annoImmatricolazione}</p>
                     </div>
+
+	              <div className="col-sm-1">
+                      <p id="modello-prodotto" className="mb-0">SCAFFALE: {e.scaffale}</p>
+                      <p id="modello-prodotto" className="mb-0">CAMPATA: {e.campata}</p>
+                      <p id="modello-prodotto" className="mb-0">RIPIANO: {e.ripiano}</p>
+                      <p id="modello-prodotto" className="mb-0">CASSETTA: {e.cassetta}</p>
+                    </div>
+
+
                     <div className="col-sm-1">
-                      <p>UBICAZIONE</p>
+                      <p>{e.peso} Kg</p>
                     </div>
-                    <div className="col-sm-1">
-                      <p>{e.peso}</p>
-                    </div>
-                    <div className="col-sm-2">
+                   <div className="col-sm-2">
                       <Link  to={`/modificaprodotto/${e.unicoID}`} state={e.unicoID}type="button" className="btn btn-sm btn-outline-danger mx-1">
                         <i className='bi bi-zoom-in'></i>
                       </Link>

@@ -30,7 +30,6 @@ const NuovoProdotto = () =>{
     // Nuovi usestate
     const [nome, setNome] = useState('')
     const [categoria, setCategoria] = useState('')
-    const [tipologia, setTipologia] = useState('')
     const [descrizione, setDescrizione] = useState('')
     const [codice, setCodice] = useState('')
     const [condizione, setCondizione] = useState('')
@@ -44,6 +43,7 @@ const NuovoProdotto = () =>{
     const [versione, setVersione] = useState('')
     const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
+    const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [codUni, setCodUni] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
@@ -61,7 +61,7 @@ const NuovoProdotto = () =>{
         setToday(today)
         setCodUni(unicoID)
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine, unicoID}
+        const prodotto = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, immagine, unicoID, annoImmatricolazione}
 
         const response = await fetch('http://localhost:8080/api/prodotti', {
 
@@ -85,7 +85,6 @@ const NuovoProdotto = () =>{
             // New
             setNome('')
             setCategoria('')
-            setTipologia('')
             setDescrizione('')
             setCodice('')
             setCondizione('')
@@ -97,7 +96,7 @@ const NuovoProdotto = () =>{
             setMarca('')
             setModello('')
             setVersione('')
-            // setAnnoImmatricolazione('')
+            setAnnoImmatricolazione('')
             setimmagine('')
             setCodUni('')
             setError(null)
@@ -160,17 +159,17 @@ const NuovoProdotto = () =>{
               </div>
               <div className="row g-3">
               <div className="mb-3 col-md-6">
-                <label htmlFor="tipologia" className="text-primary">
-                  <strong>Tipologia Prodotto</strong>
+                <label htmlFor="annoImmatricolazione" className="text-primary">
+                  <strong>Anno Immatricolazione</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci tipologia Prodotto"
+                  placeholder="Inserisci anno immatricolazione"
                   autoComplete="off"
-                  name="text"
+                  name="number"
                   className="form-control rounded-0"
-                  onChange={(e) => setTipologia(e.target.value)}
-                  value={tipologia}
+                  onChange={(e) => setAnnoImmatricolazione(e.target.value)}
+                  value={annoImmatricolazione}
                   required={true}
                 />
               </div>

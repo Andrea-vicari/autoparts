@@ -26,16 +26,18 @@ function Login() {
 
   return (
     <React.Fragment>
-        <section className="py-5 bg-login">
+        <section className={"light-typo py-5 call-to-action"+ " " + bgType + " " + textType}>
 
         <div className="container-fluid px-5">
-          <div className='w-50 mx-auto'>
-            <div className="row">
-
-              <div className="col-sm-10 mx-auto pt-5">
+          <div className='container py-5'>
+            <div className="row d-flex align-items-center">
+              <div className="col-sm-6">
+                      <img className="img-fluid rounded-4" src={LoginImg} alt=""/>
+              </div>
+              <div className="col-sm-6">
                 <h1 className='text-primary text-uppercase'>Benvenuto!</h1>
                 <p>Accedi per inserire o consultare articoli nel magazzino virtuale</p>
-                <div className={"mx-auto" + textType}>
+                <div className={"w-75" + textType}>
                   <form onSubmit={handleSubmit}>
 
                     <div className="mb-3">

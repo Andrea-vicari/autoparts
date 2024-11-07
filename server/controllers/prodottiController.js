@@ -20,13 +20,13 @@ const viewAllProdotti = async (req, res)=> {
 const createNewProdotti = async (req, res)=> {
 
 
-    const {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
+    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
 
 
     // Add doc to the Mongo DB
 
     try{
-        const prodotti = await Prodotti.create({nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID})
+        const prodotti = await Prodotti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID})
         res.status(200).json(prodotti)
     }
 
@@ -36,6 +36,35 @@ const createNewProdotti = async (req, res)=> {
     }
 
 }
+
+// Aggorna Prodotto:
+const aggiornaProdotto = async (req, res)=> {
+
+    const { id } = req.params;
+    console.log("== KINGBOY ==")
+    console.log("RICHIESTA AGGIORNAMENTO PRODOTTO")
+    console.log(id)
+
+    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
+
+
+    // Add doc to the Mongo DB
+
+    try{
+    
+        const prodotti = await Prodotti.findOneAndUpdate({unicoID: id},{
+        ...req.body
+    })
+        res.status(200).json(prodotti)
+    }
+
+    catch(error){
+        console.log({error: error.message})
+        res.status(400).json({error: error.message})
+    }
+
+}
+
 
 // Delete
 const deleteProdotto = async (req, res)=> {
@@ -97,5 +126,6 @@ module.exports = {
     createNewProdotti,
     viewAllProdotti,
     deleteProdotto,
-    vediSingoloProd
+    vediSingoloProd,
+    aggiornaProdotto
 }

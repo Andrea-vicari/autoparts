@@ -2,7 +2,7 @@ const express = require('express');
 
 
 
-const {createNewProdotti, viewAllProdotti, deleteProdotto,vediSingoloProd} = require('../controllers/prodottiController');
+const {createNewProdotti, viewAllProdotti, deleteProdotto,vediSingoloProd, aggiornaProdotto} = require('../controllers/prodottiController');
 
 
 const router = express.Router();
@@ -19,7 +19,8 @@ router.get('/:id', vediSingoloProd);
 // Delete
 router.delete('/delete/:id', deleteProdotto);
 
-
+// Update
+router.patch('/:id', aggiornaProdotto);
 
 // Post
 router.post('/', createNewProdotti);
