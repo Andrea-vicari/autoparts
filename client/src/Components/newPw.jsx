@@ -33,7 +33,7 @@ function NewPw() {
 
       const pw = {password, token}
 
-      const response = await fetch('https://pulsefit-server.vercel.app/api/users/reset-password/:' + token, {
+      const response = await fetch('http://localhost:8080/api/users/reset-password/:' + token, {
 
           method: 'POST',
           body: JSON.stringify(pw),

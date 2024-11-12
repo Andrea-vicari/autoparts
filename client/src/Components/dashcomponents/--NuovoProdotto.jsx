@@ -41,7 +41,7 @@ const NuovoProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    const [immagine, setImmagine] = useState('')
+    const [immagine, setimmagine] = useState('')
     const [date, setToday] = useState('')
     const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
     const [codUni, setCodUni] = useState('')
@@ -97,7 +97,7 @@ const NuovoProdotto = () =>{
             setModello('')
             setVersione('')
             setAnnoImmatricolazione('')
-            setImmagine('')
+            setimmagine('')
             setCodUni('')
             setError(null)
             setemptyFields([])
@@ -341,7 +341,7 @@ const NuovoProdotto = () =>{
                 />
               </div>
 
-              <input type="file" onChange={(event) => setImmagine(event.target.files[0])} />
+              <Uploader identificativoImg={unicoID}/>
 
               <button type="button" className="btn btn-primary" onClick={handleSubmit}>Aggiungi Prodotto
   		      </button>

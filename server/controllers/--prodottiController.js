@@ -1,18 +1,6 @@
 const Prodotti = require('../models/prodottiModel');
 const mongoose = require('mongoose');
-const multer = require('multer');
-const path = require('path');
 
-// Configure multer storage
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, 'public/images');
-    },
-    filename: (req, file, cb) => {
-      cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
-    }
-  });
-  const upload = multer({ storage: storage });
 
 
 
@@ -32,13 +20,13 @@ const viewAllProdotti = async (req, res)=> {
 const createNewProdotti = async (req, res)=> {
 
 
-    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID, immagine} = req.body
+    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
 
 
     // Add doc to the Mongo DB
 
     try{
-        const prodotti = await Prodotti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID, immagine})
+        const prodotti = await Prodotti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID})
         res.status(200).json(prodotti)
     }
 
@@ -63,7 +51,7 @@ const aggiornaProdotto = async (req, res)=> {
     // Add doc to the Mongo DB
 
     try{
-
+    
         const prodotti = await Prodotti.findOneAndUpdate({unicoID: id},{
         ...req.body
     })

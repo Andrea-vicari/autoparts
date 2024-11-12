@@ -1,6 +1,5 @@
 
 import React from 'react'
-import LoginImg from "../assets/images/sfondo-magazzino.jpg"
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useLogin } from "../hooks/useLogin";

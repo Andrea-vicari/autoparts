@@ -60,8 +60,7 @@ const prodottiSchema = new mongoose.Schema({
     },
     immagine:{
             type: String,
-            required: false,
-            default: "prodottoThumb.png"
+            required: false
     },
     unicoID:{
         type: String,

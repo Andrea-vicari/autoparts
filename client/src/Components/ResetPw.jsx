@@ -1,7 +1,6 @@
 import React from 'react'
-import LoginImg from "../assets/images/LoginImg.jpg"
 import { useSelector } from 'react-redux'
-import { Link,useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from "react";
 
 function ResetPw() {
@@ -26,7 +25,7 @@ function ResetPw() {
       setEmail(email)
       const user = {email}
 
-      const response = await fetch('https://pulsefit-server.vercel.app/api/users/forgot-password', {
+      const response = await fetch('http://localhost:8080/api/users/forgot-password', {
 
           method: 'POST',
           body: JSON.stringify(user),
@@ -54,18 +53,16 @@ function ResetPw() {
 
   return (
     <React.Fragment>
-        <section className={"light-typo py-5 call-to-action"+ " " + bgType + " " + textType}>
+        <section className="py-5 bg-login pt-5 pb-5">
 
-        <div className="container-fluid px-5">
+        <div className="container-fluid h-100 px-5 pt-5">
+          <div className='w-50 mx-auto h-100'>
+            <div className="row pt-5">
 
-            <div className="row d-flex align-items-center">
-              <div className="col-sm-6">
-                      <img className="img-fluid rounded-4" src={LoginImg} alt=""/>
-              </div>
-              <div className="col-sm-6">
+              <div className="bg-body-secondary mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-5 mt-5 mb-5">
                 <h1 className='text-primary text-uppercase'>Reset Password</h1>
                 <p>Insert Your email, click "send" to change your password</p>
-                <div className={"w-75" + textType}>
+                <div className={"mx-auto" + textType}>
                   <form onSubmit={handleSubmit}>
 
                     <div className="mb-3">
@@ -89,10 +86,11 @@ function ResetPw() {
                     {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
                   </form>
 
+
                 </div>
               </div>
             </div>
-
+          </div>
         </div>
 
     </section>
