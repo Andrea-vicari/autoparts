@@ -16,6 +16,7 @@ import NewPassword from './pages/NewPassword';
 import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
+import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
 
@@ -58,6 +59,7 @@ function App() {1
 		        <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
             <Route path="/elencoprodotti" element={<ElencoProdottiPage />} />
             <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
+            <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/modificaprodotto/:id" element={user ? <ModificaProdottoPage /> : <Navigate to="/login"/>} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/uploader" element={<UploaderPage />} />
