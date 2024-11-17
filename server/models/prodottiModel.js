@@ -58,7 +58,7 @@ const prodottiSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    immagine:{
+    file:{
             type: String,
             required: false
     },

@@ -16,27 +16,8 @@ const vediComponenti = async (req, res)=> {
 }
 
 
-// Create a NEW Componenti:
-const nuovoComponente = async (req, res) => {
-    try {
-        const {name, author, imageUrl} = req.body;
-
-        const newcomponente = new Book({
-            name,
-            author,
-            imageUrl
-        })
-        await newcomponente.save()
-        return res.json({added: true})
-    } catch(err) {
-        return res.json({message: "Error in adding book"})
-    }
-}
-
-
 
 
 module.exports = {
-    nuovoComponente,
-    vediComponenti
+        vediComponenti
 }

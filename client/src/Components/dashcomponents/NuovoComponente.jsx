@@ -4,20 +4,22 @@ import  {useNavigate} from 'react-router-dom'
 
 const NuovoComponente = () => {
 
-    const [name, setName] = useState('')
-    const [author, setAuthor] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
-    const navigate = useNavigate()
+     const [title, setTitle] = useState()
+    	const [description, setDescription] = useState()
+    	const [file, setFile] = useState()
+       const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8080/api/componenti', {name, author, imageUrl})
+        const formData = new FormData()
+        formData.append('title', title)
+        formData.append('description', description)
+        formData.append('file', file)
+
+        axios.post('http://localhost:8080/api/componenti', formData)
         .then(res => {
-            if(res.data.added) {
-                navigate('/dashboard')
-            }
-            else {
-                console.log(res)
+            if(res.data === "Success") {
+                window.location.href = "/"
             }
         })
         .catch(err => console.log(err))

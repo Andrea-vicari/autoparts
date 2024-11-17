@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const componentiSchema = new mongoose.Schema({
 
-    name: {type: String},
-    author: {type: String, required: true},
-    imageUrl: {type: String, required: true}
+    title: {type: String},
+    description: {type: String, required: true},
+    file: {type: String, required: true}
 
 },{ timestamps:true })
 
