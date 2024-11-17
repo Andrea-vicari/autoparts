@@ -21,9 +21,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/', upload.single('file'), (req, res) => {
-    	  Componenti.create({title: req.body.title, 
-        description: req.body.description, 
-        file: req.file.filename})
+    	  Componenti.create({
+          nome: req.body.nome,
+          unicoID: req.body.unicoID,
+          categoria:req.body.categoria,
+          annoImmatricolazione:req.body.annoImmatricolazione,
+          categoria: req.body.categoria,
+          descrizione: req.body.descrizione,
+          codice:req.body.codice,
+          file: req.file.filename
+      })
         .then(result => res.json("Success"))
         .catch(err => res.json(err))
 } )

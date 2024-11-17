@@ -1,22 +1,8 @@
 const express = require('express');
-const Prodotti = require('../models/prodottiModel');
-const multer = require('multer');
-const path = require('path');
-
-// Configure multer storage
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, 'public/images');
-    },
-    filename: (req, file, cb) => {
-      cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
-    }
-  });
-  const upload = multer({ storage: storage });
 
 
 
-const {viewAllProdotti, deleteProdotto, vediSingoloProd, aggiornaProdotto} = require('../controllers/prodottiController');
+const {createNewProdotti, viewAllProdotti, deleteProdotto,vediSingoloProd, aggiornaProdotto} = require('../controllers/prodottiController');
 
 
 const router = express.Router();
@@ -35,13 +21,6 @@ router.delete('/delete/:id', deleteProdotto);
 router.patch('/:id', aggiornaProdotto);
 
 // Post
-router.post('/', upload.single('file'), (req, res) => {
-    	   Prodotti.create({title: req.body.title, 
-        description: req.body.description, 
-        file: req.file.filename})
-        .then(result => res.json("Success"))
-        .catch(err => res.json(err))
-} )
-
+router.post('/', createNewProdotti);
 
 module.exports = router;
