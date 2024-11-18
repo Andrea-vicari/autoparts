@@ -18,10 +18,11 @@ import DashboardPage from './pages/dashpages/DashboardPage';
 import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
+import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
 import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
 
 import UploaderPage from './pages/dashpages/UploaderPage';
-import ModificaProdottoPage from './pages/dashpages/ModificaProdottoPage';
+import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 
 function App() {1
 
@@ -56,11 +57,11 @@ function App() {1
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
 
-		        <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
-            <Route path="/elencoprodotti" element={<ElencoProdottiPage />} />
+		    <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
+            <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
             <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />
-            <Route path="/modificaprodotto/:id" element={user ? <ModificaProdottoPage /> : <Navigate to="/login"/>} />
+            <Route path="/modificacomponente/:id" element={user ? <ModificaComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/uploader" element={<UploaderPage />} />
             <Route path="/sentpassword" element={<SentPassword />} />
@@ -74,3 +75,4 @@ function App() {1
 }
 
 export default App
+
