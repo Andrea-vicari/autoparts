@@ -29,6 +29,15 @@ router.post('/', upload.single('file'), (req, res) => {
           categoria: req.body.categoria,
           descrizione: req.body.descrizione,
           codice:req.body.codice,
+		  condizione:req.body.condizione,
+		  peso:req.body.peso,
+		  campata:req.body.campata,
+		  scaffale:req.body.scaffale,
+		  ripiano:req.body.ripiano,
+		  cassetta:req.body.cassetta,
+		  marca:req.body.marca,
+		  modello:req.body.modello,
+		  
           file: req.file.filename
       })
         .then(result => res.json("Success"))
@@ -36,10 +45,13 @@ router.post('/', upload.single('file'), (req, res) => {
 } )
 
 
-const {vediComponenti} = require('../controllers/componentiController');
+const {vediComponenti, vediSingoloComp} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
+
+// GEt single
+router.get('/:id', vediSingoloComp);
 
 
 module.exports = router;
