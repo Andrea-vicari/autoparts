@@ -56,8 +56,8 @@ function Dashboard() {
                                             <img src={addProdImg} className="img-fluid rounded mb-2"/>
                                             </div>
                                             <div className="col-md-6">
-                                                <h2 className="text-primary">Aggiungi Prodotto</h2>
-                                                <p className="text-secondary">Clicca per aggiungere un nuovo prodotto</p>
+                                                <h2 className="text-primary">Aggiungi Componente</h2>
+                                                <p className="text-secondary">Clicca per aggiungere un nuovo componente</p>
                                                 <Link to="/nuovocomponente" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi prodotto</Link>
                                             </div>
                                     </div>

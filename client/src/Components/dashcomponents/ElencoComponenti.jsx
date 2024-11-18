@@ -56,33 +56,32 @@ function ElencoComponenti() {
       <section className={"py-3" + " " + bgType + " " + textType}>
 
         <div className="container-fluid mt-0 pt-0">
-        <p>Filtra per:</p>
+        <p className='mb-0'>Filtra per:</p>
                     <div className="row border d-flex align-items-center">
-                        <div className="col-sm-2 accordion accordion-flush border">
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Accordion Item #1
-                                </button>
-                                </h2>
-                                <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                                </div>
-                            </div>
+                        <div className="col-sm-2">
+                        <select className="form-select" aria-label="Default select example">
+                                  <option selected>Categoria</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                        </div>
-                       <div className="col-sm-2 accordion accordion-flush border">
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Accordion Item #1
-                                </button>
-                                </h2>
-                                <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                                </div>
-                            </div>
+                       <div className="col-sm-2">
+                        <select className="form-select" aria-label="Default select example">
+                                  <option selected>Marca</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                        </div>
-                       <div className="col-sm-8 d-flex justify-content-end align-items-center">
+
+                       <div className="col-sm-2">
+                       <Link to="/nuovocomponente" type="button" className="btn btn-warning">
+                            	<i className="bi bi-funnel mx-2">
+                            	</i>Filtra
+                            </Link>
+                       </div>
+                       <div className="col-sm-6 d-flex justify-content-end align-items-center">
                             <Link to="/nuovocomponente" type="button" className="btn btn-success">
                             	<i className="bi bi-plus-circle mx-2">
                             	</i>Aggiungi Componente

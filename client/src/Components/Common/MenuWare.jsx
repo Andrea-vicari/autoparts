@@ -14,10 +14,10 @@ function MenuWare() {
                 <Link className="nav-link fs-6" aria-current="page" to={'/'}>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-6" to={'/elencoprodotti'} >Elenco Prodotti</Link>
+                <Link className="nav-link fs-6" to={'/elencocomponenti'} >Elenco Componenti</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-6" to={'/nuovoprodotto'} >Aggiungi Prodotto</Link>
+                <Link className="nav-link fs-6" to={'/nuovocomponente'} >Aggiungi Componente</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link fs-6" to={'/'} >Consulta Magazzino</Link>

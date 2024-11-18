@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Common/Footer';
-import Navbar from '../Components/Common/NavbarFixedTop';
+import Menu from '../Components/Common/DashNav';
 
 function Error404() {
 
@@ -14,8 +14,8 @@ function Error404() {
 
   return (
     <>
-    <Navbar />
-    <div className='container-fluid pt-5 mt-5 bg-stripe'>
+    <Menu />
+    <div className='container-fluid pt-5 mt-5 bg-login'>
       <div className='container text-center mt-5 pb-5'>
         <h1 className='display-2 text-white text-uppercase'>404</h1>
       </div>
