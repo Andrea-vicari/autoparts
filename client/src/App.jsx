@@ -19,7 +19,7 @@ import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
-import CancellaProdottoPage from './pages/dashpages/CancellaProdottoPage';
+import CancellaComponentePage from './pages/dashpages/CancellaComponentePage';
 
 import UploaderPage from './pages/dashpages/UploaderPage';
 import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
@@ -57,7 +57,7 @@ function App() {1
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 
 
-		    <Route path="/cancellaprodotto/:id" element={<CancellaProdottoPage/>} />
+		    <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
             <Route path="/nuovoprodotto" element={user ? <NuovoProdottoPage /> : <Navigate to="/login"/>} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />

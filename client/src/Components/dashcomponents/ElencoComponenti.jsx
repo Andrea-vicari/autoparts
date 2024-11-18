@@ -16,17 +16,13 @@ function ElencoComponenti() {
 
   const { user } = UseAuthContext()
 
-  const [componente, setProdotto] = useState([]);
-  //const [immagine, setImmagine] = useState([]);
+  const [componente, setComponente] = useState([]);
 
   const makeAPICall = async () => {
     try {
       const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
       const componente = await response.json();
-      //const responseImg = await fetch(`http://localhost:8080/api/images`, { mode: 'cors' });
-      //const immagine = await responseImg.json();
-      //setImmagine(immagine)
-      setProdotto(componente)
+      setComponente(componente)
 
       console.log({ componente })
     }
@@ -47,26 +43,6 @@ function ElencoComponenti() {
   var componenteCopy = [...componente];
   console.log("componenteCopy")
   console.log(componenteCopy)
-
-
-
-  /*Looppa in componenteCopy e se unicoID combacia tra i 2 oggetti
-    pusha immagineCaricata in componenteCopy
-  
-
-    for (let i = 0; i < componenteCopy.length; i++) {
-
-    for (let keycomponente in componenteCopy[i]) {
-
-      keycomponente == "immagine" ? delete componenteCopy[i][keycomponente] : true
-
-   	let immagineDaAggiungere = immaginiCopy[i].immagineCaricata
-    	console.log(immagineDaAggiungere)
-	componenteCopy[i].immagine  = immaginiCopy[i].immagineCaricata
-
-      }
-    }
-*/
 
 
   return (
@@ -109,7 +85,7 @@ function ElencoComponenti() {
                        <div className="col-sm-8 d-flex justify-content-end align-items-center">
                             <Link to="/nuovocomponente" type="button" className="btn btn-success">
                             	<i className="bi bi-plus-circle mx-2">
-                            	</i>Aggiungi Prodotto
+                            	</i>Aggiungi Componente
                             </Link>
                        </div>
 
@@ -163,7 +139,7 @@ function ElencoComponenti() {
                 </div>
                 {componente.map((e) => {
                 return (
-                <div id='riga-componente' className="row pt-2 pb-2 d-flex mb-2 align-items-center"key={e._id}>
+                <div id='riga-prodotto' className="row pt-2 pb-2 d-flex mb-2 align-items-center"key={e._id}>
                     <div className="col-sm-1">
                       <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 80 }} />
 

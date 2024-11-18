@@ -46,7 +46,7 @@ const NuovoComponente = () => {
         formData.append('categoria', categoria),
         formData.append('annoImmatricolazione', annoImmatricolazione),
 		formData.append('codice', codice),
-		formData.append('condizione', condizione),		
+		formData.append('condizione', condizione),
         formData.append('file', file),
 		formData.append('peso', peso),
 		formData.append('scaffale', scaffale),
@@ -55,7 +55,7 @@ const NuovoComponente = () => {
 		formData.append('cassetta', cassetta),
 		formData.append('marca', marca),
 		formData.append('modello', modello),
-		formData.append('versione', modello),		
+		formData.append('versione', modello),
         formData.append('unicoID', unicoID)
 
         axios.post('http://localhost:8080/api/componenti', formData)
@@ -197,7 +197,7 @@ const NuovoComponente = () => {
                   required={true}
                 />
               </div>
-			  <div className="mb-3 col-md-6">
+			  <div className="mb-3 col-md-4">
                 <label htmlFor="ripiano" className="text-primary">
                   <strong>Ripiano</strong>
                 </label>
@@ -287,13 +287,16 @@ const NuovoComponente = () => {
                   required={true}
                 />
               </div>
-            
-              
+
+
             </div>
 
           <input type="file" className="file" placeholder="Select File"
           onChange={e => setFile(e.target.files[0])}/>
-          <button>Post</button>
+          <div className="mb-3 col-md-4">
+          <button className='btn btn-outline-success mt-3'>Aggiungi Componente</button>
+          </div>
+
         </form>
           <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
               Torna Indietro

@@ -37,7 +37,7 @@ router.post('/', upload.single('file'), (req, res) => {
 		  cassetta:req.body.cassetta,
 		  marca:req.body.marca,
 		  modello:req.body.modello,
-		  
+
           file: req.file.filename
       })
         .then(result => res.json("Success"))
@@ -45,13 +45,17 @@ router.post('/', upload.single('file'), (req, res) => {
 } )
 
 
-const {vediComponenti, vediSingoloComp} = require('../controllers/componentiController');
+const {vediComponenti, vediSingoloComp, cancellaSingoloComponente} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
 
 // GEt single
 router.get('/:id', vediSingoloComp);
+
+// Delete singolo prodotto
+
+router.delete('/delete/:id', cancellaSingoloComponente);
 
 
 module.exports = router;
