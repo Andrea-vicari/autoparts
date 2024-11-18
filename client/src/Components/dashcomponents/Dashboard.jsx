@@ -42,9 +42,9 @@ function Dashboard() {
                                             <img src={nuovoProdImg} className="img-fluid rounded mb-2"/>
                                             </div>
                                             <div className="col-md-6">
-                                                <h2 className="text-primary">Elenco prodotti</h2>
-                                                <p className="text-secondary">Clicca per visualizzare l'elenco prodotti</p>
-                                                <Link to="/elencoprodotti" type="button" className="btn btn-sm btn-outline-primary text-uppercase">VAI ALL'ELENCO</Link>
+                                                <h2 className="text-primary">Elenco componenti</h2>
+                                                <p className="text-secondary">Clicca per visualizzare l'elenco componenti</p>
+                                                <Link to="/elencocomponenti" type="button" className="btn btn-sm btn-outline-primary text-uppercase">VAI ALL'ELENCO</Link>
                                             </div>
                                     </div>
 
@@ -81,3 +81,4 @@ function Dashboard() {
 }
 
 export default Dashboard
+
