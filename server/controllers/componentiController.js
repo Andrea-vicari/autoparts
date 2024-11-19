@@ -60,11 +60,78 @@ const cancellaSingoloComponente = async (req, res) =>{
 }
 
 
+// Filtra componente
 
+const filtraComponenti = async (req, res)=> {
+
+    console.log("== ******** ==")
+    console.log("Req from /id")
+    console.log("FERRA LI!!!!!")
+
+    const { id } = req.params;
+
+     const singoloCompFiltered = await Componenti.find({"categoria":id});
+
+    if(!singoloCompFiltered){
+      return res.status(400).json({error: "No singoloCompFiltered found"})
+    }
+    res.status(200).json(singoloCompFiltered);
+
+}
+
+// Mostra singola categoria
+
+const singolaCategoria = async (req, res)=> {
+
+    console.log("== ******** ==")
+    console.log("Req from /id")
+    console.log("FERRA LI!!!!!")
+
+    const { id } = req.params;
+
+     const singolaCat = await Componenti.find({"categoria":id});
+
+    if(!singolaCat){
+      return res.status(400).json({error: "No singoloCompFiltered found"})
+    }
+    res.status(200).json(singolaCat);
+
+}
+
+// Aggorna Componente:
+const aggiornaComponente = async (req, res)=> {
+
+    const { id } = req.params;
+    console.log("== KINGBOY ==")
+    console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
+    console.log(id)
+
+    const {nome, file, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
+
+
+    // Add doc to the Mongo DB
+
+    try{
+
+        const componente = await Componenti.findOneAndUpdate({unicoID: id},{
+        ...req.body
+    })
+        res.status(200).json(componente)
+    }
+
+    catch(error){
+        console.log({error: error.message})
+        res.status(400).json({error: error.message})
+    }
+
+}
 
 
 module.exports = {
         vediComponenti,
-		vediSingoloComp,
-        cancellaSingoloComponente
+	    vediSingoloComp,
+        cancellaSingoloComponente,
+        filtraComponenti,
+        aggiornaComponente,
+        singolaCategoria
 }

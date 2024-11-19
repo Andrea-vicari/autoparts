@@ -5,5 +5,13 @@
     background-color: yellow
 }
 
-/*FONT SIZE DELL */
-#modello-prodotto{font-size: 0.7rem}
+/*FONT SIZE DELL UBICAZIONE */
+#modello-componente{font-size: 0.7rem}
+
+  .bg-categoria{
+    background-image: url(../../assets/images/login_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }

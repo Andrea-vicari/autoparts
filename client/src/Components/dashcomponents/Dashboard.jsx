@@ -58,7 +58,7 @@ function Dashboard() {
                                             <div className="col-md-6">
                                                 <h2 className="text-primary">Aggiungi Componente</h2>
                                                 <p className="text-secondary">Clicca per aggiungere un nuovo componente</p>
-                                                <Link to="/nuovocomponente" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi prodotto</Link>
+                                                <Link to="/nuovocomponente" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi componente</Link>
                                             </div>
                                     </div>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import  {useNavigate, Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import logo from "../../assets/images/logo-magazzino-footer.svg";
+import logo from "../../assets/images/logo-autoparts-footer.svg";
 import uniqid from 'uniqid';
 
 var unicoID = uniqid()
@@ -55,7 +55,7 @@ const NuovoComponente = () => {
 		formData.append('cassetta', cassetta),
 		formData.append('marca', marca),
 		formData.append('modello', modello),
-		formData.append('versione', modello),
+		formData.append('versione', versione),
         formData.append('unicoID', unicoID)
 
         axios.post('http://localhost:8080/api/componenti', formData)
@@ -78,11 +78,11 @@ const NuovoComponente = () => {
             <div className="row g-3">
             <div className="mb-3 col-md-4">
             <label htmlFor="nome" className="text-primary">
-                  <strong>Nome Prodotto</strong>
+                  <strong>Nome Componente</strong>
             </label>
             <input
                   type="text"
-                  placeholder="Inserisci nome Prodotto"
+                  placeholder="Inserisci nome Componente"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -93,11 +93,11 @@ const NuovoComponente = () => {
             </div>
 			<div className="mb-3 col-md-3">
                 <label htmlFor="descrizione" className="text-primary">
-                  <strong>Descrizione Prodotto</strong>
+                  <strong>Descrizione Componente</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci descrizione Prodotto"
+                  placeholder="Inserisci descrizione Componente"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -108,11 +108,11 @@ const NuovoComponente = () => {
               </div>
 			<div className="mb-3 col-md-4">
                 <label htmlFor="categoria" className="text-primary">
-                  <strong>Categoria Prodotto</strong>
+                  <strong>Categoria Componente</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci categoria  Prodotto"
+                  placeholder="Inserisci categoria  Componente"
                   autoComplete="off"
                   value={categoria}
                   name="text"
@@ -124,11 +124,11 @@ const NuovoComponente = () => {
               </div>
 			<div className="mb-3 col-md-4">
                 <label htmlFor="codice" className="text-primary">
-                  <strong>Codice Prodotto</strong>
+                  <strong>Codice Componente</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci codice Prodotto"
+                  placeholder="Inserisci codice Componente"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -139,11 +139,11 @@ const NuovoComponente = () => {
               </div>
 			  <div className="mb-3 col-md-4">
                 <label htmlFor="condizione" className="text-primary">
-                  <strong>Condizione Prodotto</strong>
+                  <strong>Condizione Componente</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci condizione Prodotto"
+                  placeholder="Inserisci condizione Componente"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -154,11 +154,11 @@ const NuovoComponente = () => {
               </div>
 			  <div className="mb-3 col-md-4">
                 <label htmlFor="peso" className="text-primary">
-                  <strong>Peso Prodotto</strong>
+                  <strong>Peso Componente</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="Inserisci peso Prodotto"
+                  placeholder="Inserisci peso Componente"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -290,30 +290,37 @@ const NuovoComponente = () => {
 
 
             </div>
+            <div className="mb-3 col-md-4">
+            <label htmlFor="peso" className="text-primary">
+               <strong>Carica Immagine</strong>
+            </label>
+               <input type="file" className="file" placeholder="Select File"
+          		onChange={e => setFile(e.target.files[0])}/>
 
-          <input type="file" className="file" placeholder="Select File"
-          onChange={e => setFile(e.target.files[0])}/>
-          <div className="mb-3 col-md-4">
+            
+            </div>
+                    <div className="mb-3 col-md-4">
           <button className='btn btn-outline-success mt-3'>Aggiungi Componente</button>
           </div>
 
         </form>
-          <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
-              Torna Indietro
+        <div className="mb-3 col-md-4">
+          <Link to={`/dashboardpage`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+              Torna alla Dashboard
             </Link>
-
+	   </div>
           {/** MODALE */}
-          <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_prodotto">
+          <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_Componente">
             <div className="modal-dialog-centered modal-xl bg-dark" role="document">
               <div className="modal-content rounded-4 shadow bg-dark" >
                 <div className="modal-header d-flex justify-content-between">
                 <img src={logo} className='img-fluid'></img>
-                  <h2 className="modal-title text-white text-center">prodotto AGGIUNTO</h2>
+                  <h2 className="modal-title text-white text-center">Componente AGGIUNTO</h2>
 
                 </div>
                 <div className="modal-body py-3 text-white">
 
-                <h4 className="text-white mt-3 fw-bold">Prodotto inserito correttamente!</h4>
+                <h4 className="text-white mt-3 fw-bold">Componente inserito correttamente!</h4>
                   </div>
 
                 <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

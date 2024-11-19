@@ -12,10 +12,9 @@ app.use(express.json());
 
 
 app.use(express.static('public'))
+
 //app.use(express.static(path.join(process.cwd(), 'public')))
 //app.use('public', express.static(path.join(__dirname,'public')));
-
-
 //app.use(express.static(path.join(__dirname, 'public')));
 
 console.log(process.cwd())
@@ -42,21 +41,11 @@ mongoose.connect(process.env.MONGODB_URI)
         console.log(error)
     })
 
-    // HHHH
 
-
-
-const prodottiRoutes = require('./routes/prodottiRoutes');
 const usersRoutes = require('./routes/users');
-const imagesRoutes = require('./routes/imagesRoutes');
 const componentiRoutes = require('./routes/componentiRoutes');
 
-app.use(prodottiRoutes)
-app.use(usersRoutes)
-app.use(imagesRoutes)
-
-app.use('/api/prodotti', prodottiRoutes)
 app.use('/api/users', usersRoutes)
-app.use('/api/images', imagesRoutes)
 app.use('/api/componenti', componentiRoutes)
+
 

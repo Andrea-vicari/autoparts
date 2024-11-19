@@ -26,11 +26,11 @@ function Error404() {
           <div className='col-lg-12 pb-5'>
             <div className="text-center py-5 vh-75">
                 <h1 className="display-1 fw-bold">404</h1>
-                <p className="fs-3"> <span className="text-primary">Opps!</span> Page not found.</p>
+                <p className="fs-3"> <span className="text-primary">Opps!</span> Pagina non trovata.</p>
                 <p className="lead">
-                    The page you’re looking for doesn’t exist.
+                    La pagina richiesta non è al momento raggiungibile.
                   </p>
-                <Link to="/" className="btn btn-primary">Go to Homepage</Link>
+                <Link to="/" className="btn btn-primary">Torna alla Homepage</Link>
             </div>
 
           </div>

@@ -48,6 +48,7 @@ function ElencoComponenti() {
   return (
     <React.Fragment>
       <div className='container-fluid pt-1 mt-5 bg-login'>
+
         <div className='container text-center mt-5 pb-1'>
           <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
         </div>
@@ -60,7 +61,7 @@ function ElencoComponenti() {
                     <div className="row border d-flex align-items-center">
                         <div className="col-sm-2">
                         <select className="form-select" aria-label="Default select example">
-                                  <option selected>Categoria</option>
+                                  <option defaultValue>Categoria</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
                                   <option value="3">Three</option>
@@ -68,7 +69,7 @@ function ElencoComponenti() {
                        </div>
                        <div className="col-sm-2">
                         <select className="form-select" aria-label="Default select example">
-                                  <option selected>Marca</option>
+                                  <option defaultValue>Marca</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
                                   <option value="3">Three</option>
@@ -138,7 +139,7 @@ function ElencoComponenti() {
                 </div>
                 {componente.map((e) => {
                 return (
-                <div id='riga-prodotto' className="row pt-2 pb-2 d-flex mb-2 align-items-center"key={e._id}>
+                <div id='riga-prodotto' className="border row pt-2 pb-2 d-flex align-items-center"key={e._id}>
                     <div className="col-sm-1">
                       <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 80 }} />
 
