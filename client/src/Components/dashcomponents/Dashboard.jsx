@@ -23,58 +23,54 @@ function Dashboard() {
     return (
         <React.Fragment>
 
-            <section className={"py-3" + " " + bgType + " " + textType}>
-
-                <div className="container">
-                    <h1 className="section-title pt-5 mt-5">Dashboard</h1>
-
-                    <div className="col-md-6">
-                        <div className="row mb-3">
+    <div className={"container-fluid pb-5 pt-5"+ " " + bgType + " " + textType} id='pricing'>
+        <div className='w-75 mx-auto'>
+        <h1 className="section-title pt-5">Dashboard</h1>
+        <p className='mb-5 text-center fs-3 lh-1'>Pagina principale dove accedere alle sezioni del gestionale, peer consultare i componenti, aggiungere componenti, consultare il magazzino ed i componenti divisi per categoria</p>
+        </div>
 
 
+        <div className='container'>
+            <div className="row row-cols-1 row-cols-md-2 mb-3 text-center">
+                <div className="col">
+                <div className="card mb-4 rounded-3 shadow-sm border-primary">
+                <div className="card-header py-3 text-bg-primary">
+                        <h4 className="my-0 fw-normal">Elenco componenti</h4>
+                    </div>
+                    <div className="card-body">
+                    <img src={nuovoProdImg} className="img-fluid rounded mb-2"/>
 
-                            {/** Below only for USERS */}
-                            {role == "user" &&
-                            <div className="col-md-6 mt-5">
-                             <div className="p-3 bg-body-tertiary border rounded-3 mb-2">
-                                    <div className='row'>
-                                        <div className="col-md-3">
-                                            <img src={nuovoProdImg} className="img-fluid rounded mb-2"/>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <h2 className="text-primary">Elenco componenti</h2>
-                                                <p className="text-secondary">Clicca per visualizzare l'elenco componenti</p>
-                                                <Link to="/elencocomponenti" type="button" className="btn btn-sm btn-outline-primary text-uppercase">VAI ALL'ELENCO</Link>
-                                            </div>
-                                    </div>
-
-                                </div>
-
-                                <div className="p-3 bg-body-tertiary border rounded-3 mb-2">
-                                    <div className='row'>
-                                        <div className="col-md-3">
-                                            <img src={addProdImg} className="img-fluid rounded mb-2"/>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <h2 className="text-primary">Aggiungi Componente</h2>
-                                                <p className="text-secondary">Clicca per aggiungere un nuovo componente</p>
-                                                <Link to="/nuovocomponente" type="button" className="btn btn-sm btn-outline-primary text-uppercase">Aggiungi componente</Link>
-                                            </div>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-
-                            }
-
-                        </div>
+                        <ul className="list-unstyled mt-3 mb-4">
+                        <li>10 users included</li>
+                        <li>2 GB of storage</li>
+                        <li>Email support</li>
+                        <li>Help center access</li>
+                        </ul>
+                        <Link to="/elencocomponenti" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">Vai all'elenco</Link>
+                    </div>
+                    </div>
+                </div>
+                <div className="col">
+                    <div className="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div className="card-header py-3 text-bg-primary">
+                        <h4 className="my-0 fw-normal">Aggiungi Componente</h4>
+                    </div>
+                    <div className="card-body">
+                    <img src={addProdImg} className="img-fluid rounded mb-2"/>
+                        <ul className="list-unstyled mt-3 mb-4">
+                        <li>20 users included</li>
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                        </ul>
+                        <Link to="/nuovocomponente" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">AGGIUNGI COMPONENTI</Link>
+                    </div>
                     </div>
                 </div>
 
-            </section>
+            </div>
+        </div>
+        </div>
 
         </React.Fragment>
     )

@@ -19,7 +19,7 @@ const NuovoComponente = () => {
 
      const [nome, setNome] = useState()
      const [descrizione, setDescrizione] = useState()
-     const [codUni, setCodUni] = useState('')	 
+     const [codUni, setCodUni] = useState('')
 	 const [codice, setCodice] = useState('')
 	 const [condizione, setCondizione] = useState('')
 	 const [peso, setPeso] = useState('')
@@ -297,7 +297,7 @@ const NuovoComponente = () => {
                <input type="file" className="file" placeholder="Select File"
           		onChange={e => setFile(e.target.files[0])}/>
 
-            
+
             </div>
                     <div className="mb-3 col-md-4">
           <button className='btn btn-outline-success mt-3'>Aggiungi Componente</button>
@@ -311,7 +311,7 @@ const NuovoComponente = () => {
 	   </div>
           {/** MODALE */}
           <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_Componente">
-            <div className="modal-dialog-centered modal-xl bg-dark" role="document">
+            <div className="modal-dialog-centered modal-fullscreen-md-down bg-dark" role="document">
               <div className="modal-content rounded-4 shadow bg-dark" >
                 <div className="modal-header d-flex justify-content-between">
                 <img src={logo} className='img-fluid'></img>
