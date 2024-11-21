@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react';
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo-autoparts-footer.svg"
+import DarkSelector from '../Common/SwitchDark'
 
 function Footer() {
 
@@ -31,17 +32,13 @@ function Footer() {
     <div className='container-fluid bg-dark py-4'>
       <div className="container">
         <footer className="d-flex flex-wrap justify-content-between align-items-center">
-          <p className="col-md-4 mb-0 text-white">© 2024 Company, Inc</p>
+          
 
           <Link className="navbar-brand d-flex" to={'/'}>
             <img src={logo} style={{width:150}}/>
           </Link>
-
-          <ul className="nav col-md-4 justify-content-end">
-            <li className="nav-item"><Link to="/" className="nav-link px-2 text-white">Home</Link></li>
-            <li className="nav-item"><Link to="/faqpage" className="nav-link px-2 text-white">FAQs</Link></li>
-            <li className="nav-item"><Link to="/privacy" className="nav-link px-2 text-white">Privacy</Link></li>
-          </ul>
+		
+          <DarkSelector />
           <button id="myBtn" onClick={scrollToTop} style={{display: visible ? 'inline' : 'none'}} className='btn btn-sm btn-outline-secondary'>
             <i className="bi bi-arrow-bar-up"></i>
           </button>

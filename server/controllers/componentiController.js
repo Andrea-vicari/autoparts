@@ -1,9 +1,6 @@
 const Componenti = require('../models/componentiModel');
 const mongoose = require('mongoose');
 
-
-
-
 // Get all Componenti: OK
 const vediComponenti = async (req, res)=> {
 
@@ -68,9 +65,9 @@ const filtraComponenti = async (req, res)=> {
     console.log("Req from /id")
     console.log("FERRA LI!!!!!")
 
-    const { id } = req.params;
+    const { id, brand } = req.params;
 
-     const singoloCompFiltered = await Componenti.find({"categoria":id});
+     const singoloCompFiltered = await Componenti.find({"categoria":id},{"marca":brand});
 
     if(!singoloCompFiltered){
       return res.status(400).json({error: "No singoloCompFiltered found"})

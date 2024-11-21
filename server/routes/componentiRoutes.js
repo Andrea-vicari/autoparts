@@ -66,4 +66,11 @@ router.get('/filtracomp/:id', filtraComponenti);
 // Mostra singola categoria
 router.get('/singolacategoria/:id', singolaCategoria);
 
+router.get('/fruit/:fruit', function(request, response) {
+	
+		// Here the request example => {"name":"My fruit name", "color":"The color of the fruit"}
+       const fruit = request.params.fruit
+       console.log(fruit)
+    });
+
 module.exports = router;

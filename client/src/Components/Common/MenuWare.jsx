@@ -20,10 +20,10 @@ function MenuWare() {
                 <Link className="nav-link fs-6" to={'/nuovocomponente'} >Aggiungi Componente</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-6" to={'/'} >Consulta Magazzino</Link>
+                <Link className="nav-link fs-6" to={'/consultamagazzino'} >Consulta Magazzino</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fs-6" to={'/'} >Consulta Categorie</Link>
+                <Link className="nav-link fs-6" to={'/consultacategorie'} >Consulta Categorie</Link>
               </li>
 
 

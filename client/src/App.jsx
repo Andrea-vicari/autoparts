@@ -19,7 +19,9 @@ import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
 import CancellaComponentePage from './pages/dashpages/CancellaComponentePage';
 import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
-
+import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
+import SingolaCategoriaPage from './pages/dashpages/SingolaCategoriaPage';
+import ConsultaMagazzinoPage from './pages/dashpages/ConsultaMagazzinoPage';
 //import UploaderPage from './pages/dashpages/UploaderPage';
 //import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 //import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
@@ -53,8 +55,11 @@ function App() {1
             <Route path="/login" element={user ? <Navigate to="/dashboardpage"/> : <LoginPage />} />
             <Route path="/register" element={!user ? <RegisterPage/> : <Navigate to="/login"/>}/>
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
-		  <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
+		 <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
+            <Route path="/consultacategorie" element={<ConsultaCategoriePage />} />
+            <Route path="/consultamagazzino" element={<ConsultaMagazzinoPage />} />
+		  <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/modificacomponente/:id" element={user ? <ModificaComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/resetpassword" element={<ResetPassword />} />

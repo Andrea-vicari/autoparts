@@ -166,7 +166,7 @@ function ElencoProdotti() {
                 </div>
                 {prodotto.map((e) => {
                 return (
-                <div id='riga-prodotto' className="row pt-2 pb-2 d-flex mb-2 align-items-center"key={e._id}>
+                <div id='riga-prodotto' className="row pt-2 pb-2 d-flex mb-2 align-items-center" key={e._id}>
                     <div className="col-sm-1">
                       <img src={`http://localhost:8080/images/${e.immagine}`} style={{ width: 80 }} />
 
