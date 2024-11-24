@@ -2,9 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function ElencoComponenti() {
+function ElencoConsultaMagazzino() {
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -15,7 +15,10 @@ function ElencoComponenti() {
 
 
   const { user } = UseAuthContext()
-
+  
+  let clicked = useLocation(); 
+  console.log(clicked.state)
+  
   const [componente, setComponente] = useState([]);
 
   const makeAPICall = async () => {
@@ -47,53 +50,11 @@ function ElencoComponenti() {
 
   return (
     <React.Fragment>
-      <div className='container-fluid pt-1 mt-5 bg-login'>
 
-        <div className='container text-center mt-5 pb-1'>
-          <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
-        </div>
-      </div>
 
       <section className={"py-3" + " " + bgType + " " + textType}>
 
-        <div className="container-fluid mt-0 pt-0">
-        <p className='mb-0'>Filtra per:</p>
-                    <div className="row border d-flex align-items-center">
-                        <div className="col-sm-2">
-                        <select className="form-select" aria-label="Default select example">
-                                  <option defaultValue>Categoria</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                       </div>
-                       <div className="col-sm-2">
-                        <select className="form-select" aria-label="Default select example">
-                                  <option defaultValue>Marca</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                       </div>
 
-                       <div className="col-sm-2">
-                       <Link to="/nuovocomponente" type="button" className="btn btn-warning">
-                            	<i className="bi bi-funnel mx-2">
-                            	</i>Filtra
-                            </Link>
-                       </div>
-                       <div className="col-sm-6 d-flex justify-content-end align-items-center">
-                            <Link to="/nuovocomponente" type="button" className="btn btn-success">
-                            	<i className="bi bi-plus-circle mx-2">
-                            	</i>Aggiungi Componente
-                            </Link>
-                       </div>
-
-
-                    </div>
-
-
-        </div>
         <div className="container-fluid  mt-0 pt-0">
             <div className="row mb-3">
 
@@ -179,7 +140,7 @@ function ElencoComponenti() {
                       <p>{e.peso} Kg</p>
                     </div>
                    <div className="col-sm-2">
-                      <Link  to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                      <Link  to={`/modificacomponente/${e.unicoID}`} state={e.unicoID}type="button" className="btn btn-sm btn-outline-danger mx-1">
                         <i className='bi bi-zoom-in'></i>
                       </Link>
                       <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
@@ -209,6 +170,6 @@ function ElencoComponenti() {
   )
 }
 
-export default ElencoComponenti
+export default ElencoConsultaMagazzino
 
 

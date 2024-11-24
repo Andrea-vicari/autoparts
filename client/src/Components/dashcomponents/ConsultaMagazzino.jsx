@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import ElencoConsultaMagazzino from "./ElencoConsultaMagazzino";
 
 function ConsultaMagazzino() {
 
@@ -22,7 +23,7 @@ function ConsultaMagazzino() {
 	 const [cassetta, setCassetta] = useState('')
 
 const handleSubmit = (e) => {
-        alert('CIAOOOO')
+        
 }
 
   return (
@@ -108,9 +109,10 @@ const handleSubmit = (e) => {
                 />
               </div>
 			  <div className="mb-3 col-md-2 pt-2">
-          <button className='btn btn-outline-success mt-3 px-2'>
+          <Link to="/listaconsultamagazzino" state={cassetta,ripiano} className='btn btn-outline-success mt-3 px-2'>
 		  <i className="bi bi-zoom-in mx-3"></i>
-		  Consulta</button>
+		  Consulta
+		</Link>
           </div>
 </div>			  
 
@@ -120,11 +122,12 @@ const handleSubmit = (e) => {
             </div>
 
                     
-
+			
         
 
    
 		</div>
+		
 		</div>
          
       </section>
