@@ -16,14 +16,18 @@ function ConsultaMagazzino() {
 
 
   const { user } = UseAuthContext()
-  
+
   	 const [scaffale, setScaffale] = useState('')
 	 const [campata, setCampata] = useState('')
 	 const [ripiano, setRipiano] = useState('')
 	 const [cassetta, setCassetta] = useState('')
 
+   const data = { name: 'John', age: 30 };
+
 const handleSubmit = (e) => {
-        
+  e.preventDefault()
+setCampata(campata)
+setCassetta(cassetta)
 }
 
   return (
@@ -57,11 +61,11 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setScaffale(e.target.value)}
                   value={scaffale}
-                  required={true}
+                  required={false}
                 />
               </div>
-			  
-			  
+
+
 			  <div className="mb-3 col-md-2">
                 <label htmlFor="campata" className="text-primary">
                   <strong>Campata</strong>
@@ -74,10 +78,10 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setCampata(e.target.value)}
                   value={campata}
-                  required={true}
+                  required={false}
                 />
               </div>
-			  
+
 			  <div className="mb-3 col-md-2">
                 <label htmlFor="ripiano" className="text-primary">
                   <strong>Ripiano</strong>
@@ -90,7 +94,7 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setRipiano(e.target.value)}
                   value={ripiano}
-                  required={true}
+                  required={false}
                 />
               </div>
 			  <div className="mb-3 col-md-2">
@@ -105,31 +109,30 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setCassetta(e.target.value)}
                   value={cassetta}
-                  required={true}
+                  required={false}
                 />
               </div>
-			  <div className="mb-3 col-md-2 pt-2">
-          <Link to="/listaconsultamagazzino" state={cassetta,ripiano} className='btn btn-outline-success mt-3 px-2'>
-		  <i className="bi bi-zoom-in mx-3"></i>
-		  Consulta
-		</Link>
-          </div>
-</div>			  
+              <button onClick={handleSubmit} className='btn btn-outline-success mt-3 px-2'>
+            <i className="bi bi-zoom-in mx-3"></i>
+            Consulta
+          </button>
+      <ElencoConsultaMagazzino ubicazione={{ cassetta: cassetta, campata: campata }}/>
+</div>
 
 </form>
-            
-			
+
+
             </div>
 
-                    
-			
-        
 
-   
+
+
+
+
 		</div>
-		
+
 		</div>
-         
+
       </section>
 
     </React.Fragment>

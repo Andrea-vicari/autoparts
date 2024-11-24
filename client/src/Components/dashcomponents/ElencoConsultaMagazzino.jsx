@@ -4,7 +4,7 @@ import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 
-function ElencoConsultaMagazzino() {
+function ElencoConsultaMagazzino({ubicazione}) {
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -15,10 +15,10 @@ function ElencoConsultaMagazzino() {
 
 
   const { user } = UseAuthContext()
-  
-  let clicked = useLocation(); 
-  console.log(clicked.state)
-  
+
+  console.log('Sono ubicazione')
+  console.log(ubicazione)
+
   const [componente, setComponente] = useState([]);
 
   const makeAPICall = async () => {

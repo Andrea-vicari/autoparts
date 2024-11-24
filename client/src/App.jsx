@@ -22,7 +22,7 @@ import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
 import SingolaCategoriaPage from './pages/dashpages/SingolaCategoriaPage';
 import ConsultaMagazzinoPage from './pages/dashpages/ConsultaMagazzinoPage';
-import ElencoConsultaMagazzinoPage from './pages/dashpages/ElencoConsultaMagazzinoPage';
+//import ElencoConsultaMagazzinoPage from './pages/dashpages/ElencoConsultaMagazzinoPage';
 //import UploaderPage from './pages/dashpages/UploaderPage';
 //import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 //import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
@@ -56,18 +56,17 @@ function App() {1
             <Route path="/login" element={user ? <Navigate to="/dashboardpage"/> : <LoginPage />} />
             <Route path="/register" element={!user ? <RegisterPage/> : <Navigate to="/login"/>}/>
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
-		 <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
+		        <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
             <Route path="/consultacategorie" element={<ConsultaCategoriePage />} />
             <Route path="/consultamagazzino" element={<ConsultaMagazzinoPage />} />
-            <Route path="/listaconsultamagazzino" element={<ElencoConsultaMagazzinoPage />} />
-		  <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
+            <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/modificacomponente/:id" element={user ? <ModificaComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/sentpassword" element={<SentPassword />} />
             <Route path="/newpassword/:token" element={<NewPassword />} />
-            
+
         </Routes>
         </ScrollToTop>
 
