@@ -308,7 +308,7 @@ const NuovoComponente = () => {
           <Link to={`/dashboardpage`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
               Torna alla Dashboard
             </Link>
-	   </div>
+	      </div>
           {/** MODALE */}
           <div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_Componente">
             <div className="modal-dialog-centered modal-fullscreen-md-down bg-dark" role="document">

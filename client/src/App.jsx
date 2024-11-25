@@ -22,7 +22,7 @@ import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
 import SingolaCategoriaPage from './pages/dashpages/SingolaCategoriaPage';
 import ConsultaMagazzinoPage from './pages/dashpages/ConsultaMagazzinoPage';
-//import ElencoConsultaMagazzinoPage from './pages/dashpages/ElencoConsultaMagazzinoPage';
+import ElencoConsultaMagazzinoPage from './pages/dashpages/ElencoConsultaMagazzinoPage';
 //import UploaderPage from './pages/dashpages/UploaderPage';
 //import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
 //import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
@@ -60,6 +60,7 @@ function App() {1
             <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
             <Route path="/consultacategorie" element={<ConsultaCategoriePage />} />
             <Route path="/consultamagazzino" element={<ConsultaMagazzinoPage />} />
+            <Route path="/elencoconsultamagazzino/:scaffale/:campata/:ripiano/:cassetta" element={<ElencoConsultaMagazzinoPage />} />
             <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />
             <Route path="/modificacomponente/:id" element={user ? <ModificaComponentePage /> : <Navigate to="/login"/>} />

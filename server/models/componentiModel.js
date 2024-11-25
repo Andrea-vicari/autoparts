@@ -27,7 +27,7 @@ const componentiSchema = new mongoose.Schema({
         required: false
     },
     scaffale:{
-        type: String,
+        type: Number,
         required: false
     },
     campata:{

@@ -202,7 +202,7 @@ function ElencoComponenti() {
 
 
             </div>
-          </div>
+        </div>
       </section>
 
     </React.Fragment>

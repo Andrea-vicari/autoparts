@@ -4,7 +4,7 @@ import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 
-function ElencoConsultaMagazzino({ubicazione}) {
+function ElencoConsultaMagazzino() {
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -16,14 +16,19 @@ function ElencoConsultaMagazzino({ubicazione}) {
 
   const { user } = UseAuthContext()
 
-  console.log('Sono ubicazione')
-  console.log(ubicazione.cassetta)
+  let clicked = useLocation();
+
+
+  var scaffale = clicked.state.scaffale
+  var campata = clicked.state.campata
+  var ripiano = clicked.state.ripiano
+  var cassetta = clicked.state.cassetta
 
   const [componente, setComponente] = useState([]);
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${ubicazione.scaffale}/${ubicazione.campata}/${ubicazione.ripiano}/${ubicazione.cassetta}`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`, { mode: 'cors' });
       const componente = await response.json();
       setComponente(componente)
 

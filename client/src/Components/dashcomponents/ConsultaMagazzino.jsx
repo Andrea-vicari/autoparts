@@ -22,7 +22,7 @@ function ConsultaMagazzino() {
 	 const [ripiano, setRipiano] = useState('')
 	 const [cassetta, setCassetta] = useState('')
 
-   
+
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -112,11 +112,11 @@ setCassetta(cassetta)
                   required={false}
                 />
               </div>
-              <button onClick={handleSubmit} className='btn btn-outline-success mt-3 px-2'>
+              <Link to={`/elencoconsultamagazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`} state={{"scaffale" : scaffale, "campata": campata, "ripiano": ripiano, "cassetta": cassetta}} className='btn btn-outline-success mt-3 px-2'>
             <i className="bi bi-zoom-in mx-3"></i>
             Consulta
-          </button>
-      <ElencoConsultaMagazzino ubicazione={{ scaffale : scaffale, campata: campata, ripiano: ripiano, cassetta: cassetta }}/>
+          </Link>
+
 </div>
 
 </form>
