@@ -89,11 +89,36 @@ const singolaCategoria = async (req, res)=> {
      const singolaCat = await Componenti.find({"categoria":id});
 
     if(!singolaCat){
-      return res.status(400).json({error: "No singoloCompFiltered found"})
+            return res.status(400).json({error: "No singoloCompFiltered found"})
     }
     res.status(200).json(singolaCat);
 
 }
+
+// Mostra ubicazione
+
+const singolaUbicazione = async (req, res)=> {
+
+    console.log("== ******** ==")
+    console.log("RICHIESTA UBICAZIONE")
+    const { scaffale, campata, ripiano, cassetta } = req.params;
+    
+    console.log(scaffale)
+    console.log(campata)
+    console.log(ripiano)
+    console.log(cassetta)
+    
+    const singolaUbic = await Componenti.find({"scaffale":scaffale,"campata":campata, "ripiano":ripiano,"cassetta":cassetta});
+
+    if(!singolaUbic){
+    console.log("Not found")
+      return res.status(400).json({error: "No singoloCompFiltered found"})
+    }
+    res.status(200).json(singolaUbic);
+    
+
+}
+
 
 // Aggorna Componente:
 const aggiornaComponente = async (req, res)=> {
@@ -130,5 +155,6 @@ module.exports = {
         cancellaSingoloComponente,
         filtraComponenti,
         aggiornaComponente,
-        singolaCategoria
+        singolaCategoria,
+        singolaUbicazione
 }

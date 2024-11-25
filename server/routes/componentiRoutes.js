@@ -46,7 +46,7 @@ router.post('/', upload.single('file'), (req, res) => {
 } )
 
 
-const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, filtraComponenti, aggiornaComponente, singolaCategoria} = require('../controllers/componentiController');
+const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, filtraComponenti, aggiornaComponente, singolaCategoria, singolaUbicazione} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
@@ -66,11 +66,9 @@ router.get('/filtracomp/:id', filtraComponenti);
 // Mostra singola categoria
 router.get('/singolacategoria/:id', singolaCategoria);
 
-router.get('/fruit/:fruit', function(request, response) {
-	
-		// Here the request example => {"name":"My fruit name", "color":"The color of the fruit"}
-       const fruit = request.params.fruit
-       console.log(fruit)
-    });
+// Mostra singola categoria
+router.get('/magazzino/:scaffale/:campata/:ripiano/:cassetta', singolaUbicazione);
+
+
 
 module.exports = router;

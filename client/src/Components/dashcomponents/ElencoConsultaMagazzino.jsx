@@ -17,13 +17,13 @@ function ElencoConsultaMagazzino({ubicazione}) {
   const { user } = UseAuthContext()
 
   console.log('Sono ubicazione')
-  console.log(ubicazione)
+  console.log(ubicazione.cassetta)
 
   const [componente, setComponente] = useState([]);
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${ubicazione.scaffale}/${ubicazione.campata}/${ubicazione.ripiano}/${ubicazione.cassetta}`, { mode: 'cors' });
       const componente = await response.json();
       setComponente(componente)
 

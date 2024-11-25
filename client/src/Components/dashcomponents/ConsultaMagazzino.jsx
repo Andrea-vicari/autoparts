@@ -22,7 +22,7 @@ function ConsultaMagazzino() {
 	 const [ripiano, setRipiano] = useState('')
 	 const [cassetta, setCassetta] = useState('')
 
-   const data = { name: 'John', age: 30 };
+   
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -116,7 +116,7 @@ setCassetta(cassetta)
             <i className="bi bi-zoom-in mx-3"></i>
             Consulta
           </button>
-      <ElencoConsultaMagazzino ubicazione={{ cassetta: cassetta, campata: campata }}/>
+      <ElencoConsultaMagazzino ubicazione={{ scaffale : scaffale, campata: campata, ripiano: ripiano, cassetta: cassetta }}/>
 </div>
 
 </form>
