@@ -102,12 +102,12 @@ const singolaUbicazione = async (req, res)=> {
     console.log("== ******** ==")
     console.log("RICHIESTA UBICAZIONE")
     const { scaffale, campata, ripiano, cassetta } = req.params;
-    
+
     console.log(scaffale)
     console.log(campata)
     console.log(ripiano)
     console.log(cassetta)
-    
+
     const singolaUbic = await Componenti.find({"scaffale":scaffale,"campata":campata, "ripiano":ripiano,"cassetta":cassetta});
 
     if(!singolaUbic){
@@ -115,12 +115,13 @@ const singolaUbicazione = async (req, res)=> {
       return res.status(400).json({error: "No singoloCompFiltered found"})
     }
     res.status(200).json(singolaUbic);
-    
+
 
 }
 
 
 // Aggorna Componente:
+
 const aggiornaComponente = async (req, res)=> {
 
     const { id } = req.params;
@@ -128,8 +129,12 @@ const aggiornaComponente = async (req, res)=> {
     console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
     console.log(id)
 
-    const {nome, file, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID} = req.body
+    const {nome, categoria} = req.body
 
+    console.log("nome")
+    console.log(nome)
+    console.log("categoria")
+    console.log(categoria)
 
     // Add doc to the Mongo DB
 

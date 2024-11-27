@@ -1,5 +1,4 @@
 import React from 'react'
-import SwitchDark from '../Common/SwitchDark'
 import MenuWare from '../Common/MenuWare'
 import LogMenu from '../Common/LogMenu';
 import { useSelector } from 'react-redux'
@@ -28,8 +27,7 @@ function NavbarFixedTop() {
             <div className="navbar-collapse collapse pt-2" id="navbarCollapse">
             <MenuWare />
             <LogMenu />
-            <SwitchDark />
-            </div>
+          </div>
         </div>
         </nav>
         </div>

@@ -56,7 +56,7 @@ function App() {1
             <Route path="/login" element={user ? <Navigate to="/dashboardpage"/> : <LoginPage />} />
             <Route path="/register" element={!user ? <RegisterPage/> : <Navigate to="/login"/>}/>
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
-		        <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
+		 <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
             <Route path="/consultacategorie" element={<ConsultaCategoriePage />} />
             <Route path="/consultamagazzino" element={<ConsultaMagazzinoPage />} />

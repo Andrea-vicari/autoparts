@@ -74,7 +74,7 @@ function CancellaComponente() {
               <div className="modal-dialog-centered modal-xl bg-dark" role="document">
                 <div className="modal-content rounded-4 shadow bg-dark" >
                   <div className="modal-header d-flex justify-content-between">
-                  <img src={logo} className='img-fluid'></img>
+                  <img src={logo} style={{width:200}} className='img-fluid'></img>
                     <h2 className="modal-title text-white text-center">COMPONENTE CANCELLATO</h2>
 
                   </div>

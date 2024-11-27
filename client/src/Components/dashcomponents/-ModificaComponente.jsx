@@ -8,7 +8,7 @@ import logo from "../../assets/images/logo-magazzino-footer.svg";
 
 var prodSingle
 
-const ModificaProdotto = () =>{
+const ModificaComponente = () =>{
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -17,22 +17,18 @@ const ModificaProdotto = () =>{
   themeType == "ligth" ? bgType = "bg-light" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-  var today = new Date().toDateString()
 
-  console.log("******")
-  console.log(today)  
   const { user } = UseAuthContext()
   console.log(user)
-  
-  let clicked = useLocation(); 
+
+  let clicked = useLocation();
   prodSingle = clicked.state
-  
+
   console.log(prodSingle)
-  
+
     // Nuovi usestate
     const [nome, setNome] = useState('')
     const [categoria, setCategoria] = useState('')
-    const [tipologia, setTipologia] = useState('')
     const [descrizione, setDescrizione] = useState('')
     const [codice, setCodice] = useState('')
     const [condizione, setCondizione] = useState('')
@@ -44,23 +40,18 @@ const ModificaProdotto = () =>{
     const [marca, setMarca] = useState('')
     const [modello, setModello] = useState('')
     const [versione, setVersione] = useState('')
-    const [immagine, setimmagine] = useState('')
-    const [date, setToday] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
 
     // Use state per immagini
     const [file, setFile ] = useState()
-  const [prodottoSingolo, setProdottoSingolo] = useState([]);
-  const [immagineSingola, setImmagineSingola] = useState([]);
+	const [prodottoSingolo, setProdottoSingolo] = useState([]);
+  //const [immagineSingola, setImmagineSingola] = useState([]);
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/prodotti/${prodSingle}`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti/${prodSingle}`, { mode: 'cors' });
       const prodottoSingolo = await response.json();
-      const responseImg = await fetch(`http://localhost:8080/api/images`, { mode: 'cors' });
-      const immagineSingola = await responseImg.json();
-      setImmagineSingola(immagineSingola)
       setProdottoSingolo(prodottoSingolo)
       console.log("======")
       console.log({prodottoSingolo})
@@ -82,13 +73,10 @@ const ModificaProdotto = () =>{
 
         e.preventDefault()
 
-
-        setToday(today)
-        
         openModal()
-        const prodotto = {nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione}
+        const prodotto = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione}
 
-        const response = await fetch(`http://localhost:8080/api/prodotti/${prodSingle}`, {
+        const response = await fetch(`http://localhost:8080/api/componenti/aggiorna/${prodSingle}`, {
 
             method: 'PATCH',
             body: JSON.stringify(prodotto),
@@ -110,7 +98,6 @@ const ModificaProdotto = () =>{
             // New
             setNome('')
             setCategoria('')
-            setTipologia('')
             setDescrizione('')
             setCodice('')
             setCondizione('')
@@ -122,15 +109,14 @@ const ModificaProdotto = () =>{
             setMarca('')
             setModello('')
             setVersione('')
-            setimmagine('')
             setError(null)
             setemptyFields([])
         }
 
 
     }
-	
-    
+
+
 
 
 
@@ -141,7 +127,7 @@ const ModificaProdotto = () =>{
     function openModal(){
       document.getElementById('modale_prodotto').classList.add("d-block")
     }
-	
+
 	console.log("==****==")
       console.log({prodottoSingolo})
 
@@ -190,21 +176,7 @@ const ModificaProdotto = () =>{
               </div>
               </div>
               <div className="row g-3">
-              <div className="mb-3 col-md-6">
-                <label htmlFor="tipologia" className="text-primary">
-                  <strong>Tipologia Prodotto</strong>
-                </label>
-                <input
-                  type="text"
-                  placeholder={e.tipologia}
-                  autoComplete="off"
-                  name="text"
-                  className="form-control rounded-0"
-                  onChange={(e) => setTipologia(e.target.value)}
-                  value={tipologia}
-                  required={true}
-                />
-              </div>
+
                <div className="mb-3 col-md-6">
                 <label htmlFor="descrizione" className="text-primary">
                   <strong>Descrizione Prodotto</strong>
@@ -383,7 +355,7 @@ const ModificaProdotto = () =>{
             )
             })}
 
-            <Link to={`/elencoutenti/`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+            <Link to={`/dashboard`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
 
@@ -423,6 +395,7 @@ const ModificaProdotto = () =>{
 
 }
 
-export default ModificaProdotto
+export default ModificaComponente
+
 
 

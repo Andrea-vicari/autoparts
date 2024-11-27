@@ -58,7 +58,7 @@ router.get('/:id', vediSingoloComp);
 router.delete('/delete/:id', cancellaSingoloComponente);
 
 //Update componente
-router.patch('/:id', aggiornaComponente);
+router.patch('/aggiorna/:id', aggiornaComponente);
 
 //Filtra componente
 router.get('/filtracomp/:id', filtraComponenti);
