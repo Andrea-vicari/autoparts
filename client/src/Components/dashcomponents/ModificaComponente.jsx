@@ -26,24 +26,27 @@ const ModificaComponente = () =>{
 
   console.log(prodSingle)
 
-    const [prodottoSingolo, setProdottoSingolo] = useState([]);
+    // Nuovi usestate
     const [nome, setNome] = useState('')
     const [categoria, setCategoria] = useState('')
-    // const [descrizione, setDescrizione] = useState('')
-    // const [codice, setCodice] = useState('')
-    // const [condizione, setCondizione] = useState('')
-    // const [peso, setPeso] = useState('')
-    // const [scaffale, setScaffale] = useState('')
-    // const [campata, setCampata] = useState('')
-    // const [ripiano, setRipiano] = useState('')
-    // const [cassetta, setCassetta] = useState('')
-    // const [marca, setMarca] = useState('')
-    // const [modello, setModello] = useState('')
-    // const [versione, setVersione] = useState('')
+    const [descrizione, setDescrizione] = useState('')
+    const [codice, setCodice] = useState('')
+    const [condizione, setCondizione] = useState('')
+    const [peso, setPeso] = useState('')
+    const [scaffale, setScaffale] = useState('')
+    const [campata, setCampata] = useState('')
+    const [ripiano, setRipiano] = useState('')
+    const [cassetta, setCassetta] = useState('')
+    const [marca, setMarca] = useState('')
+    const [modello, setModello] = useState('')
+    const [versione, setVersione] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setemptyFields] = useState([])
 
-
+    // Use state per immagini
+    const [file, setFile ] = useState()
+	const [prodottoSingolo, setProdottoSingolo] = useState([]);
+  //const [immagineSingola, setImmagineSingola] = useState([]);
 
   const makeAPICall = async () => {
     try {
@@ -66,13 +69,12 @@ const ModificaComponente = () =>{
   }, [user])
 
 
-    const handleSubmit = async () =>{
+    const handleSubmit = async (e) =>{
 
-
-
+        e.preventDefault()
 
         openModal()
-        const prodotto = {nome, categoria}
+        const prodotto = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione}
 
         const response = await fetch(`http://localhost:8080/api/componenti/aggiorna/${prodSingle}`, {
 
@@ -96,12 +98,28 @@ const ModificaComponente = () =>{
             // New
             setNome('')
             setCategoria('')
+            setDescrizione('')
+            setCodice('')
+            setCondizione('')
+            setPeso('')
+            setScaffale('')
+            setCampata('')
+            setRipiano('')
+            setCassetta('')
+            setMarca('')
+            setModello('')
+            setVersione('')
             setError(null)
             setemptyFields([])
         }
 
 
     }
+
+
+
+
+
 
     function closeModal(){
       document.getElementById('modale_prodotto').classList.remove("d-block")
@@ -110,7 +128,8 @@ const ModificaComponente = () =>{
       document.getElementById('modale_prodotto').classList.add("d-block")
     }
 
-
+	console.log("==****==")
+      console.log({prodottoSingolo})
 
 
     return (
@@ -123,15 +142,15 @@ const ModificaComponente = () =>{
             {prodottoSingolo.map((e) => {
                 return (
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="row g-3">
               <div className="mb-3 col-md-6">
                 <label htmlFor="nome" className="text-primary">
-                  <strong> Inserisci Nome Componente</strong>
+                  <strong>Nome Prodotto</strong>
                 </label>
                 <input
                   type="text"
-                  placeholder="inserisci nome"
+                  placeholder="nome"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -146,7 +165,7 @@ const ModificaComponente = () =>{
                 </label>
                 <input
                   type="text"
-                  placeholder="inserisci categoria"
+                  placeholder="categoria"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
@@ -156,6 +175,176 @@ const ModificaComponente = () =>{
                 />
               </div>
               </div>
+              <div className="row g-3">
+
+               <div className="mb-3 col-md-6">
+                <label htmlFor="descrizione" className="text-primary">
+                  <strong>Descrizione Prodotto</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.descrizione}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setDescrizione(e.target.value)}
+                  value={descrizione}
+                  required={true}
+                />
+              </div>
+              </div>
+
+               <div className="mb-3 col-md-6">
+                <label htmlFor="codice" className="text-primary">
+                  <strong>Codice Prodotto</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.codice}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setCodice(e.target.value)}
+                  value={codice}
+                  required={true}
+                />
+              </div>
+               <div className="mb-3 col-md-6">
+                <label htmlFor="condizione" className="text-primary">
+                  <strong>Condizione Prodotto</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.condizione}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setCondizione(e.target.value)}
+                  value={condizione}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="peso" className="text-primary">
+                  <strong>Peso Prodotto</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.peso}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setPeso(e.target.value)}
+                  value={peso}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="scaffale" className="text-primary">
+                  <strong>Scaffale</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.scaffale}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setScaffale(e.target.value)}
+                  value={scaffale}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="campata" className="text-primary">
+                  <strong>Campata</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.campata}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setCampata(e.target.value)}
+                  value={campata}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="ripiano" className="text-primary">
+                  <strong>Ripiano</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.ripiano}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setRipiano(e.target.value)}
+                  value={ripiano}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="cassetta" className="text-primary">
+                  <strong>Cassetta</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.cassetta}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setCassetta(e.target.value)}
+                  value={cassetta}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="marca" className="text-primary">
+                  <strong>Marca</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.marca}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setMarca(e.target.value)}
+                  value={marca}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="modello" className="text-primary">
+                  <strong>Modello</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.modello}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setModello(e.target.value)}
+                  value={modello}
+                  required={true}
+                />
+              </div>
+              <div className="mb-3 col-md-6">
+                <label htmlFor="versione" className="text-primary">
+                  <strong>Versione</strong>
+                </label>
+                <input
+                  type="text"
+                  placeholder={e.versione}
+                  autoComplete="off"
+                  name="text"
+                  className="form-control rounded-0"
+                  onChange={(e) => setVersione(e.target.value)}
+                  value={versione}
+                  required={true}
+                />
+              </div>
+
 
               <button type="button" className="btn btn-success" onClick={handleSubmit}>Conferma e salva
   		      </button>

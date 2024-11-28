@@ -153,13 +153,31 @@ const aggiornaComponente = async (req, res)=> {
 
 }
 
+const tryAggiorna = async (req, res)=> {
+
+	const { id } = req.params;
+    console.log("== KINGBOY ==")
+    console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
+    console.log(id)
+
+	Componenti.findOneAndUpdate({unicoID: id}, req.body)
+    .then(comp => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' }
+
+      )
+
+    );
+
+}
 
 module.exports = {
         vediComponenti,
-	    vediSingoloComp,
+	   vediSingoloComp,
         cancellaSingoloComponente,
         filtraComponenti,
         aggiornaComponente,
         singolaCategoria,
-        singolaUbicazione
+        singolaUbicazione,
+        tryAggiorna
 }

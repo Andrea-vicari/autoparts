@@ -20,18 +20,18 @@ const NuovoComponente = () => {
      const [nome, setNome] = useState()
      const [descrizione, setDescrizione] = useState()
      const [codUni, setCodUni] = useState('')
-	 const [codice, setCodice] = useState('')
-	 const [condizione, setCondizione] = useState('')
-	 const [peso, setPeso] = useState('')
+	   const [codice, setCodice] = useState('')
+	   const [condizione, setCondizione] = useState('')
+	   const [peso, setPeso] = useState('')
      const [categoria, setCategoria] = useState('')
-	 const [scaffale, setScaffale] = useState('')
-	 const [campata, setCampata] = useState('')
-	 const [ripiano, setRipiano] = useState('')
-	 const [cassetta, setCassetta] = useState('')
+	   const [scaffale, setScaffale] = useState('')
+	   const [campata, setCampata] = useState('')
+	   const [ripiano, setRipiano] = useState('')
+	   const [cassetta, setCassetta] = useState('')
      const [annoImmatricolazione, setAnnoImmatricolazione] = useState('')
-	 const [marca, setMarca] = useState('')
-	 const [modello, setModello] = useState('')
-	 const [versione, setVersione] = useState('')
+	   const [marca, setMarca] = useState('')
+	   const [modello, setModello] = useState('')
+	   const [versione, setVersione] = useState('')
      const [file, setFile] = useState()
      const navigate = useNavigate()
 
@@ -45,17 +45,17 @@ const NuovoComponente = () => {
         formData.append('descrizione', descrizione),
         formData.append('categoria', categoria),
         formData.append('annoImmatricolazione', annoImmatricolazione),
-		formData.append('codice', codice),
-		formData.append('condizione', condizione),
+		    formData.append('codice', codice),
+		    formData.append('condizione', condizione),
         formData.append('file', file),
-		formData.append('peso', peso),
-		formData.append('scaffale', scaffale),
-		formData.append('campata', campata),
-		formData.append('ripiano', ripiano),
-		formData.append('cassetta', cassetta),
-		formData.append('marca', marca),
-		formData.append('modello', modello),
-		formData.append('versione', versione),
+		    formData.append('peso', peso),
+		    formData.append('scaffale', scaffale),
+		    formData.append('campata', campata),
+		    formData.append('ripiano', ripiano),
+		    formData.append('cassetta', cassetta),
+		    formData.append('marca', marca),
+		    formData.append('modello', modello),
+		    formData.append('versione', versione),
         formData.append('unicoID', unicoID)
 
         axios.post('http://localhost:8080/api/componenti', formData)
