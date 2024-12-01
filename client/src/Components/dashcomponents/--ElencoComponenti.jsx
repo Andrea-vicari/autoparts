@@ -199,62 +199,10 @@ function ElencoComponenti() {
 
               </div>
 
-              <div className='table-responsive-md'>
-        <table className="table table-striped table-hover">
-          <thead className='table-ligth text-uppercase'>
-              <tr>
-                <th scope="col">Immagine</th>
-                <th scope="col">Codice</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Cat</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Modello</th>
-                <th scope="col">Versione</th>
-                <th scope="col">Anno</th>
-                <th scope="col">Ubicazione</th>
-                <th scope="col">Peso</th>
-                <th scope="col">Gestisci</th>
-              </tr>
-          </thead>
-          <tbody>
-          {componente.map((e) => {
-                return (
-    <tr key={e._id}>
-      <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 80 }} /></td>
-      <td className='pt-3'>{e.unicoID}</td>
-      <td className='pt-3'>{e.nome}</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>Mark</td>
-      <td className='pt-3'>Otto</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>Mark</td>
-      <td className='pt-3'>Otto</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>
-      <Link  to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-zoom-in'></i>
-                      </Link>
-                      <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-trash'></i>
-                      </Link>
-                      <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-printer'></i>
-                      </button>
-      </td>
-    </tr>
-    )
-  })}
 
-
-  </tbody>
-
-        </table>
-        </div>
 
             </div>
         </div>
-
-
       </section>
 
     </React.Fragment>

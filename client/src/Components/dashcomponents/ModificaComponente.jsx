@@ -22,9 +22,30 @@ const ModificaComponente = () =>{
   const { user } = UseAuthContext()
   console.log(user)
 
-  var oldNome;
-
   const [error, setError] = useState(null)
+  const [prodottoSingolo, setProdottoSingolo] = useState([]);
+
+  const makeAPICall = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/componenti/${prodSingle}`, { mode: 'cors' });
+      const prodottoSingolo = await response.json();
+      setProdottoSingolo(prodottoSingolo)
+      console.log("======")
+      console.log({prodottoSingolo})
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      makeAPICall();
+    }
+
+  }, [user])
+
+
   const [comp, setComp] = useState({
     nome: '',
     descrizione:'',
@@ -35,6 +56,8 @@ const ModificaComponente = () =>{
   prodSingle = clicked.state
 
   console.log(prodSingle)
+
+
 
 
   const navigate = useNavigate();
@@ -59,7 +82,6 @@ const ModificaComponente = () =>{
   console.log('******')
   console.log(prodSingle)
 
-  console.log(oldNome)
 
     const onChange = (e) => {
     setComp({ ...comp, [e.target.name]: e.target.value });
@@ -147,7 +169,7 @@ const ModificaComponente = () =>{
 
 
 
-            <Link to={`/dashboard`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
+            <Link to={`/elencocomponenti`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
 
