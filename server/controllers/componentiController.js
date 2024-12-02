@@ -153,7 +153,7 @@ const aggiornaComponente = async (req, res)=> {
 
 }
 
-const tryAggiorna = async (req, res)=> {
+const modificaComponente = async (req, res)=> {
 
 	const { id } = req.params;
     console.log("== KINGBOY ==")
@@ -179,5 +179,5 @@ module.exports = {
         aggiornaComponente,
         singolaCategoria,
         singolaUbicazione,
-        tryAggiorna
+        modificaComponente
 }

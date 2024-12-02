@@ -49,7 +49,11 @@ const ModificaComponente = () =>{
   const [comp, setComp] = useState({
     nome: '',
     descrizione:'',
-    categoria: ''
+    categoria: '',
+    codice: '',
+    condizione:'',
+    peso: '',
+    scaffale:''
   });
 
   let clicked = useLocation();
@@ -71,6 +75,9 @@ const ModificaComponente = () =>{
           nome: res.data.nome,
           descrizione:res.data.descrizione,
           categoria: res.data.categoria,
+          codice: res.data.codice,
+          condizione:res.data.condizione,
+          peso:res.data.peso
           });
           console.log(res)
       })
@@ -93,11 +100,14 @@ const ModificaComponente = () =>{
     const data = {
       nome: comp.nome,
       descrizione:comp.descrizione,
-      categoria: comp.categoria
+      categoria: comp.categoria,
+      codice: comp.codice,
+      condizione: comp.condizione,
+      peso: comp.peso
     };
 
     axios
-      .put(`http://localhost:8080/api/componenti/tryaggiorna/${prodSingle}`, data)
+      .put(`http://localhost:8080/api/componenti/modifica/${prodSingle}`, data)
       .then((res) => {
         navigate(`/dashboardpage`);
       })
@@ -115,48 +125,81 @@ const ModificaComponente = () =>{
         <div className="d-flex justify-content-center align-items-center py-5">
           <div className={"p-3 rounded w-100 " + bgType + textType}>
             <h2 className={textType}>Visualizza / Modifica prodotto</h2>
+		 {prodottoSingolo.map((e) => {
+                return (
 
             <form onSubmit={onSubmit}>
               <div className="row g-3">
-              <div className="mb-3 col-md-4">
-                 <label htmlFor='nome'className="text-primary">Nome</label>
-              <input
-                type='text'
-                placeholder= 'Inserisci nome'
-                name='nome'
-                className='form-control'
-                value={comp.nome}
-                onChange={onChange}
-              />
-              </div>
-              <div className="mb-3 col-md-4">
-                 <label htmlFor='descrizione'>Descrizione</label>
-              <input
-                type='text'
-                placeholder= 'Inserisci descrizione'
-                name='descrizione'
-                className='form-control'
-                value={comp.descrizione}
-                onChange={onChange}
-              />
-              </div>
-              <div className="mb-3 col-md-4">
-              <label htmlFor='categoria'>Categoria</label>
-              <input
-                type='text'
-                placeholder='Inserisci Categoria'
-                name='categoria'
-                className='form-control'
-                value={comp.categoria}
-                onChange={onChange}
-              />
-              </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='nome'>Nome</label>
+                    <input
+                      type='text'
+                      placeholder= {e.nome}
+                      name='nome'
+                      className='form-control'
+                      value={comp.nome}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='descrizione'>Descrizione</label>
+                    <input
+                      type='text'
+                      placeholder= {e.descrizione}
+                      name='descrizione'
+                      className='form-control'
+                      value={comp.descrizione}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='categoria'>Categoria</label>
+                    <input
+                      type='text'
+                      placeholder={e.categoria}
+                      name='categoria'
+                      className='form-control'
+                      value={comp.categoria}
+                      onChange={onChange}
+                    />
+                </div>
               </div>
               <div className="row g-3">
+              <div className="mb-3 col-md-4">
+                  <label htmlFor='codice'>Codice</label>
+                    <input
+                      type='text'
+                      placeholder={e.codice}
+                      name='codice'
+                      className='form-control'
+                      value={comp.codice}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='condizione'>Condizione</label>
+                    <input
+                      type='text'
+                      placeholder={e.condizione}
+                      name='condizione'
+                      className='form-control'
+                      value={comp.condizione}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='peso'>Peso</label>
+                    <input
+                      type='text'
+                      placeholder={e.peso}
+                      name='peso'
+                      className='form-control'
+                      value={comp.peso}
+                      onChange={onChange}
+                    />
+                </div>
 
-               <div className="mb-3 col-md-6">
 
-              </div>
               </div>
 
 
@@ -166,6 +209,8 @@ const ModificaComponente = () =>{
 
               {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
             </form>
+			            )
+            })}
 
 
 

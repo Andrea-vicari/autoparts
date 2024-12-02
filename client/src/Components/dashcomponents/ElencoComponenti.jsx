@@ -8,10 +8,11 @@ function ElencoComponenti() {
 
   const themeType = useSelector((state) => state.counter.value)
 
-  let bgType, textType;
+  let bgType, textType, tableType;
 
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
+  themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
 
   const { user } = UseAuthContext()
@@ -39,11 +40,6 @@ function ElencoComponenti() {
   }, [user])
 
 
-  // Clona array componente
-  var componenteCopy = [...componente];
-  console.log("componenteCopy")
-  console.log(componenteCopy)
-
 
   return (
     <React.Fragment>
@@ -57,201 +53,107 @@ function ElencoComponenti() {
       <section className={"py-3" + " " + bgType + " " + textType}>
 
         <div className="container-fluid mt-0 pt-0">
-        <p className='mb-0'>Filtra per:</p>
-                    <div className="row border d-flex align-items-center">
-                        <div className="col-sm-2">
-                        <select className="form-select" aria-label="Default select example">
-                                  <option defaultValue>Categoria</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                       </div>
-                       <div className="col-sm-2">
-                        <select className="form-select" aria-label="Default select example">
-                                  <option defaultValue>Marca</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                       </div>
+          <p className='mb-0'>Filtra per:</p>
+          <div className="row border d-flex align-items-center">
+            <div className="col-sm-2">
+              <select className="form-select" aria-label="Default select example">
+                <option defaultValue>Categoria</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div className="col-sm-2">
+              <select className="form-select" aria-label="Default select example">
+                <option defaultValue>Marca</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
 
-                       <div className="col-sm-2">
-                       <Link to="/nuovocomponente" type="button" className="btn btn-warning">
-                            	<i className="bi bi-funnel mx-2">
-                            	</i>Filtra
-                            </Link>
-                       </div>
-                       <div className="col-sm-6 d-flex justify-content-end align-items-center">
-                            <Link to="/nuovocomponente" type="button" className="btn btn-success">
-                            	<i className="bi bi-plus-circle mx-2">
-                            	</i>Aggiungi Componente
-                            </Link>
-                       </div>
+            <div className="col-sm-2">
+              <Link to="/nuovocomponente" type="button" className="btn btn-warning">
+                <i className="bi bi-funnel mx-2">
+                </i>Filtra
+              </Link>
+            </div>
+            <div className="col-sm-6 d-flex justify-content-end align-items-center">
+              <Link to="/nuovocomponente" type="button" className="btn btn-success">
+                <i className="bi bi-plus-circle mx-2">
+                </i>Aggiungi Componente
+              </Link>
+            </div>
 
 
-                    </div>
+          </div>
 
 
         </div>
         <div className="container-fluid  mt-0 pt-0">
-            <div className="row mb-3">
-
-              <div className="col-md-12">
-                <div className="p-3 mb-2">
-
-                <div className="row bg-body-secondary pt-3">
-                    <div className="col-sm-1">
-                      <p>IMMAGINE</p>
-
-                    </div>
-                    <div className="col-sm-1">
-                      <p>CODICE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>NOME</p>
-                    </div>
-                   <div className="col-sm-1">
-                      <p>CAT.</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MARCA</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>MODELLO</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>VERSIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>IMMATR.</p>
-                    </div>
-
-                    <div className="col-sm-1">
-                      <p>UBICAZIONE</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>PESO</p>
-                    </div>
-                    <div className="col-sm-2">
-                      <p>GESTISCI</p>
-                    </div>
-                </div>
-                {componente.map((e) => {
-                return (
-                <div id='riga-prodotto' className="border row pt-2 pb-2 d-flex align-items-center"key={e._id}>
-                    <div className="col-sm-1">
-                      <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 80 }} />
-
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.unicoID}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.nome}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="fs-6">{e.categoria}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>{e.marca}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p className="small">{e.modello}</p>
-
-                    </div>
-                    <div className="col-sm-1">
-                      <p id="modello-componente">{e.versione}</p>
-                    </div>
-                    <div className="col-sm-1">
-                      <p>{e.annoImmatricolazione}</p>
-                    </div>
-
-	              <div className="col-sm-1">
-                      <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
-                      <p id="modello-componente" className="mb-0">CAMPATA: {e.campata}</p>
-                      <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
-                      <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
-                    </div>
+          <div className="row mb-3">
 
 
-                    <div className="col-sm-1">
-                      <p>{e.peso} Kg</p>
-                    </div>
-                   <div className="col-sm-2">
-                      <Link  to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-zoom-in'></i>
-                      </Link>
-                      <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-trash'></i>
-                      </Link>
-                      <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-printer'></i>
-                      </button>
-                    </div>
-                </div>
-                )
-                })}
-                </div>
+            <div className='table-responsive-lg'>
+              <table className={"table table-striped table-hover" + " " + tableType}>
+                <thead className='text-uppercase'>
+                  <tr>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">Codice</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cat</th>
+                    <th scope="col">Condizione</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modello</th>
+                    <th scope="col">Versione</th>
+                    <th scope="col">Anno</th>
+                    <th scope="col">Ubicazione</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Gestisci</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {componente.map((e) => {
+                    return (
+                      <tr key={e._id}>
+                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
+                        <td className='pt-3'>{e.codice}</td>
+                        <td className='pt-3'>{e.nome}</td>
+                        <td className='pt-3'>{e.categoria}</td>
+                        <td className='pt-3'>{e.condizione}</td>
+                        <td className='pt-3'>{e.marca}</td>
+                        <td className='pt-3'>{e.modello}</td>
+                        <td className='pt-3'>{e.versione}</td>
+                        <td className='pt-3'>{e.annoImmatricolazione}</td>
+                        <td className='pt-3'>
+                          <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
+                          <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
+                          <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
+                          <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
+                        </td>
+                        <td className='pt-3'>{e.peso} Kg</td>
+                        <td className='pt-3'>
+                          <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                            <i className='bi bi-zoom-in'></i>
+                          </Link>
+                          <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                            <i className='bi bi-trash'></i>
+                          </Link>
+                          <button type="button" className="btn btn-sm btn-outline-danger mx-1">
+                            <i className='bi bi-printer'></i>
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
 
 
+                </tbody>
 
-
-              </div>
-
-              <div className='table-responsive-md'>
-        <table className="table table-striped table-hover">
-          <thead className='table-ligth text-uppercase'>
-              <tr>
-                <th scope="col">Immagine</th>
-                <th scope="col">Codice</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Cat</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Modello</th>
-                <th scope="col">Versione</th>
-                <th scope="col">Anno</th>
-                <th scope="col">Ubicazione</th>
-                <th scope="col">Peso</th>
-                <th scope="col">Gestisci</th>
-              </tr>
-          </thead>
-          <tbody>
-          {componente.map((e) => {
-                return (
-    <tr key={e._id}>
-      <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 80 }} /></td>
-      <td className='pt-3'>{e.unicoID}</td>
-      <td className='pt-3'>{e.nome}</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>Mark</td>
-      <td className='pt-3'>Otto</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>Mark</td>
-      <td className='pt-3'>Otto</td>
-      <td className='pt-3'>@mdo</td>
-      <td className='pt-3'>
-      <Link  to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-zoom-in'></i>
-                      </Link>
-                      <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-trash'></i>
-                      </Link>
-                      <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                        <i className='bi bi-printer'></i>
-                      </button>
-      </td>
-    </tr>
-    )
-  })}
-
-
-  </tbody>
-
-        </table>
-        </div>
-
+              </table>
             </div>
+
+          </div>
         </div>
 
 
