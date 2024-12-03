@@ -291,7 +291,7 @@ const NuovoComponente = () => {
 
             </div>
             <div className="mb-3 col-md-4">
-            <label htmlFor="peso" className="text-primary">
+            <label htmlFor="immagine" className="text-primary">
                <strong>Carica Immagine</strong>
             </label>
                <input type="file" className="file" placeholder="Select File"

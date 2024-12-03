@@ -53,7 +53,15 @@ const ModificaComponente = () =>{
     codice: '',
     condizione:'',
     peso: '',
-    scaffale:''
+    scaffale:'',
+    campata:'',
+    ripiano:'',
+    cassetta:'',
+    annoImmatricolazione:'',
+    marca: '',
+    modello: '',
+    versione:'',
+    // file:''
   });
 
   let clicked = useLocation();
@@ -77,7 +85,16 @@ const ModificaComponente = () =>{
           categoria: res.data.categoria,
           codice: res.data.codice,
           condizione:res.data.condizione,
-          peso:res.data.peso
+          peso:res.data.peso,
+          scaffale:res.data.scaffale,
+          campata:res.data.campata,
+          ripiano:res.data.ripiano,
+          cassetta:res.data.cassetta,
+          annoImmatricolazione:res.data.annoImmatricolazione,
+          marca:res.data.marca,
+          modello:res.data.modello,
+          versione:res.data.versione,
+          // file:res.data.files[0]
           });
           console.log(res)
       })
@@ -103,7 +120,16 @@ const ModificaComponente = () =>{
       categoria: comp.categoria,
       codice: comp.codice,
       condizione: comp.condizione,
-      peso: comp.peso
+      peso: comp.peso,
+      scaffale:comp.scaffale,
+      campata:comp.campata,
+      ripiano:comp.ripiano,
+      cassetta:comp.cassetta,
+      annoImmatricolazione:comp.annoImmatricolazione,
+      marca:comp.marca,
+      modello:comp.modello,
+      versione:comp.versione,
+      // file:comp.file
     };
 
     axios
@@ -198,6 +224,97 @@ const ModificaComponente = () =>{
                       onChange={onChange}
                     />
                 </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='scaffale'>Scaffale</label>
+                    <input
+                      type='text'
+                      placeholder={e.scaffale}
+                      name='scaffale'
+                      className='form-control'
+                      value={comp.scaffale}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='campata'>Campata</label>
+                    <input
+                      type='text'
+                      placeholder={e.campata}
+                      name='campata'
+                      className='form-control'
+                      value={comp.campata}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='ripiano'>Ripiano</label>
+                    <input
+                      type='text'
+                      placeholder={e.ripiano}
+                      name='ripiano'
+                      className='form-control'
+                      value={comp.ripiano}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='cassetta'>Cassetta</label>
+                    <input
+                      type='text'
+                      placeholder={e.cassetta}
+                      name='cassetta'
+                      className='form-control'
+                      value={comp.cassetta}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='annoImmatricolazione'>Anno</label>
+                    <input
+                      type='text'
+                      placeholder={e.annoImmatricolazione}
+                      name='annoImmatricolazione'
+                      className='form-control'
+                      value={comp.annoImmatricolazione}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='marca'>Marca</label>
+                    <input
+                      type='text'
+                      placeholder={e.marca}
+                      name='marca'
+                      className='form-control'
+                      value={comp.marca}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='modello'>Modello</label>
+                    <input
+                      type='text'
+                      placeholder={e.modello}
+                      name='modello'
+                      className='form-control'
+                      value={comp.modello}
+                      onChange={onChange}
+                    />
+                </div>
+                <div className="mb-3 col-md-4">
+                  <label htmlFor='versione'>Versione</label>
+                    <input
+                      type='text'
+                      placeholder={e.versione}
+                      name='versione'
+                      className='form-control'
+                      value={comp.versione}
+                      onChange={onChange}
+                    />
+                </div>
+               
+
+
 
 
               </div>
