@@ -26,8 +26,8 @@ function ConsultaMagazzino() {
 
 const handleSubmit = (e) => {
   e.preventDefault()
-setCampata(campata)
-setCassetta(cassetta)
+  setCampata(campata)
+  setCassetta(cassetta)
 }
 
   return (
@@ -47,7 +47,7 @@ setCassetta(cassetta)
             <div className="d-flex justify-content-center align-items-center py-5">
           <div className={"p-3 rounded w-100 " + bgType + textType}>
             <h2 className={textType}>Inserisci Scaffale, Campata, Ripiano e cassetta e poi clicca Consulta</h2>
-			<form onSubmit={handleSubmit}>
+			<form validate onSubmit={handleSubmit}>
 			<div className="row g-3">
 			  <div className="mb-3 col-md-2">
                 <label htmlFor="scaffale" className="text-primary">
@@ -55,13 +55,14 @@ setCassetta(cassetta)
                 </label>
                 <input
                   type="text"
+                  required
                   placeholder="Inserisci scaffale"
                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
                   onChange={(e) => setScaffale(e.target.value)}
                   value={scaffale}
-                  required={false}
+                  
                 />
               </div>
 
@@ -78,7 +79,7 @@ setCassetta(cassetta)
                   className="form-control rounded-0"
                   onChange={(e) => setCampata(e.target.value)}
                   value={campata}
-                  required={false}
+                  required
                 />
               </div>
 
@@ -94,7 +95,7 @@ setCassetta(cassetta)
                   className="form-control rounded-0"
                   onChange={(e) => setRipiano(e.target.value)}
                   value={ripiano}
-                  required={false}
+                  required
                 />
               </div>
 			  <div className="mb-3 col-md-2">
@@ -109,17 +110,22 @@ setCassetta(cassetta)
                   className="form-control rounded-0"
                   onChange={(e) => setCassetta(e.target.value)}
                   value={cassetta}
-                  required={false}
+                  required
                 />
               </div>
-              <Link to={`/elencoconsultamagazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`} state={{"scaffale" : scaffale, "campata": campata, "ripiano": ripiano, "cassetta": cassetta}} className='btn btn-outline-success mt-3 px-2'>
+              <Link className="btn" to={`/elencoconsultamagazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`} state={{"scaffale" : scaffale, "campata": campata, "ripiano": ripiano, "cassetta": cassetta}} className='btn btn-outline-success mt-3 px-2'>
             <i className="bi bi-zoom-in mx-3"></i>
             Consulta
-          </Link>
+           </Link>
+
 
 </div>
 
 </form>
+		   <Link to={`/dashboardpage/`} className='btn btn-outline-warning mt-3 px-2'>
+            <i className="bi bi-arrow-left mx-3"></i>
+            Torna alla dashboard senza consultare
+          </Link>
 
 
             </div>

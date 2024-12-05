@@ -33,7 +33,7 @@ function Dashboard() {
         <div className='container'>
             <div className="row row-cols-1 row-cols-md-2 mb-3 text-center">
                 <div className="col">
-                <div className="card mb-4 rounded-3 shadow-sm border-primary">
+                <div className={"card mb-4 rounded-3 shadow-sm border-primary" + " " + bgType + " " + textType}>
                 <div className="card-header py-3 text-bg-primary">
                         <h4 className="my-0 fw-normal">Elenco componenti</h4>
                     </div>
@@ -51,7 +51,7 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className="col">
-                    <div className="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div className={"card mb-4 rounded-3 shadow-sm border-primary" + " " + bgType + " " + textType}>
                     <div className="card-header py-3 text-bg-primary">
                         <h4 className="my-0 fw-normal">Aggiungi Componente</h4>
                     </div>

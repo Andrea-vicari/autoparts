@@ -56,7 +56,7 @@ function CancellaComponente() {
 
               <div className="col-md-12">
                 <div className="p-3 mb-2">
-                <div className="row bg-body-tertiary pt-3 mt-5">
+                <div className={"row pt-3 mt-5"  + " " + bgType + " " + textType}>
                    <div className="col-sm-10 text-center pt-5 pb-5">
 				<i className='bi bi-trash fs-1'></i>
                    	<h4>Richiesta cancellazione componente</h4>

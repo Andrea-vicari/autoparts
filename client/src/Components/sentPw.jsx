@@ -1,5 +1,4 @@
 import React from 'react'
-import LoginImg from "../assets/images/LoginImg.jpg"
 import { useSelector } from 'react-redux'
 
 
@@ -21,16 +20,19 @@ function SentPw() {
     <React.Fragment>
         <section className={"light-typo py-5 call-to-action"+ " " + bgType + " " + textType}>
 
-        <div className="container-fluid px-5">
+        <div className="container-fluid px-5 mt-5 pt-5">
 
-            <div className="row d-flex align-items-center">
-              <div className="col-sm-6">
-                      <img className="img-fluid rounded-4" src={LoginImg} alt=""/>
-              </div>
-              <div className="col-sm-6">
-                <h1 className='text-primary text-uppercase'>Check Your Email</h1>
-                <h3>Please check your email.</h3>
-                <h3>We sent you a mail with a link to reset your password.</h3>
+            <div className="container">
+             
+             
+             <div className="card mx-auto w-75">
+			  <div className="card-body">
+			    <h5 className="card-title">Controlla la tua email</h5>
+			    <p className="card-text">Ti è stato inviato via mail un link attraverso il quale potrai cambiare la tua password</p>
+			
+			  </div>
+		 
+                
               </div>
             </div>
 

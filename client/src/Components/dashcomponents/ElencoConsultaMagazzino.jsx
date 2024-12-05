@@ -45,12 +45,11 @@ function ElencoConsultaMagazzino() {
     }
 
   }, [user])
-
-
-  // Clona array componente
-  var componenteCopy = [...componente];
-  console.log("componenteCopy")
-  console.log(componenteCopy)
+  
+  var lunghezzaListaComp = componente.length
+	
+	console.log("lunghezzaListaComp")
+	console.log(lunghezzaListaComp)
 
 
   return (
@@ -59,7 +58,20 @@ function ElencoConsultaMagazzino() {
 
       <section className={"py-3" + " " + bgType + " " + textType}>
 
+	  {lunghezzaListaComp == 0 &&
+	  <div className="container pt-5 vh-50 my-auto" style={{minHeight:500}}>
+		  <div className="col-md-9 mt-5 pt-5 text-center">
+		  <h1>Nessun Componente Presente</h1>
+		  <Link to={`/consultamagazzino/`} className='btn btn-outline-warning  mt-3 px-2'>
+            <i className="bi bi-zoom-in mx-3"></i>
+            Torna alla pagina di consultazione
+          </Link>
 
+		  </div>
+	  </div>
+	  }
+	
+	  {lunghezzaListaComp !== 0 &&
         <div className="container-fluid  mt-0 pt-0">
             <div className="row mb-3">
 
@@ -169,6 +181,7 @@ function ElencoConsultaMagazzino() {
 
             </div>
           </div>
+		  }
       </section>
 
     </React.Fragment>

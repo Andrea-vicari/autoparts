@@ -23,9 +23,6 @@ import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
 import SingolaCategoriaPage from './pages/dashpages/SingolaCategoriaPage';
 import ConsultaMagazzinoPage from './pages/dashpages/ConsultaMagazzinoPage';
 import ElencoConsultaMagazzinoPage from './pages/dashpages/ElencoConsultaMagazzinoPage';
-//import UploaderPage from './pages/dashpages/UploaderPage';
-//import NuovoProdottoPage from './pages/dashpages/NuovoProdottoPage';
-//import ElencoProdottiPage from './pages/dashpages/ElencoProdottiPage';
 
 function App() {1
 
@@ -57,9 +54,9 @@ function App() {1
             <Route path="/register" element={!user ? <RegisterPage/> : <Navigate to="/login"/>}/>
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 		 <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
-            <Route path="/elencocomponenti" element={<ElencoComponentiPage />} />
-            <Route path="/consultacategorie" element={<ConsultaCategoriePage />} />
-            <Route path="/consultamagazzino" element={<ConsultaMagazzinoPage />} />
+            <Route path="/elencocomponenti" element={user ? <ElencoComponentiPage /> : <Navigate to="/login"/>} />
+            <Route path="/consultacategorie" element={user ? <ConsultaCategoriePage /> : <Navigate to="/login"/>} />
+            <Route path="/consultamagazzino" element={user ? <ConsultaMagazzinoPage /> : <Navigate to="/login"/>} />
             <Route path="/elencoconsultamagazzino/:scaffale/:campata/:ripiano/:cassetta" element={<ElencoConsultaMagazzinoPage />} />
             <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
             <Route path="/nuovocomponente" element={user ? <NuovoComponentePage /> : <Navigate to="/login"/>} />

@@ -9,7 +9,7 @@ function ResetPw() {
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
     let bgType, textType, buttonType;
-    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-black"
+    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
     themeType == "ligth" ? buttonType = "btn-outline-dark" : buttonType = "btn-outline-light"
 
@@ -56,12 +56,13 @@ function ResetPw() {
         <section className="py-5 bg-login pt-5 pb-5">
 
         <div className="container-fluid h-100 px-5 pt-5">
-          <div className='w-50 mx-auto h-100'>
+          <div className='w-75 mx-auto h-100'>
             <div className="row pt-5">
 
-              <div className="bg-body-secondary mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-5 mt-5 mb-5">
-                <h1 className='text-primary text-uppercase'>Reset Password</h1>
-                <p>Insert Your email, click "send" to change your password</p>
+              <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-5 mt-5 mb-5" + " " + bgType}>
+                <h1 className='text-primary text-uppercase'>Resetta la Password</h1>
+                <p>Inserisci la tua e-mail e clicca Cambia per richiedere il reset della password</p>
+                
                 <div className={"mx-auto" + textType}>
                   <form onSubmit={handleSubmit}>
 
@@ -80,8 +81,8 @@ function ResetPw() {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-danger w-100 rounded-0 mt-3">
-                      Send
+                    <button type="submit" className="btn btn-success w-100 rounded-0 mt-3">
+                      Cambia
                     </button>
                     {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
                   </form>

@@ -9,7 +9,7 @@ function Login() {
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
     let bgType, textType, buttonType;
-    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-black"
+    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
     themeType == "ligth" ? buttonType = "btn-outline-dark" : buttonType = "btn-outline-light"
 
@@ -29,10 +29,10 @@ function Login() {
         <section className="py-5 bg-login">
 
         <div className="container-fluid px-5">
-          <div className='w-50 mx-auto'>
+          <div className='w-75 mx-auto'>
             <div className="row">
 
-              <div className="bg-body-secondary mt-5 rounded-3 col-sm-10 mx-auto pt-5">
+              <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-3" + " " + bgType}>
                 <h1 className='text-primary text-uppercase'>Benvenuto!</h1>
                 <p>Accedi per inserire o consultare articoli nel magazzino virtuale</p>
                 <div className={"mx-auto" + textType}>
@@ -70,10 +70,6 @@ function Login() {
                     </button>
                     {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
                   </form>
-                  <p className="mt-5">Non hai in account?</p>
-                  <Link to="/register" className="btn btn-warning border w-100 bg-light rounded-0 text-decoration-none">
-                    Registrati
-                  </Link>
                   <p className="mt-5">Password dimenticata?</p>
                   <Link to="/resetpassword" className="btn btn-warning border w-100 bg-light rounded-0 text-decoration-none">
                     Resetta password
