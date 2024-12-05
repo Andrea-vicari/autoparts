@@ -1,9 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { UseAuthContext } from "../../hooks/UseAuthContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import ElencoConsultaMagazzino from "./ElencoConsultaMagazzino";
+import ListaCompConsulta from './ListaCompConsulta'
 
 function ConsultaMagazzino() {
 
@@ -15,9 +14,9 @@ function ConsultaMagazzino() {
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
 
-  const { user } = UseAuthContext()
 
-  	 const [scaffale, setScaffale] = useState('')
+
+   const [scaffale, setScaffale] = useState('')
 	 const [campata, setCampata] = useState('')
 	 const [ripiano, setRipiano] = useState('')
 	 const [cassetta, setCassetta] = useState('')
@@ -55,14 +54,14 @@ const handleSubmit = (e) => {
                 </label>
                 <input
                   type="text"
-                  required
+                  required={true}
                   placeholder="Inserisci scaffale"
-                  autoComplete="off"
+                   autoComplete="off"
                   name="text"
                   className="form-control rounded-0"
                   onChange={(e) => setScaffale(e.target.value)}
                   value={scaffale}
-                  
+
                 />
               </div>
 
@@ -79,7 +78,7 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setCampata(e.target.value)}
                   value={campata}
-                  required
+                  required={true}
                 />
               </div>
 
@@ -95,7 +94,7 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setRipiano(e.target.value)}
                   value={ripiano}
-                  required
+                  required={true}
                 />
               </div>
 			  <div className="mb-3 col-md-2">
@@ -110,10 +109,11 @@ const handleSubmit = (e) => {
                   className="form-control rounded-0"
                   onChange={(e) => setCassetta(e.target.value)}
                   value={cassetta}
-                  required
+                  required={true}
                 />
               </div>
-              <Link className="btn" to={`/elencoconsultamagazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`} state={{"scaffale" : scaffale, "campata": campata, "ripiano": ripiano, "cassetta": cassetta}} className='btn btn-outline-success mt-3 px-2'>
+              <ListaCompConsulta percorsoComp={{scaffale, campata, ripiano, cassetta}}/>
+              <Link to={`/elencoconsultamagazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`} state={{"scaffale" : scaffale, "campata": campata, "ripiano": ripiano, "cassetta": cassetta}} className='btn btn-outline-success mt-3 px-2'>
             <i className="bi bi-zoom-in mx-3"></i>
             Consulta
            </Link>
