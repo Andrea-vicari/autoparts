@@ -22,13 +22,9 @@ const ModificaComponente = () =>{
   const { user } = UseAuthContext()
   console.log(user)
 
-  let clicked = useLocation();
-  prodSingle = clicked.state
-
   const [error, setError] = useState(null)
   const [prodottoSingolo, setProdottoSingolo] = useState([]);
 
-  // Chiamata API al singolo prodotto
   const makeAPICall = async () => {
     try {
       const response = await fetch(`http://localhost:8080/api/componenti/${prodSingle}`, { mode: 'cors' });
@@ -49,7 +45,7 @@ const ModificaComponente = () =>{
 
   }, [user])
 
-  // Use state modifica componenti tranne immagine
+
   const [comp, setComp] = useState({
     nome: '',
     descrizione:'',
@@ -64,12 +60,17 @@ const ModificaComponente = () =>{
     annoImmatricolazione:'',
     marca: '',
     modello: '',
-    versione:''
+    versione:'',
+    // file:''
   });
 
+  let clicked = useLocation();
+  prodSingle = clicked.state
 
-     // Set file della modifica immagine
-	const [file, setFile ] = useState()
+  console.log(prodSingle)
+
+
+
 
   const navigate = useNavigate();
 
@@ -92,7 +93,8 @@ const ModificaComponente = () =>{
           annoImmatricolazione:res.data.annoImmatricolazione,
           marca:res.data.marca,
           modello:res.data.modello,
-          versione:res.data.versione
+          versione:res.data.versione,
+          // file:res.data.files[0]
           });
           console.log(res)
       })
@@ -141,27 +143,6 @@ const ModificaComponente = () =>{
       });
   };
 
-        const modImage = () =>{
-
-        const formdata = new FormData()
-        formdata.append('file', file)
-        axios.patch(`http://localhost:8080/api/componenti/aggiornaimage/${prodSingle}`, formdata)
-        .then(res=> res.status == 200 ? alert('Immagine caricata correttamente') : false)
-         .catch(err => setError(err))
-        console.log(error)
-        console.log(file)
-      }
-
-	// Modale
-	      function closeModal(){
-        document.getElementById('modale_mod_img').classList.remove("d-block")
-
-      }
-      function openModal(e){
-	  e.preventDefault()
-        document.getElementById('modale_mod_img').classList.add("d-block")
-
-      }
 
     return (
       <div className={"container-fluid py-5 " + bgType}>
@@ -331,13 +312,11 @@ const ModificaComponente = () =>{
                       onChange={onChange}
                     />
                 </div>
-                <div className="mb-3 col-md-10">
-                  <p>Clicca sull'immagine per modificarla</p>
-                  <button className='btn' onClick={(e)=>openModal(e)}>
-                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} />
-                  </button>
+               
 
-                </div>
+
+
+
               </div>
 
 
@@ -355,43 +334,6 @@ const ModificaComponente = () =>{
             <Link to={`/elencocomponenti`} type="submit" className="btn btn-outline-danger w-100 rounded-0 mt-3">
                 Torna Indietro
               </Link>
-
-
-			<div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_mod_img">
-              <div className='container'>
-                <div className='px-5'>
-                  <div className="modal-dialog-centered bg-dark" role="document">
-                    <div className="modal-content rounded-4 shadow bg-dark" >
-                      <div className="modal-header d-flex justify-content-between">
-
-                        <h2 className="modal-title text-white text-center">CARICA IMMAGINE</h2>
-
-                      </div>
-                      <div className="modal-body py-3 text-white">
-                      <div className="mb-3">
-                          <label htmlFor="formFile" className="form-label">Seleziona il file e clicca CARICA</label>
-                          <input className="form-control" type="file" required={true} id="formFile" onChange={(e)=> setFile(e.target.files[0])}/>
-                          <button className='btn btn-primary mt-3' onClick={modImage}>CARICA</button>
-                        {error && <p className='fs-3 text-danger mt-3'>Prego, Seleziona un immagine</p>}
-
-                      </div>
-
-                      </div>
-
-                      <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-
-                        <div className="modal-footer">
-                          <button type="button" onClick={()=>closeModal()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
-                          <i className='fa fa-times px-2 fs-4'></i>OK, Chiudi
-                          </button>
-                        </div>
-                      </div>
-                  </div>
-                  </div>
-                </div>
-
-              </div>
-              </div>
 
 
 

@@ -38,15 +38,27 @@ router.post('/', upload.single('file'), (req, res) => {
 		  marca:req.body.marca,
 		  modello:req.body.modello,
 		  versione:req.body.versione,
-
-          file: req.file.filename
+          	  file: req.file.filename
       })
         .then(result => res.json("Success"))
         .catch(err => res.json(err))
 } )
 
+router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
+	
+	const { id } = req.params;
+   //const componente = await Componenti.findByIdAndUpdate(id,{image:req.file.filename})
+   const componente = await Componenti.findOneAndUpdate({unicoID: id}, {file:req.file.filename})
+     
+    if(!componente){
+        return res.status(400).json({error: "Nessun componente trovato"})
+    }
+    res.status(200).json(componente);
 
-const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, filtraComponenti, aggiornaComponente, singolaCategoria, singolaUbicazione, modificaComponente} = require('../controllers/componentiController');
+
+})
+
+const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, filtraComponenti, singolaCategoria, singolaUbicazione, modificaComponente} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
@@ -57,8 +69,6 @@ router.get('/:id', vediSingoloComp);
 // Delete singolo componente
 router.delete('/delete/:id', cancellaSingoloComponente);
 
-//Update componente
-router.patch('/aggiorna/:id', aggiornaComponente);
 
 //Filtra componente
 router.get('/filtracomp/:id', filtraComponenti);

@@ -120,39 +120,6 @@ const singolaUbicazione = async (req, res)=> {
 }
 
 
-// Aggorna Componente:
-
-const aggiornaComponente = async (req, res)=> {
-
-    const { id } = req.params;
-    console.log("== KINGBOY ==")
-    console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
-    console.log(id)
-
-    const {nome, categoria} = req.body
-
-    console.log("nome")
-    console.log(nome)
-    console.log("categoria")
-    console.log(categoria)
-
-    // Add doc to the Mongo DB
-
-    try{
-
-        const componente = await Componenti.findOneAndUpdate({unicoID: id},{
-        ...req.body
-    })
-        res.status(200).json(componente)
-    }
-
-    catch(error){
-        console.log({error: error.message})
-        res.status(400).json({error: error.message})
-    }
-
-}
-
 const modificaComponente = async (req, res)=> {
 
 	const { id } = req.params;
@@ -176,7 +143,6 @@ module.exports = {
 	   vediSingoloComp,
         cancellaSingoloComponente,
         filtraComponenti,
-        aggiornaComponente,
         singolaCategoria,
         singolaUbicazione,
         modificaComponente

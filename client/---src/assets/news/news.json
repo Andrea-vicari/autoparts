@@ -1,0 +1,49 @@
+
+[{
+    "date": "14 Dec 2023",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"Advantages of React",
+    "category":"Development",
+    "description":"React offers several advantages for front-end web development:Virtual DOM: React uses a virtual DOM, which improves rendering performance by minimizing direct manipulation of the actual DOM. Reusable components: React promotes the creation of reusable components, leading to efficient code and easier maintenance. JSX: JSX, a syntax extension for JavaScript, simplifies the process of building UIs by allowing HTML-like syntax in JavaScript code. Strong community: React has a large and active community, ensuring continuous development, support, and a wealth of resources. Backed by Facebook: React is developed and maintained by Facebook, which uses it in their own products, ensuring its reliability and long-term support. These advantages make React a popular choice for building modern web applications.",
+    "bannerImg":"./blog_images/800x400.jpg"
+},
+{
+    "date": "20 Dec 2023",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"What is Bootstrap5",
+    "category":"FrontEnd",
+    "description":"Bootstrap 5 is the latest version of the popular open-source CSS framework developed by Twitter. It provides a collection of pre-designed CSS and JavaScript components to help developers quickly create responsive and mobile-first websites. Bootstrap 5 focuses on accessibility, improved documentation, and a more modern design. It also introduces new features such as a built-in responsive typography system, improved form controls, and a redesigned grid system. Additionally, Bootstrap 5 has dropped support for Internet Explorer to focus on modern browsers, resulting in a leaner and more efficient codebase.",
+    "bannerImg":"./blog_images/800x400.jpg"
+},
+{
+    "date": "12 Jan 2024",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"Sending mails using MailJS",
+    "category":"BackEnd",
+    "description":"EmailJS is a service that enables sending emails directly from JavaScript, without the need for a back-end server. It allows you to use your existing email accounts, such as Gmail, Yahoo, or any custom SMTP server, to send emails. EmailJS provides a simple JavaScript API for sending emails, making it easy to integrate into web applications. This can be useful for sending automated emails, such as password reset emails or notifications, directly from your web application. It also supports custom templates, attachments, and form validation, making it a versatile solution for sending emails from JavaScript.",
+    "bannerImg":"./blog_images/800x400.jpg"
+},
+{
+    "date": "22 Jan 2024",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"Vercel Platform",
+    "category":"Development",
+    "description":"Vercel is a platform that enables developers to build, deploy, and manage web applications and APIs. It provides a suite of tools and services that simplify the development and deployment process, allowing developers to focus on writing code and delivering value to their users. Some of the key features of Vercel include: 1. Code editor: Vercel provides a code editor that allows developers to write and edit code in a variety of programming languages, including JavaScript, Python, and Ruby. 2. Deployment: Vercel handles the deployment of web applications and APIs, making it easy to get code from development to production. 3. Scalability: Vercel's platform is designed to scale with the needs of your application, so you can be confident that your application will perform well even under heavy load. 4. Security: Vercel provides a secure platform for building and deploying web applications and APIs, with features such as SSL encryption and access controls. 5. Collaboration: Vercel makes it easy for developers to collaborate on projects, with features such as real-time collaboration and version control. 6. Integrated tools: Vercel provides a range of integrated tools, including a code editor, a database, and a command line interface, making it easy to build and deploy web applications and APIs. 7. Custom domains: Vercel allows developers to use their own custom domains, making it easy to create a professional-looking website or API. 8. Analytics: Vercel provides analytics tools that allow developers to track usage and performance of their applications and APIs. 9. Support: Vercel provides a range of support options, including documentation, tutorials, and a community forum, to help developers get the most out of the platform. Overall, Vercel is a powerful platform that simplifies the development and deployment of web applications and APIs, allowing developers to focus on writing code and delivering value to their users.",
+    "bannerImg":"./blog_images/800x400.jpg"
+},
+{
+    "date": "25 Jan 2024",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"Mongo DB",
+    "category":"BackEnd",
+    "description":"MongoDB is a popular NoSQL database that uses a document-oriented data model, meaning that data is stored in flexible, JSON-like documents instead of rigid tables. Here are some key features and benefits of using MongoDB: 1. Scalability: MongoDB is designed to scale horizontally, allowing you to add more nodes to your cluster as your data grows. This makes it a great choice for applications with high traffic or large amounts of data. 2. Flexibility: MongoDB supports a variety of data types, including strings, numbers, dates, and arrays, and allows for flexible schema design. This makes it easy to adapt to changing data requirements and avoids the rigidity of traditional relational databases.3. High performance: MongoDB is optimized for high performance and can handle a large number of read and write operations per second. This makes it a good choice for real-time applications and data-intensive workloads. 4. Ease of use: MongoDB provides a simple and intuitive API, making it easy to get started and develop applications. 5. Support for big data: MongoDB supports large amounts of data and can handle terabytes of data with ease. 6. Support for real-time data: MongoDB supports real-time data processing and can handle high volumes of data in real-time 7. Support for geospatial data: MongoDB supports geospatial data and provides built-in support for geospatial queries. 8. Support for graph data: MongoDB supports graph data and provides built-in support for graph queries. 9. Support for document-level locking: MongoDB provides document-level locking, which allows you to lock individual documents for editing, ensuring data consistency. 10. Support for transactions: MongoDB supports transactions, which allow you to perform multiple operations as a single, atomic unit, ensuring data consistency and integrity.",
+    "bannerImg":"./blog_images/800x400.jpg"
+},
+{
+    "date": "13 Feb 2024",
+    "thumbImage":"./blog_images/250x250.png",
+    "title":"BCrypt",
+    "category":"BackEnd",
+    "description":"BCrypt is a password-hashing function that is designed to be slow and computationally expensive, making it more resistant to brute-force attacks. It is commonly used to store passwords securely in databases. Here are some key features and benefits of using BCrypt: 1. Slow and computationally expensive: BCrypt is designed to be slow and computationally expensive, making it more resistant to brute-force attacks. This is achieved through the use of a large number of iterations and a deliberately slow hash function. 2. Salted: BCrypt uses a salt to protect against rainbow table attacks. A salt is a random value that is added to the password before it is hashed, making it more difficult for attackers to use precomputed tables of hashes (rainbow tables) to crack the password. 3. Password-specific: BCrypt generates a unique hash for each password, making it more difficult for attackers to use precomputed tables of hashes (rainbow tables) to crack the password. 4. Hardware-accelerated: BCrypt can be accelerated by hardware, such as GPUs or FPGAs, making it faster and more efficient for high-performance applications. 5. Open-source: BCrypt is an open-source algorithm, which means that it is free to use and that the source code is available for review and modification. 6. Wide support: BCrypt is widely supported in many programming languages and libraries, including PHP, Python, Java, and C++. 7. Secure: BCrypt is considered to be a secure password-hashing function, and it is widely used in many applications and systems, including password storage, authentication, and secure communication. 8. Implementation-specific: BCrypt is an implementation-specific algorithm, which means that the exact implementation details may vary between different libraries and frameworks. 9. Limited flexibility: BCrypt is a fixed-function algorithm, which means that it cannot be easily modified or extended to support new features or requirements. 10. Limited scalability: BCrypt is designed to be slow and computationally expensive, which can make it less scalable than other password-hashing functions, such as Argon2. In summary, BCrypt is a secure and widely used password-hashing function that is designed to be slow and computationally expensive, making it more resistant to brute-force attacks. It is salted, password-specific, and hardware-accelerated, and it has wide support in many programming languages and libraries. However, it is an implementation-specific algorithm, and it has limited flexibility and scalability compared to other password-hashing functions, such as Argon2.",
+    "bannerImg":"./blog_images/800x400.jpg"
+}]
