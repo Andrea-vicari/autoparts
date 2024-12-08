@@ -5,7 +5,7 @@ import { UseAuthContext } from "../../hooks/UseAuthContext";
 import {  Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import logo from "../../assets/images/logo-magazzino-footer.svg";
+import logo from "../../assets/images/logo-autoparts-footer.svg";
 
 var prodSingle
 
