@@ -2,8 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import ListaVuotaConsulta from './ListaVuotaConsulta'
-import ListaPienaConsulta from './ListaPienaConsulta'
+//import ListaCompConsulta from './ListaCompConsulta'
 
 function ConsultaMagazzino() {
 
@@ -15,6 +14,7 @@ function ConsultaMagazzino() {
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
 
+  var lunghezzaLista;
 
   const [scaffale, setScaffale] = useState('')
   const [campata, setCampata] = useState('')
@@ -22,8 +22,6 @@ function ConsultaMagazzino() {
   const [cassetta, setCassetta] = useState('')
 
   const [componente, setComponente] = useState([]);
-
-  const [lunghezzaLista, setlunghezzaLista] = useState(0)
 
 
   const handleSubmit = (e) => {
@@ -47,7 +45,9 @@ function ConsultaMagazzino() {
       setComponente(componente)
 
       console.log({ componente })
-      setlunghezzaLista(componente.length)
+      lunghezzaLista = componente.length
+      console.log("lunghezzaLista")
+      console.log(lunghezzaLista)
 
     }
     catch (e) {
@@ -55,11 +55,16 @@ function ConsultaMagazzino() {
     }
   }
 
-  console.log(lunghezzaLista)
-
   return (
     <React.Fragment>
+      <div className='container-fluid pt-1 mt-5 bg-login'>
 
+        <div className='container text-center mt-5 pb-1'>
+          <h1 className='display-5 text-white text-uppercase'>Consulta Magazzino</h1>
+          <h5 className='text-white'>Inserisci l'ubicazione e trova i componenti realativi alla posizione scelta</h5>
+
+        </div>
+      </div>
 
       <section className={"py-3" + " " + bgType + " " + textType}>
 
@@ -147,15 +152,6 @@ function ConsultaMagazzino() {
                 <i className="bi bi-arrow-left mx-3"></i>
                 Torna alla dashboard senza consultare
               </Link>
-
-			{lunghezzaLista !== 0 &&
-				<ListaPienaConsulta lista={{componente}}/>
-
-			}
-			{lunghezzaLista == 0 &&
-				<ListaVuotaConsulta />
-
-			}
 
 
 
