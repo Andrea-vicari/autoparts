@@ -4,6 +4,7 @@ import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { Link } from 'react-router-dom';
 import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
 import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
+import consultaImg from '../../assets/images/consultaMagazzino.jpg'
 
 function Dashboard() {
 
@@ -57,6 +58,23 @@ function Dashboard() {
                     </div>
                     <div className="card-body">
                     <img src={addProdImg} className="img-fluid rounded mb-2"/>
+                        <ul className="list-unstyled mt-3 mb-4">
+                        <li>20 users included</li>
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                        </ul>
+                        <Link to="/nuovocomponente" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">AGGIUNGI COMPONENTI</Link>
+                    </div>
+                    </div>
+                </div>
+                <div className="col">
+                    <div className={"card mb-4 rounded-3 shadow-sm border-primary" + " " + bgType + " " + textType}>
+                    <div className="card-header py-3 text-bg-primary">
+                        <h4 className="my-0 fw-normal">Consulta Magazzino</h4>
+                    </div>
+                    <div className="card-body">
+                    <img src={consultaImg} className="img-fluid rounded mb-2"/>
                         <ul className="list-unstyled mt-3 mb-4">
                         <li>20 users included</li>
                         <li>10 GB of storage</li>
