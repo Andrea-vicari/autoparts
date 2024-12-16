@@ -71,7 +71,7 @@ router.delete('/delete/:id', cancellaSingoloComponente);
 
 
 //Filtra componente
-router.get('/filtracomp/:id', filtraComponenti);
+router.get('/filtra/:id', filtraComponenti);
 
 // Mostra singola categoria
 router.get('/singolacategoria/:id', singolaCategoria);

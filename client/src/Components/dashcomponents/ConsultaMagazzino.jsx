@@ -40,8 +40,7 @@ function ConsultaMagazzino() {
 
   const makeAPICall = async () => {
     try {
-      //const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${percorsoComp.scaffale}/${percorsoComp.campata}/${percorsoComp.ripiano}/${percorsoComp.cassetta}`, { mode: 'cors' });
-      const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`, { mode: 'cors' });
+          const response = await fetch(`http://localhost:8080/api/componenti/magazzino/${scaffale}/${campata}/${ripiano}/${cassetta}`, { mode: 'cors' });
 
       const componente = await response.json();
       setComponente(componente)

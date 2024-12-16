@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import ListaVuotaConsulta from './ListaVuotaConsulta'
+import ControlliLista from './ControlliLista'
 
 function ElencoComponenti() {
 
@@ -18,8 +20,6 @@ function ElencoComponenti() {
   const { user } = UseAuthContext()
 
   const [componente, setComponente] = useState([]);
-  const [termineRicerca, setTermineRicerca] = useState('');
-  const [componFilt, setComponFilt] = useState('');
 
   const makeAPICall = async () => {
     try {
@@ -43,30 +43,6 @@ function ElencoComponenti() {
 
 
 
-
-  const ricercaComp = (e) =>{
-   	e.preventDefault()
-  	filtraAPI()
-  }
-
-
-    const filtraAPI = async () => {
-    try {
-
-      const response = await fetch(`http://localhost:8080/api/componenti/filtra/${termineRicerca}`, { mode: 'cors' });
-
-      const componenteFilt = await response.json();
-      setComponFilt(componenteFilt)
-
-      console.log({ componenteFilt })
-
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-
-
   return (
     <React.Fragment>
       <div className='container-fluid pt-1 mt-5 bg-login'>
@@ -79,63 +55,12 @@ function ElencoComponenti() {
       <section className={"py-3" + " " + bgType + " " + textType}>
 
         <div className="container-fluid mt-0 pt-0">
-
-          <div className="row d-flex align-items-end border py-2">
-
-            <div className="col-sm-2">
-              <select className="form-select" aria-label="Default select example">
-                <option defaultValue>Categoria</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-            <div className="col-sm-2">
-              <select className="form-select" aria-label="Default select example">
-                <option defaultValue>Marca</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-
-            <div className="col-sm-2">
-              <Link to="/nuovocomponente" type="button" className="btn btn-warning">
-                <i className="bi bi-funnel mx-2">
-                </i>Filtra
-              </Link>
-            </div>
-
-			<div className="col-sm-3">
-
-              <form className="d-flex" role="search" onSubmit={ricercaComp}>
-		        <input className="form-control" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
-                  value={termineRicerca}
-                  required={true}
-/>
-		        <button className="btn btn-outline-success d-flex" type="submit">
-				<i className="bi bi-funnel mx-1">
-				</i>Cerca
-				</button>
-		      </form>
-            </div>
-
-            <div className="col-sm-3 d-flex justify-content-end align-items-center">
-              <Link to="/nuovocomponente" type="button" className="btn btn-success">
-                <i className="bi bi-plus-circle mx-2">
-                </i>Aggiungi Componente
-              </Link>
-            </div>
-
-
-          </div>
+          
+          <ControlliLista />
 
 
         </div>
-
-
-
-        <div className="container-fluid  mt-3 pt-0">
+        <div className="container-fluid  mt-0 pt-0">
           <div className="row mb-3">
 
 

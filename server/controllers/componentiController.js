@@ -61,13 +61,17 @@ const cancellaSingoloComponente = async (req, res) =>{
 
 const filtraComponenti = async (req, res)=> {
 
+
+    const { id } = req.params;
+
     console.log("== ******** ==")
     console.log("Req from /id")
-    console.log("FERRA LI!!!!!")
+    console.log(id)
 
-    const { id, brand } = req.params;
 
-     const singoloCompFiltered = await Componenti.find({"categoria":id},{"marca":brand});
+     //const singoloCompFiltered = await Componenti.find({"nome":id});
+
+     const singoloCompFiltered = await Componenti.find({nome : {$regex : id}});
 
     if(!singoloCompFiltered){
       return res.status(400).json({error: "No singoloCompFiltered found"})
