@@ -4,6 +4,8 @@ import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
+
+
 function ElencoComponenti() {
 
   const themeType = useSelector((state) => state.counter.value)
@@ -15,11 +17,13 @@ function ElencoComponenti() {
   themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
 
+
+
   const { user } = UseAuthContext()
 
   const [componente, setComponente] = useState([]);
   const [termineRicerca, setTermineRicerca] = useState('');
-  const [componFilt, setComponFilt] = useState('');
+  const [componFilt, setComponFilt] = useState([]);
 
   const makeAPICall = async () => {
     try {
@@ -47,7 +51,9 @@ function ElencoComponenti() {
   const ricercaComp = (e) =>{
    	e.preventDefault()
   	filtraAPI()
+
   }
+
 
 
     const filtraAPI = async () => {
@@ -56,6 +62,8 @@ function ElencoComponenti() {
       const response = await fetch(`http://localhost:8080/api/componenti/filtra/${termineRicerca}`, { mode: 'cors' });
 
       const componenteFilt = await response.json();
+
+      //componFilt = componente
       setComponFilt(componenteFilt)
 
       console.log({ componenteFilt })
@@ -65,6 +73,7 @@ function ElencoComponenti() {
       console.log(e)
     }
   }
+
 
 
   return (

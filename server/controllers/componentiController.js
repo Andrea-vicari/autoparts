@@ -71,7 +71,7 @@ const filtraComponenti = async (req, res)=> {
 
      //const singoloCompFiltered = await Componenti.find({"nome":id});
 
-     const singoloCompFiltered = await Componenti.find({nome : {$regex : id}});
+     const singoloCompFiltered = await Componenti.find({nome : {$regex : id, $options:"i"}});
 
     if(!singoloCompFiltered){
       return res.status(400).json({error: "No singoloCompFiltered found"})
