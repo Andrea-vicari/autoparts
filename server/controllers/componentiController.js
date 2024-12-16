@@ -1,7 +1,7 @@
 const Componenti = require('../models/componentiModel');
 const mongoose = require('mongoose');
 
-// Get all Componenti: OK
+// Vedi tutti i componenti
 const vediComponenti = async (req, res)=> {
 
     console.log("Req from /")
@@ -12,7 +12,7 @@ const vediComponenti = async (req, res)=> {
 
 }
 
-// Get all Componenti: OK
+// Vedi singolo componente
 const vediSingoloComp = async (req, res)=> {
 
     console.log("======")
@@ -30,7 +30,7 @@ const vediSingoloComp = async (req, res)=> {
 
 }
 
-
+// Cancella singolo componente
 const cancellaSingoloComponente = async (req, res) =>{
 
    const { id } = req.params;
@@ -56,10 +56,8 @@ const cancellaSingoloComponente = async (req, res) =>{
    }
 }
 
-
-// Filtra componente
-
-const filtraComponenti = async (req, res)=> {
+// Cerca componente
+const cercaComponente = async (req, res)=> {
 
 
     const { id } = req.params;
@@ -81,7 +79,6 @@ const filtraComponenti = async (req, res)=> {
 }
 
 // Mostra singola categoria
-
 const singolaCategoria = async (req, res)=> {
 
     console.log("== ******** ==")
@@ -100,7 +97,6 @@ const singolaCategoria = async (req, res)=> {
 }
 
 // Mostra ubicazione
-
 const singolaUbicazione = async (req, res)=> {
 
     console.log("== ******** ==")
@@ -123,7 +119,7 @@ const singolaUbicazione = async (req, res)=> {
 
 }
 
-
+// MOdifica componente
 const modificaComponente = async (req, res)=> {
 
 	const { id } = req.params;
@@ -144,9 +140,9 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
-	   vediSingoloComp,
+	      vediSingoloComp,
         cancellaSingoloComponente,
-        filtraComponenti,
+        cercaComponente,
         singolaCategoria,
         singolaUbicazione,
         modificaComponente

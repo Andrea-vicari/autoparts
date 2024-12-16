@@ -24,7 +24,7 @@ function ElencoComponenti() {
   const [componente, setComponente] = useState([]);
   const [termineRicerca, setTermineRicerca] = useState('');
   const [componFilt, setComponFilt] = useState([]);
-  const [clickCerca, setclickCerca] = useState(false)
+  const [clickFilter, setclickFilter] = useState(false)
 
   const makeAPICall = async () => {
     try {
@@ -51,17 +51,17 @@ function ElencoComponenti() {
 
   const ricercaComp = (e) =>{
    	e.preventDefault()
-     setclickCerca(true)
-  	cercaComponente()
+     setclickFilter(true)
+  	filtraAPI()
 
   }
 
 
 
-    const cercaComponente = async () => {
+    const filtraAPI = async () => {
     try {
 
-      const response = await fetch(`http://localhost:8080/api/componenti/cerca/${termineRicerca}`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti/filtra/${termineRicerca}`, { mode: 'cors' });
 
       const componenteFilt = await response.json();
 
@@ -168,9 +168,8 @@ function ElencoComponenti() {
                     <th scope="col">Gestisci</th>
                   </tr>
                 </thead>
-                {
-                  clickCerca == false &&
-                  <tbody>
+
+                <tbody>
                   {componente.map((e) => {
                     return (
                       <tr key={e._id}>
@@ -207,50 +206,6 @@ function ElencoComponenti() {
 
 
                 </tbody>
-
-                }
-
-                {
-                  clickCerca == true &&
-                  <tbody>
-                  {componFilt.map((e) => {
-                    return (
-                      <tr key={e._id}>
-                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
-                        <td className='pt-3'>{e.codice}</td>
-                        <td className='pt-3'>{e.nome}</td>
-                        <td className='pt-3'>{e.categoria}</td>
-                        <td className='pt-3'>{e.condizione}</td>
-                        <td className='pt-3'>{e.marca}</td>
-                        <td className='pt-3'>{e.modello}</td>
-                        <td className='pt-3'>{e.versione}</td>
-                        <td className='pt-3'>{e.annoImmatricolazione}</td>
-                        <td className='pt-3'>
-                          <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
-                          <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
-                          <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
-                          <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
-                        </td>
-                        <td className='pt-3'>{e.peso} Kg</td>
-                        <td className='pt-3'>
-                          <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-zoom-in'></i>
-                          </Link>
-                          <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-trash'></i>
-                          </Link>
-                          <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-printer'></i>
-                          </button>
-                        </td>
-                      </tr>
-                    )
-                  })}
-
-
-                </tbody>
-                }
-
 
               </table>
             </div>
