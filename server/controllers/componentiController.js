@@ -67,14 +67,14 @@ const cercaComponente = async (req, res)=> {
     console.log(id)
 
 
-     //const singoloCompFiltered = await Componenti.find({"nome":id});
+     //const singoloCompSearched = await Componenti.find({"nome":id});
 
-     const singoloCompFiltered = await Componenti.find({nome : {$regex : id, $options:"i"}});
+     const singoloCompSearched = await Componenti.find({nome : {$regex : id, $options:"i"}});
 
-    if(!singoloCompFiltered){
-      return res.status(400).json({error: "No singoloCompFiltered found"})
+    if(!singoloCompSearched){
+      return res.status(400).json({error: "No singoloCompSearched found"})
     }
-    res.status(200).json(singoloCompFiltered);
+    res.status(200).json(singoloCompSearched);
 
 }
 
@@ -90,7 +90,7 @@ const singolaCategoria = async (req, res)=> {
      const singolaCat = await Componenti.find({"categoria":id});
 
     if(!singolaCat){
-            return res.status(400).json({error: "No singoloCompFiltered found"})
+            return res.status(400).json({error: "No singoloCompSearched found"})
     }
     res.status(200).json(singolaCat);
 
@@ -112,12 +112,37 @@ const singolaUbicazione = async (req, res)=> {
 
     if(!singolaUbic){
     console.log("Not found")
-      return res.status(400).json({error: "No singoloCompFiltered found"})
+      return res.status(400).json({error: "No singoloCompSearched found"})
     }
     res.status(200).json(singolaUbic);
 
 
 }
+
+// Filtra x Marca e Modello
+const filtraComponente = async (req, res)=> {
+
+    console.log("== ******** ==")
+    console.log("RICHIESTA FILTRO COMPONENTE")
+    const { marca, modello } = req.params;
+
+    console.log(marca)
+    console.log(modello)
+
+    //const compoFiltrato = await Componenti.find({"marca":marca,"modello":modello});
+    
+    const compoFiltrato = await Componenti.find({marca : {$regex : marca, $options:"i"},modello: {$regex : modello, $options:"i"}});
+
+    if(!compoFiltrato){
+    console.log("Not found")
+      return res.status(400).json({error: "No singoloCompSearched found"})
+    }
+    console.log(compoFiltrato)
+    res.status(200).json(compoFiltrato);
+
+
+}
+
 
 // MOdifica componente
 const modificaComponente = async (req, res)=> {
@@ -140,10 +165,11 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
-	      vediSingoloComp,
+	   vediSingoloComp,
         cancellaSingoloComponente,
         cercaComponente,
         singolaCategoria,
         singolaUbicazione,
-        modificaComponente
+        modificaComponente,
+        filtraComponente
 }

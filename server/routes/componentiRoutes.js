@@ -58,7 +58,7 @@ router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
 
 })
 
-const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente} = require('../controllers/componentiController');
+const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente, filtraComponente} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
@@ -76,8 +76,11 @@ router.get('/cerca/:id', cercaComponente);
 // Mostra singola categoria
 router.get('/singolacategoria/:id', singolaCategoria);
 
-// Mostra singola categoria
+// Mostra singola ubicazione
 router.get('/magazzino/:scaffale/:campata/:ripiano/:cassetta', singolaUbicazione);
+
+// Filtra componente
+router.get('/filtra/:marca/:modello', filtraComponente);
 
 
 // Nuovo aggiorna
