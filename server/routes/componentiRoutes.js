@@ -29,16 +29,16 @@ router.post('/', upload.single('file'), (req, res) => {
           categoria: req.body.categoria,
           descrizione: req.body.descrizione,
           codice:req.body.codice,
-		  condizione:req.body.condizione,
-		  peso:req.body.peso,
-		  campata:req.body.campata,
-		  scaffale:req.body.scaffale,
-		  ripiano:req.body.ripiano,
-		  cassetta:req.body.cassetta,
-		  marca:req.body.marca,
-		  modello:req.body.modello,
-		  versione:req.body.versione,
-          	  file: req.file.filename
+		      condizione:req.body.condizione,
+		      peso:req.body.peso,
+		      campata:req.body.campata,
+		      scaffale:req.body.scaffale,
+		      ripiano:req.body.ripiano,
+		      cassetta:req.body.cassetta,
+		      marca:req.body.marca,
+		      modello:req.body.modello,
+		      versione:req.body.versione,
+          file: req.file.filename
       })
         .then(result => res.json("Success"))
         .catch(err => res.json(err))
@@ -63,7 +63,7 @@ const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponen
 // Get
 router.get('/', vediComponenti);
 
-// GEt single
+// Get single
 router.get('/:id', vediSingoloComp);
 
 // Delete singolo componente

@@ -130,7 +130,7 @@ const filtraComponente = async (req, res)=> {
     console.log(modello)
 
     //const compoFiltrato = await Componenti.find({"marca":marca,"modello":modello});
-    
+
     const compoFiltrato = await Componenti.find({marca : {$regex : marca, $options:"i"},modello: {$regex : modello, $options:"i"}});
 
     if(!compoFiltrato){
@@ -165,7 +165,7 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
-	   vediSingoloComp,
+	      vediSingoloComp,
         cancellaSingoloComponente,
         cercaComponente,
         singolaCategoria,

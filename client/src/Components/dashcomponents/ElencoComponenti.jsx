@@ -24,7 +24,7 @@ function ElencoComponenti() {
   const [componente, setComponente] = useState([]);
   const [termineRicerca, setTermineRicerca] = useState('');
   const [marca, setMarca] = useState('');
-  const [modello, setModello] = useState('');  
+  const [modello, setModello] = useState('');
   const [componSearch, setcomponSearch] = useState([]);
   const [componFilt, setComponFilt] = useState([]);
   const [clickCerca, setclickCerca] = useState(false)
@@ -65,7 +65,7 @@ function ElencoComponenti() {
   	filtraComponente()
 
   }
-	
+
 
 
 
@@ -76,7 +76,7 @@ function ElencoComponenti() {
 
       const componenteSearch = await response.json();
 
-     
+
       setcomponSearch(componenteSearch)
 
       console.log({ componenteSearch })
@@ -86,7 +86,7 @@ function ElencoComponenti() {
       console.log(e)
     }
   }
-  
+
   const filtraComponente = async () => {
     try {
 
@@ -94,7 +94,7 @@ function ElencoComponenti() {
 
       const componenteFiltr = await response.json();
 
-     
+
       setComponFilt(componenteFiltr)
 
       console.log({ componenteFiltr})
@@ -107,10 +107,10 @@ function ElencoComponenti() {
 
 
    const ricaricaPagina = () => {
-   window.location.reload(true);
-   
+   window.location.reload(false);
+
    }
-   
+
 
 
   return (
@@ -128,8 +128,8 @@ function ElencoComponenti() {
 
           <div className="row d-flex align-items-end border py-2">
 
-        
-            <div className="col-sm-4">
+
+            <div className="col-sm-6">
               <form className="d-flex" role="search" onSubmit={filtraComp}>
 		        <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
                   value={marca}
@@ -140,19 +140,20 @@ function ElencoComponenti() {
                   required={true}
 />
 
-		        <button className="btn btn-outline-success d-flex" type="submit">
+		        <button className="btn btn-outline-success d-flex mx-2" type="submit">
 				<i className="bi bi-funnel mx-1">
 				</i>Cerca
 				</button>
-		      </form>
-		      	<button onClick={ricaricaPagina} className="btn btn-danger d-flex">
-				<i className="bi bi-funnel mx-1">
+        <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
+				<i className="bi bi-trash mx-1">
 				</i>Reset
 				</button>
+		      </form>
+
 
             </div>
 
-            
+
 
 			<div className="col-sm-3">
 
