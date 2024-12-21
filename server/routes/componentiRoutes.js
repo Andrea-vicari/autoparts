@@ -22,13 +22,13 @@ const upload = multer({ storage: storage });
 
 router.post('/', upload.single('file'), (req, res) => {
     	  Componenti.create({
-          nome: req.body.nome,
-          unicoID: req.body.unicoID,
-          categoria:req.body.categoria,
-          annoImmatricolazione:req.body.annoImmatricolazione,
-          categoria: req.body.categoria,
-          descrizione: req.body.descrizione,
-          codice:req.body.codice,
+			  nome: req.body.nome,
+			  unicoID: req.body.unicoID,
+			  categoria:req.body.categoria,
+			  annoImmatricolazione:req.body.annoImmatricolazione,
+			  categoria: req.body.categoria,
+			  descrizione: req.body.descrizione,
+			  codice:req.body.codice,
 		      condizione:req.body.condizione,
 		      peso:req.body.peso,
 		      campata:req.body.campata,

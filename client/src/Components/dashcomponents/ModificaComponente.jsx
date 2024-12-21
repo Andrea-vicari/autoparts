@@ -334,7 +334,7 @@ const ModificaComponente = () =>{
                 <div className="mb-3 col-md-10">
                   <p>Clicca sull'immagine per modificarla</p>
                   <button className='btn' onClick={(e)=>openModal(e)}>
-                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} />
+                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 320 }} />
                   </button>
 
                 </div>
