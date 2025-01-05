@@ -86,5 +86,7 @@ router.get('/filtra/:marca/:modello', filtraComponente);
 // Nuovo aggiorna
 router.put('/modifica/:id', modificaComponente);
 
+// Pagination
+
 
 module.exports = router;

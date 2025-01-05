@@ -6,19 +6,8 @@ const vediComponenti = async (req, res)=> {
 
     console.log("Req from /")
     console.log("View all Componenti")
-    console.log('Tuca')
 
-    const page = req.query.p || 1
-    const componentiPerPagina = 3
-
-
-    console.log(page)
-
-    const singoloComponente = await Componenti
-    .find({})
-    .skip(page * componentiPerPagina)
-    .limit(componentiPerPagina)
-    .sort({createdAt: -1})
+    const singoloComponente = await Componenti.find({}).sort({createdAt: -1});
     res.status(200).json(singoloComponente)
 
 }

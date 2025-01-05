@@ -2,13 +2,11 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import ModaleSingoloCompon from './ModaleSingoloCompon'
+import { Link, useLocation } from 'react-router-dom';
 
+var numeroPagina
 
-
-
-function ElencoComponenti() {
+function ElencoComponentiPag() {
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -18,26 +16,26 @@ function ElencoComponenti() {
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
   themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
+  let clicked = useLocation();
+  numeroPagina = clicked.state
 
-
+  console.log("RRR")
+  console.log(numeroPagina)
 
   const { user } = UseAuthContext()
-  
- 
+
   const [componente, setComponente] = useState([]);
   const [termineRicerca, setTermineRicerca] = useState('');
-  const [unicoIDSingle, setunicoIDSingle] = useState('Ciao');  
   const [marca, setMarca] = useState('');
   const [modello, setModello] = useState('');
   const [componSearch, setcomponSearch] = useState([]);
   const [componFilt, setComponFilt] = useState([]);
   const [clickCerca, setclickCerca] = useState(false)
   const [clickFiltra, setclickFiltra] = useState(false)
-  const [clickSingolo, setclickSingolo] = useState(false)
 
-  const ListaCompAPICall = async () => {
+  const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti?p=${numeroPagina}`, { mode: 'cors' });
       const componente = await response.json();
       setComponente(componente)
 
@@ -50,17 +48,12 @@ function ElencoComponenti() {
 
   useEffect(() => {
     if (user) {
-      ListaCompAPICall();
+      makeAPICall();
     }
 
-  }, [user])
+  },[])
 
-	
-	const settaTure = (ciao) =>{
-		
-		setunicoIDSingle(ciao)
-		
-	}
+
 
 
   const ricercaComp = (e) =>{
@@ -117,15 +110,9 @@ function ElencoComponenti() {
 
 
    const ricaricaPagina = () => {
-   window.location.href = "/"
-   }
-	
-   const mostraSingolo = (e) =>{
-   	e.preventDefault()
-
-     //console.log(e)
-     setclickSingolo(true)
-
+    //window.location.reload(false);
+    alert('TUUCA')
+    window.location.href = "/elencocomponenti"
    }
 
 
@@ -229,7 +216,7 @@ function ElencoComponenti() {
                   {componente.map((e) => {
                     return (
                       <tr key={e._id}>
-                        <td><img src={`http://localhost:8080/images/${e.file}`} onClick={mostraSingolo(e.unicoID)} style={{ width: 120 }} /></td>
+                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
                         <td className='pt-3'>{e.codice}</td>
                         <td className='pt-3'>{e.nome}</td>
                         <td className='pt-3'>{e.categoria}</td>
@@ -350,16 +337,23 @@ function ElencoComponenti() {
 
               </table>
             </div>
-            
-                {clickSingolo == true &&
-                
-                <ModaleSingoloCompon singoloComp={unicoIDSingle}/>
-
-                }
-				
 
 
           </div>
+          <nav>
+              <ul className="pagination pagination-sm">
+                <li className="page-item active" aria-current="page">
+                <Link className="page-link" to={"/elencocomponenti/1"}>1</Link>
+                </li>
+                <li className="page-item">
+                  <Link className="page-link" to={"/elencocomponenti/2"} state={2}>2</Link>
+                </li>
+                <li className="page-item">
+                  <Link className="page-link" to={"/elencocomponenti/3"} state={3}>3</Link>
+                </li>
+
+              </ul>
+            </nav>
         </div>
 
 
@@ -369,6 +363,6 @@ function ElencoComponenti() {
   )
 }
 
-export default ElencoComponenti
+export default ElencoComponentiPag
 
 

@@ -32,7 +32,7 @@ function ElencoComponenti() {
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
+      const response = await fetch(`http://localhost:8080/api/componenti?p=0`, { mode: 'cors' });
       const componente = await response.json();
       setComponente(componente)
 
@@ -53,23 +53,23 @@ function ElencoComponenti() {
 
 
 
-  const ricercaComp = (e) =>{
-   	e.preventDefault()
-     setclickCerca(true)
-  	cercaComponente()
+  const ricercaComp = (e) => {
+    e.preventDefault()
+    setclickCerca(true)
+    cercaComponente()
 
   }
-  const filtraComp = (e) =>{
-   	e.preventDefault()
-     setclickFiltra(true)
-  	filtraComponente()
+  const filtraComp = (e) => {
+    e.preventDefault()
+    setclickFiltra(true)
+    filtraComponente()
 
   }
 
 
 
 
-    const cercaComponente = async () => {
+  const cercaComponente = async () => {
     try {
 
       const response = await fetch(`http://localhost:8080/api/componenti/cerca/${termineRicerca}`, { mode: 'cors' });
@@ -97,7 +97,7 @@ function ElencoComponenti() {
 
       setComponFilt(componenteFiltr)
 
-      console.log({ componenteFiltr})
+      console.log({ componenteFiltr })
 
     }
     catch (e) {
@@ -106,10 +106,10 @@ function ElencoComponenti() {
   }
 
 
-   const ricaricaPagina = () => {
-   window.location.reload(false);
+  const ricaricaPagina = () => {
+    window.location.reload();
 
-   }
+  }
 
 
 
@@ -129,44 +129,44 @@ function ElencoComponenti() {
           <div className="row d-flex align-items-end border py-2">
 
 
-            <div className="col-sm-6">
+            <div className="col-sm-6 mb-2">
               <form className="d-flex" role="search" onSubmit={filtraComp}>
-		        <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
+                <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
                   value={marca}
                   required={true}
-/>
-<input className="form-control mx-2" type="search" placeholder="Inserisci Modello" aria-label="Search" onChange={(e) => setModello(e.target.value)}
+                />
+                <input className="form-control mx-2" type="search" placeholder="Inserisci Modello" aria-label="Search" onChange={(e) => setModello(e.target.value)}
                   value={modello}
                   required={true}
-/>
+                />
 
-		        <button className="btn btn-outline-success d-flex mx-2" type="submit">
-				<i className="bi bi-funnel mx-1">
-				</i>Cerca
-				</button>
-        <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
-				<i className="bi bi-trash mx-1">
-				</i>Reset
-				</button>
-		      </form>
+                <button className="btn btn-outline-success d-flex mx-2" type="submit">
+                  <i className="bi bi-funnel mx-1">
+                  </i>Cerca
+                </button>
+                <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
+                  <i className="bi bi-trash mx-1">
+                  </i>Reset
+                </button>
+              </form>
 
 
             </div>
 
 
 
-			<div className="col-sm-3">
+            <div className="col-sm-3 mb-2">
 
               <form className="d-flex" role="search" onSubmit={ricercaComp}>
-		        <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
+                <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
                   value={termineRicerca}
                   required={true}
-/>
-		        <button className="btn btn-outline-success d-flex" type="submit">
-				<i className="bi bi-zoom-in mx-1">
-				</i>Cerca
-				</button>
-		      </form>
+                />
+                <button className="btn btn-outline-success d-flex" type="submit">
+                  <i className="bi bi-zoom-in mx-1">
+                  </i>Cerca
+                </button>
+              </form>
             </div>
 
             <div className="col-sm-3 d-flex justify-content-end align-items-center">
@@ -209,124 +209,124 @@ function ElencoComponenti() {
                 {
                   clickCerca == false && clickFiltra == false &&
                   <tbody>
-                  {componente.map((e) => {
-                    return (
-                      <tr key={e._id}>
-                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
-                        <td className='pt-3'>{e.codice}</td>
-                        <td className='pt-3'>{e.nome}</td>
-                        <td className='pt-3'>{e.categoria}</td>
-                        <td className='pt-3'>{e.condizione}</td>
-                        <td className='pt-3'>{e.marca}</td>
-                        <td className='pt-3'>{e.modello}</td>
-                        <td className='pt-3'>{e.versione}</td>
-                        <td className='pt-3'>{e.annoImmatricolazione}</td>
-                        <td className='pt-3'>
-                          <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
-                          <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
-                          <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
-                          <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
-                        </td>
-                        <td className='pt-3'>{e.peso} Kg</td>
-                        <td className='pt-3'>
-                          <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-zoom-in'></i>
-                          </Link>
-                          <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-trash'></i>
-                          </Link>
-                          <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-printer'></i>
-                          </button>
-                        </td>
-                      </tr>
-                    )
-                  })}
+                    {componente.map((e) => {
+                      return (
+                        <tr key={e._id}>
+                          <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
+                          <td className='pt-3'>{e.codice}</td>
+                          <td className='pt-3'>{e.nome}</td>
+                          <td className='pt-3'>{e.categoria}</td>
+                          <td className='pt-3'>{e.condizione}</td>
+                          <td className='pt-3'>{e.marca}</td>
+                          <td className='pt-3'>{e.modello}</td>
+                          <td className='pt-3'>{e.versione}</td>
+                          <td className='pt-3'>{e.annoImmatricolazione}</td>
+                          <td className='pt-3'>
+                            <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
+                            <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
+                            <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
+                            <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
+                          </td>
+                          <td className='pt-3'>{e.peso} Kg</td>
+                          <td className='pt-3'>
+                            <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-zoom-in'></i>
+                            </Link>
+                            <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-trash'></i>
+                            </Link>
+                            <button type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-printer'></i>
+                            </button>
+                          </td>
+                        </tr>
+                      )
+                    })}
 
 
-                </tbody>
+                  </tbody>
 
                 }
 
                 {
                   clickCerca == true &&
                   <tbody>
-                  {componSearch.map((e) => {
-                    return (
-                      <tr key={e._id}>
-                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
-                        <td className='pt-3'>{e.codice}</td>
-                        <td className='pt-3'>{e.nome}</td>
-                        <td className='pt-3'>{e.categoria}</td>
-                        <td className='pt-3'>{e.condizione}</td>
-                        <td className='pt-3'>{e.marca}</td>
-                        <td className='pt-3'>{e.modello}</td>
-                        <td className='pt-3'>{e.versione}</td>
-                        <td className='pt-3'>{e.annoImmatricolazione}</td>
-                        <td className='pt-3'>
-                          <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
-                          <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
-                          <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
-                          <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
-                        </td>
-                        <td className='pt-3'>{e.peso} Kg</td>
-                        <td className='pt-3'>
-                          <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-zoom-in'></i>
-                          </Link>
-                          <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-trash'></i>
-                          </Link>
-                          <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-printer'></i>
-                          </button>
-                        </td>
-                      </tr>
-                    )
-                  })}
+                    {componSearch.map((e) => {
+                      return (
+                        <tr key={e._id}>
+                          <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
+                          <td className='pt-3'>{e.codice}</td>
+                          <td className='pt-3'>{e.nome}</td>
+                          <td className='pt-3'>{e.categoria}</td>
+                          <td className='pt-3'>{e.condizione}</td>
+                          <td className='pt-3'>{e.marca}</td>
+                          <td className='pt-3'>{e.modello}</td>
+                          <td className='pt-3'>{e.versione}</td>
+                          <td className='pt-3'>{e.annoImmatricolazione}</td>
+                          <td className='pt-3'>
+                            <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
+                            <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
+                            <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
+                            <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
+                          </td>
+                          <td className='pt-3'>{e.peso} Kg</td>
+                          <td className='pt-3'>
+                            <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-zoom-in'></i>
+                            </Link>
+                            <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-trash'></i>
+                            </Link>
+                            <button type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-printer'></i>
+                            </button>
+                          </td>
+                        </tr>
+                      )
+                    })}
 
 
-                </tbody>
+                  </tbody>
                 }
                 {
-                  clickFiltra == true && clickCerca == false  &&
+                  clickFiltra == true && clickCerca == false &&
                   <tbody>
-                  {componFilt.map((e) => {
-                    return (
-                      <tr key={e._id}>
-                        <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
-                        <td className='pt-3'>{e.codice}</td>
-                        <td className='pt-3'>{e.nome}</td>
-                        <td className='pt-3'>{e.categoria}</td>
-                        <td className='pt-3'>{e.condizione}</td>
-                        <td className='pt-3'>{e.marca}</td>
-                        <td className='pt-3'>{e.modello}</td>
-                        <td className='pt-3'>{e.versione}</td>
-                        <td className='pt-3'>{e.annoImmatricolazione}</td>
-                        <td className='pt-3'>
-                          <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
-                          <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
-                          <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
-                          <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
-                        </td>
-                        <td className='pt-3'>{e.peso} Kg</td>
-                        <td className='pt-3'>
-                          <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-zoom-in'></i>
-                          </Link>
-                          <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-trash'></i>
-                          </Link>
-                          <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                            <i className='bi bi-printer'></i>
-                          </button>
-                        </td>
-                      </tr>
-                    )
-                  })}
+                    {componFilt.map((e) => {
+                      return (
+                        <tr key={e._id}>
+                          <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
+                          <td className='pt-3'>{e.codice}</td>
+                          <td className='pt-3'>{e.nome}</td>
+                          <td className='pt-3'>{e.categoria}</td>
+                          <td className='pt-3'>{e.condizione}</td>
+                          <td className='pt-3'>{e.marca}</td>
+                          <td className='pt-3'>{e.modello}</td>
+                          <td className='pt-3'>{e.versione}</td>
+                          <td className='pt-3'>{e.annoImmatricolazione}</td>
+                          <td className='pt-3'>
+                            <p id="modello-componente" className="mb-0">SCAFFALE: {e.scaffale}</p>
+                            <p id="modello-componente" className="mb-0 py-0">CAMPATA: {e.campata}</p>
+                            <p id="modello-componente" className="mb-0">RIPIANO: {e.ripiano}</p>
+                            <p id="modello-componente" className="mb-0">CASSETTA: {e.cassetta}</p>
+                          </td>
+                          <td className='pt-3'>{e.peso} Kg</td>
+                          <td className='pt-3'>
+                            <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-zoom-in'></i>
+                            </Link>
+                            <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-trash'></i>
+                            </Link>
+                            <button type="button" className="btn btn-sm btn-outline-danger mx-1">
+                              <i className='bi bi-printer'></i>
+                            </button>
+                          </td>
+                        </tr>
+                      )
+                    })}
 
 
-                </tbody>
+                  </tbody>
                 }
 
 
@@ -334,7 +334,23 @@ function ElencoComponenti() {
               </table>
             </div>
 
+
+
           </div>
+          <nav>
+              <ul className="pagination pagination-sm">
+                <li className="page-item active" aria-current="page">
+                  <span className="page-link">1</span>
+                </li>
+                <li className="page-item">
+                  <Link className="page-link" to={"/elencocomponenti/2"} state={1}>2</Link>
+                </li>
+                <li className="page-item">
+                  <Link className="page-link" to={"/elencocomponenti/3"} state={2}>3</Link>
+                </li>
+
+              </ul>
+            </nav>
         </div>
 
 
