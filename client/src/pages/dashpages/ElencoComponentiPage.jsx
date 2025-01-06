@@ -9,7 +9,7 @@ function ElencoComponentiPage() {
   return (
     <>
     <Navbar />
-    <ElencoComponenti />
+    <ListaComponenti />
     <Footer />
     </>
   )

@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import DataTable from 'react-data-table-component';
+import Post from './Post'
+import Pagination from './Pagination'
+
 
 function ListaComponenti() {
 
@@ -17,61 +19,46 @@ function ListaComponenti() {
 
   const { user } = UseAuthContext()
 
-  const [componente, setComponente] = useState([]);
-
-  const makeAPICall = async () => {
-    try {
-      const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
-      const componente = await response.json();
-      setComponente(componente)
-
-      console.log({ componente })
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPge, SetPostsPerPage] = useState(2);
 
   useEffect(() => {
-    if (user) {
-      makeAPICall();
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("http://localhost:8080/api/componenti");
+        const data = await response.json();
+        setPosts(data);
+        console.log(data)
+        setLoading(false)
+      } catch (error) {
+        console.log(error);
+      }
     }
+    fetchPosts();
+  }, [])
 
-  }, [user])
+  const indexOfLastPost = currentPage * postsPerPge;
+  const indexOfFirstPost = indexOfLastPost - postsPerPge;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
 
-  const columns = [
-    {
-      name: 'Immagine',
-      selector: row => row.immagine,
-    },
-    {
-      name: 'Codice',
-      selector: row => row.codice,
-    },
-  ];
-
-  const data = [
-  	{
-		id: 1,
-		title: 'Beetlejuice',
-		year: '1988',
-	},
-	{
-		id: 2,
-		title: 'Ghostbusters',
-		year: '1984',
-	},
-]
 
 
   return (
     <section className={"py-3" + " " + bgType + " " + textType}>
        <div className="container-fluid mt-0 pt-0">
-       <DataTable
-			    columns={columns}
-			    data={componente}
-  		/>
+       <div className='container py-5 mt-5'>
+          <Post posts={currentPosts} loading={loading} />
+          <Pagination length={posts.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
+        </div>
+
 
        </div>
 
