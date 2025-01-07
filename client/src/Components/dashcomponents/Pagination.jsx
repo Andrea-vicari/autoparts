@@ -9,7 +9,7 @@ const Pagination = ({ postsPerPage, length, handlePagination, currentPage }) => 
         <div className='pagination'>
             {
                 paginationNumber.map((data) => (
-                    <button key={data} onClick={() => handlePagination(data)} className={currentPage === data ? 'active' : ''}>
+                    <button key={data} onClick={() => handlePagination(data)} className={currentPage === data ?  'btn btn-outline-primary mx-1 active' : 'btn btn-outline-primary mx-1'}>
                         {data}
                     </button>
                 ))

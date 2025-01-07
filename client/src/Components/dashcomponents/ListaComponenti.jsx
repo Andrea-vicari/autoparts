@@ -52,18 +52,42 @@ function ListaComponenti() {
 
 
   return (
+    <><div className='container-fluid pt-1 mt-5 bg-login'>
+
+      <div className='container text-center mt-5 pb-1'>
+        <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
+      </div>
+    </div>
+
     <section className={"py-3" + " " + bgType + " " + textType}>
-       <div className="container-fluid mt-0 pt-0">
-       <div className='container py-5 mt-5'>
-          <Post posts={currentPosts} loading={loading} />
-          <Pagination length={posts.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
+        <div className="container-fluid mt-2 pt-0">
+          <div className='table-responsive-lg mt-2'>
+            <table className={"table table-striped table-hover" + " " + tableType}>
+              <thead className='text-uppercase'>
+                <tr>
+                  <th scope="col">Immagine</th>
+                  <th scope="col">Codice</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Cat</th>
+                  <th scope="col">Condizione</th>
+                  <th scope="col">Marca</th>
+                  <th scope="col">Modello</th>
+                  <th scope="col">Versione</th>
+                  <th scope="col">Anno</th>
+                  <th scope="col">Ubicazione</th>
+                  <th scope="col">Peso</th>
+                  <th scope="col">Gestisci</th>
+                </tr>
+              </thead>
+              <tbody>
+                <Post posts={currentPosts} loading={loading} />
+              </tbody>
+            </table>
+            <Pagination length={posts.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
+          </div>
         </div>
 
-
-       </div>
-
-
-    </section>
+      </section></>
 
 	);
 }
