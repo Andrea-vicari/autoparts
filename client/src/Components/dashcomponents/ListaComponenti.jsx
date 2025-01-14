@@ -75,19 +75,23 @@ function ListaComponenti() {
    }
 
   const ricercaComp = (e) => {
-    e.preventDefault()
+
+
+    console.log(e.target.value)
+
     const risultato = componenti.filter((compon)=>{
 
+      console.log(componenti)
       if(e.target.value === "") return componenti
+      return componenti[nome].toLowerCase().includes(e.target.value.toLowerCase)
+    })
 
-      return risultato[nome].toLowerCase().includes(e.target.value.toLowerCase)
-
-    }
-
-    )
-    cercaComponente()
+    setTermineRicerca(e.target.value)
+    setComponenti(risultato)
 
   }
+
+
   const filtraComp = (e) => {
     e.preventDefault()
     setclickFiltra(true)
@@ -135,10 +139,10 @@ function ListaComponenti() {
 
   <div className="col-sm-3">
 
-    <form className="d-flex" role="search" onSubmit={ricercaComp}>
-      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
-        value={termineRicerca}
-        required={true}
+    <form className="d-flex" role="search">
+      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={ricercaComp}
+
+
       />
       <button className="btn btn-outline-success d-flex" type="submit">
         <i className="bi bi-zoom-in mx-1">
