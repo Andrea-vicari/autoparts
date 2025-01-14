@@ -17,7 +17,7 @@ import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
 import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
-import ElencoComponentiPagePaginato from './pages/dashpages/ElencoComponentiPagePaginato';
+//import ElencoComponentiPagePaginato from './pages/dashpages/ElencoComponentiPagePaginato';
 import CancellaComponentePage from './pages/dashpages/CancellaComponentePage';
 import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
@@ -56,7 +56,7 @@ function App() {1
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 		        <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={user ? <ElencoComponentiPage /> : <Navigate to="/login"/>} />
-            <Route path="/elencocomponenti/:id" element={user ? <ElencoComponentiPagePaginato /> : <Navigate to="/login"/>} />
+
             <Route path="/consultacategorie" element={user ? <ConsultaCategoriePage /> : <Navigate to="/login"/>} />
             <Route path="/consultamagazzino" element={user ? <ConsultaMagazzinoPage /> : <Navigate to="/login"/>} />
             <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />

@@ -44,10 +44,13 @@ function ListaComponenti() {
     fetchPosts();
   }, [])
 
+  const indexOfLastPost = currentPage * postsPerPge;
+  const indexOfFirstPost = indexOfLastPost - postsPerPge;
+  const currentPosts = componenti.slice(indexOfFirstPost, indexOfLastPost);
 
-
-
-
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   const filtraComponente = async () => {
     try {
@@ -76,15 +79,7 @@ function ListaComponenti() {
 
   const ricercaComp = (e) => {
     e.preventDefault()
-    const risultato = componenti.filter((compon)=>{
-
-      if(e.target.value === "") return componenti
-
-      return risultato[nome].toLowerCase().includes(e.target.value.toLowerCase)
-
-    }
-
-    )
+    setclickCerca(true)
     cercaComponente()
 
   }
@@ -181,10 +176,10 @@ function ListaComponenti() {
                 </tr>
               </thead>
               <tbody>
-                <Lista componenti={componenti} loading={loading} />
+                <Lista componenti={currentPosts} loading={loading} />
               </tbody>
             </table>
-
+            <Pagination length={componenti.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
           </div>
         </div>
 

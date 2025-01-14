@@ -135,42 +135,42 @@ function ElencoComponentiPag() {
 
             <div className="col-sm-6">
               <form className="d-flex" role="search" onSubmit={filtraComp}>
-		        <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
+                <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
                   value={marca}
                   required={true}
-/>
-<input className="form-control mx-2" type="search" placeholder="Inserisci Modello" aria-label="Search" onChange={(e) => setModello(e.target.value)}
+                />
+                <input className="form-control mx-2" type="search" placeholder="Inserisci Modello" aria-label="Search" onChange={(e) => setModello(e.target.value)}
                   value={modello}
                   required={true}
-/>
+                />
 
-		        <button className="btn btn-outline-success d-flex mx-2" type="submit">
-				<i className="bi bi-funnel mx-1">
-				</i>Cerca
-				</button>
-        <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
-				<i className="bi bi-trash mx-1">
-				</i>Reset
-				</button>
-		      </form>
+                <button className="btn btn-outline-success d-flex mx-2" type="submit">
+                  <i className="bi bi-funnel mx-1">
+                  </i>Cerca
+                </button>
+                <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
+                  <i className="bi bi-trash mx-1">
+                  </i>Reset
+                </button>
+              </form>
 
 
             </div>
 
 
 
-			<div className="col-sm-3">
+            <div className="col-sm-3">
 
               <form className="d-flex" role="search" onSubmit={ricercaComp}>
-		        <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
+                <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
                   value={termineRicerca}
                   required={true}
-/>
-		        <button className="btn btn-outline-success d-flex" type="submit">
-				<i className="bi bi-zoom-in mx-1">
-				</i>Cerca
-				</button>
-		      </form>
+                />
+                <button className="btn btn-outline-success d-flex" type="submit">
+                  <i className="bi bi-zoom-in mx-1">
+                  </i>Cerca
+                </button>
+              </form>
             </div>
 
             <div className="col-sm-3 d-flex justify-content-end align-items-center">
