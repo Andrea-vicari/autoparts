@@ -22,7 +22,7 @@ function ListaComponenti() {
   const [componenti, setComponenti] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPge, SetPostsPerPage] = useState(2);
+  const [postsPerPage, SetPostsPerPage] = useState(2);
   const [termineRicerca, setTermineRicerca] = useState('');
   const [marca, setMarca] = useState('');
   const [modello, setModello] = useState('');
@@ -44,10 +44,16 @@ function ListaComponenti() {
     fetchPosts();
   }, [])
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = componenti.slice(indexOfFirstPost, indexOfLastPost);
 
+  console.log("currentPosts")
+  console.log(currentPosts)
 
-
-
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   const filtraComponente = async () => {
     try {
@@ -75,23 +81,11 @@ function ListaComponenti() {
    }
 
   const ricercaComp = (e) => {
-
-
-    console.log(e.target.value)
-
-    const risultato = componenti.filter((compon)=>{
-
-      console.log(componenti)
-      if(e.target.value === "") return componenti
-      return componenti[nome].toLowerCase().includes(e.target.value.toLowerCase)
-    })
-
-    setTermineRicerca(e.target.value)
-    setComponenti(risultato)
+    e.preventDefault()
+    setclickCerca(true)
+    cercaComponente()
 
   }
-
-
   const filtraComp = (e) => {
     e.preventDefault()
     setclickFiltra(true)
@@ -139,10 +133,10 @@ function ListaComponenti() {
 
   <div className="col-sm-3">
 
-    <form className="d-flex" role="search">
-      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={ricercaComp}
-
-
+    <form className="d-flex" role="search" onSubmit={ricercaComp}>
+      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
+        value={termineRicerca}
+        required={true}
       />
       <button className="btn btn-outline-success d-flex" type="submit">
         <i className="bi bi-zoom-in mx-1">
@@ -185,10 +179,10 @@ function ListaComponenti() {
                 </tr>
               </thead>
               <tbody>
-                <Lista componenti={componenti} loading={loading} />
+                <Lista componenti={currentPosts} loading={loading} />
               </tbody>
             </table>
-
+            <Pagination length={componenti.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
           </div>
         </div>
 

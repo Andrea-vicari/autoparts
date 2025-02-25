@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux'
 import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Lista from './Lista'
-import Pagination from './Pagination'
+
 
 
 function ListaComponenti() {
@@ -44,30 +43,13 @@ function ListaComponenti() {
     fetchPosts();
   }, [])
 
-  const indexOfLastPost = currentPage * postsPerPge;
-  const indexOfFirstPost = indexOfLastPost - postsPerPge;
-  const currentPosts = componenti.slice(indexOfFirstPost, indexOfLastPost);
-
-  const handlePagination = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  }
-
-  const filtraComponente = async () => {
-    try {
-
-      const response = await fetch(`http://localhost:8080/api/componenti/filtra/${marca}/${modello}`, { mode: 'cors' });
-
-      const componenteFiltr = await response.json();
 
 
-      setComponFilt(componenteFiltr)
 
-      console.log({ componenteFiltr})
 
-    }
-    catch (e) {
-      console.log(e)
-    }
+
+  const filtraComponente = () => {
+
   }
 
 
@@ -78,11 +60,23 @@ function ListaComponenti() {
    }
 
   const ricercaComp = (e) => {
-    e.preventDefault()
-    setclickCerca(true)
-    cercaComponente()
+
+
+    console.log(e.target.value)
+
+    const risultato = componenti.filter((compon)=>{
+
+      console.log(componenti)
+      if(e.target.value === "") return componenti
+      return componenti[nome].toLowerCase().includes(e.target.value.toLowerCase)
+    })
+
+    setTermineRicerca(e.target.value)
+    setComponenti(risultato)
 
   }
+
+
   const filtraComp = (e) => {
     e.preventDefault()
     setclickFiltra(true)
@@ -130,10 +124,10 @@ function ListaComponenti() {
 
   <div className="col-sm-3">
 
-    <form className="d-flex" role="search" onSubmit={ricercaComp}>
-      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
-        value={termineRicerca}
-        required={true}
+    <form className="d-flex" role="search">
+      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={ricercaComp}
+
+
       />
       <button className="btn btn-outline-success d-flex" type="submit">
         <i className="bi bi-zoom-in mx-1">
@@ -176,10 +170,40 @@ function ListaComponenti() {
                 </tr>
               </thead>
               <tbody>
-                <Lista componenti={currentPosts} loading={loading} />
+              {componenti.map((data, index) => (
+                <tr key={index}>
+                <td><img src={`http://localhost:8080/images/${data.file}`} style={{ width: 120 }} /></td>
+                <td className='pt-3'>{data.codice}</td>
+                <td className='pt-3'>{data.nome}</td>
+                <td className='pt-3'>{data.categoria}</td>
+                <td className='pt-3'>{data.condizione}</td>
+                <td className='pt-3'>{data.marca}</td>
+                <td className='pt-3'>{data.modello}</td>
+                <td className='pt-3'>{data.versione}</td>
+                <td className='pt-3'>{data.annoImmatricolazione}</td>
+                <td className='pt-3'>
+                  <p id="modello-componente" className="mb-0">SCAFFALE: {data.scaffale}</p>
+                  <p id="modello-componente" className="mb-0 py-0">CAMPATA: {data.campata}</p>
+                  <p id="modello-componente" className="mb-0">RIPIANO: {data.ripiano}</p>
+                  <p id="modello-componente" className="mb-0">CASSETTA: {data.cassetta}</p>
+                </td>
+                <td className='pt-3'>{data.peso} Kg</td>
+                <td className='pt-3'>
+                  <Link to={`/modificacomponente/${data.unicoID}`} state={data.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                    <i className='bi bi-zoom-in'></i>
+                  </Link>
+                  <Link to={`/cancellacomponente/${data.unicoID}`} state={data.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                    <i className='bi bi-trash'></i>
+                  </Link>
+                  <button type="button" className="btn btn-sm btn-outline-danger mx-1">
+                    <i className='bi bi-printer'></i>
+                  </button>
+                </td>
+              </tr>
+            ))}
               </tbody>
             </table>
-            <Pagination length={componenti.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
+
           </div>
         </div>
 

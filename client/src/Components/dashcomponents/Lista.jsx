@@ -8,6 +8,10 @@ const Lista = ({ componenti, loading }) => {
 
     let bgType, textType, tableType;
 
+    console.log("=====")
+    console.log(componenti)
+
+
     themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
     themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
