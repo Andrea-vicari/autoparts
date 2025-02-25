@@ -4,23 +4,33 @@ import { useState, useEffect } from 'react'
 // We no longer need the users variable so you can remove it from here
 
 function AppFilt() {
-  // add this state
   const [apiUsers, setApiUsers] = useState([])
+  // initialize the loading state as true
+  const [loading, setLoading] = useState(true)
+  // initialize the error state as null
+  const [error, setError] = useState(null)
   const [searchItem, setSearchItem] = useState('')
-  // set the initial state of filteredUsers to an empty array
   const [filteredUsers, setFilteredUsers] = useState([])
 
 
-  // fetch the users
+
   useEffect(() => {
     fetch('https://dummyjson.com/users')
       .then(response => response.json())
       .then(data => {
         setApiUsers(data.users)
-        // update the filteredUsers state
         setFilteredUsers(data.users)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        // update the error state
+        setError(err)
+      })
+      .finally(() => {
+        // wether we sucessfully get the users or not, 
+        // we update the loading state
+        setLoading(false)
+      })
   }, [])
 
 
