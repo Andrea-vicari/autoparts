@@ -15,11 +15,14 @@ function AppFilt() {
   useEffect(() => {
     fetch('https://dummyjson.com/users')
       .then(response => response.json())
-      // save the complete list of users to the new state
-      .then(data => setApiUsers(data.users))
-      // if there's an error we log it to the console
+      .then(data => {
+        setApiUsers(data.users)
+        // update the filteredUsers state
+        setFilteredUsers(data.users)
+      })
       .catch(err => console.log(err))
   }, [])
+
 
   const handleInputChange = (e) => { 
     const searchTerm = e.target.value;
