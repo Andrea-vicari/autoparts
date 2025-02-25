@@ -36,15 +36,21 @@ function AppFilt() {
     setFilteredUsers(filteredItems);
   }
 
-  return (
-    <div>      
+   return (
+    <>
       <input
         type="text"
         value={searchItem}
         onChange={handleInputChange}
         placeholder='Type to search'
       />
-    </div>
+      {filteredUsers.length === 0
+        ? <p>No users found</p>
+        : <ul>
+          {filteredUsers.map(user => <li key={user.id}>{user.firstName}</li>)}
+        </ul>
+      }      
+    </>
   )
 }
 
