@@ -19,14 +19,20 @@ function ListaComponenti() {
 
   const { user } = UseAuthContext()
 
-  const [componenti, setComponenti] = useState([]);
+  const [componentiEXP, setComponenti] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, SetPostsPerPage] = useState(2);
   const [termineRicerca, setTermineRicerca] = useState('');
   const [marca, setMarca] = useState('');
   const [modello, setModello] = useState('');
+  const [apiUsers, setApiUsers] = useState([])
+  // initialize the loading state as true
 
+  // initialize the error state as null
+  const [error, setError] = useState(null)
+  const [searchItem, setSearchItem] = useState('')
+  const [filteredUsers, setFilteredUsers] = useState([])
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -46,7 +52,7 @@ function ListaComponenti() {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = componenti.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = componentiEXP.slice(indexOfFirstPost, indexOfLastPost);
 
   console.log("currentPosts")
   console.log(currentPosts)
@@ -55,43 +61,7 @@ function ListaComponenti() {
     setCurrentPage(pageNumber);
   }
 
-  const filtraComponente = async () => {
-    try {
 
-      const response = await fetch(`http://localhost:8080/api/componenti/filtra/${marca}/${modello}`, { mode: 'cors' });
-
-      const componenteFiltr = await response.json();
-
-
-      setComponFilt(componenteFiltr)
-
-      console.log({ componenteFiltr})
-
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-
-
-   const ricaricaPagina = () => {
-    //window.location.reload(false);
-    alert('TUUCA')
-    window.location.href = "/elencocomponenti"
-   }
-
-  const ricercaComp = (e) => {
-    e.preventDefault()
-    setclickCerca(true)
-    cercaComponente()
-
-  }
-  const filtraComp = (e) => {
-    e.preventDefault()
-    setclickFiltra(true)
-    filtraComponente()
-
-  }
 
   return (
     <><div className='container-fluid pt-1 mt-5 bg-login'>
@@ -106,25 +76,7 @@ function ListaComponenti() {
 
 
   <div className="col-sm-6">
-    <form className="d-flex" role="search" onSubmit={filtraComp}>
-      <input className="form-control mx-2" type="search" placeholder="Inserisci Marca" aria-label="Search" onChange={(e) => setMarca(e.target.value)}
-        value={marca}
-        required={true}
-      />
-      <input className="form-control mx-2" type="search" placeholder="Inserisci Modello" aria-label="Search" onChange={(e) => setModello(e.target.value)}
-        value={modello}
-        required={true}
-      />
 
-      <button className="btn btn-outline-success d-flex mx-2" type="submit">
-        <i className="bi bi-funnel mx-1">
-        </i>Cerca
-      </button>
-      <button onClick={ricaricaPagina} className="btn btn-danger d-flex">
-        <i className="bi bi-trash mx-1">
-        </i>Reset
-      </button>
-    </form>
 
 
   </div>
@@ -133,16 +85,7 @@ function ListaComponenti() {
 
   <div className="col-sm-3">
 
-    <form className="d-flex" role="search" onSubmit={ricercaComp}>
-      <input className="form-control mx-2" type="search" placeholder="Cerca componente" aria-label="Search" onChange={(e) => setTermineRicerca(e.target.value)}
-        value={termineRicerca}
-        required={true}
-      />
-      <button className="btn btn-outline-success d-flex" type="submit">
-        <i className="bi bi-zoom-in mx-1">
-        </i>Cerca
-      </button>
-    </form>
+
   </div>
 
   <div className="col-sm-3 d-flex justify-content-end align-items-center">
@@ -179,10 +122,12 @@ function ListaComponenti() {
                 </tr>
               </thead>
               <tbody>
-                <Lista componenti={currentPosts} loading={loading} />
+                <Lista componenti={componentiEXP} loading={loading} />
               </tbody>
+              <Pagination length={componentiEXP.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
+
             </table>
-            <Pagination length={componenti.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
+
           </div>
         </div>
 
