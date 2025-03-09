@@ -1,10 +1,10 @@
 
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 import Lista from './Lista'
 import Pagination from './Pagination'
-
-
 
 function Filtro() {
 
@@ -65,7 +65,7 @@ function Filtro() {
   }
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = componenti.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = componentiFiltrati.slice(indexOfFirstPost, indexOfLastPost);
 
   console.log("currentPosts")
   console.log(currentPosts)
@@ -83,24 +83,30 @@ function Filtro() {
         <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
         </div>
         </div>
-    <div className='container mt-5 pt-5'>
+      <div className='container-fluid px-4 border'>
+        <div className="row d-flex align-items-end  justify-content-end border py-2">
+        <div className="col-lg-4 ">
+            <h2>Tuuuca</h2>
+        </div>
+        <div className="col-lg-4 mb-4">
+        <input
+            type="text"
+            value={cercaComponente}
+            onChange={handleInputChange}
+            placeholder='Inserisci il termine di ricerca'
+        />
+        </div>
+        <div className="col-lg-4  d-flex justify-content-lg-end align-items-center">
+          <Link to="/nuovocomponente" type="button" className="btn btn-success">
+            <i className="bi bi-plus-circle mx-2">
+            </i>Aggiungi Componente
+          </Link>
+        </div>
 
-    <input
-        type="text"
-        value={cercaComponente}
-        onChange={handleInputChange}
-        placeholder='Type to search'
-      />
-
-      {componentiFiltrati.length === 0
-        ? <p>No users found</p>
-        : <ul>
-          {componentiFiltrati.map(componente => <li key={componente.unicoID}>{componente.nome}</li>)}
-        </ul>
-      }
 
 
-    </div>
+        </div>
+        </div>
     <section className={"py-3" + " " + bgType + " " + textType}>
         <div className="container-fluid mt-2 pt-0">
           <div className='table-responsive-lg mt-2'>

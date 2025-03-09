@@ -8,7 +8,7 @@ const Lista = ({ componenti, loading }) => {
 
     let bgType, textType, tableType;
 
-    console.log("=====")
+    console.log("== &&&& ===0")
     console.log(componenti)
 
 
@@ -27,7 +27,9 @@ const Lista = ({ componenti, loading }) => {
     return (
         <>
 
-            {componenti.map((data, index) => (
+            {componenti.length ===0 ?
+              <h2 className='text-center pt-3 pb-3'>Nessun componente trovato</h2>
+            : componenti.map((data, index) => (
                 <tr key={index}>
                 <td><img src={`http://localhost:8080/images/${data.file}`} style={{ width: 120 }} /></td>
                 <td className='pt-3'>{data.codice}</td>
