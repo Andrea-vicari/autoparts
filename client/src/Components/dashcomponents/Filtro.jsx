@@ -24,6 +24,11 @@ function Filtro() {
   const [cercaComponente, setCercaComponente] = useState('')
   const [componentiFiltrati, setComponentiFiltrati] = useState([])
 
+  // Filtra comp
+  const [filtraMarca, setFiltraMarca] = useState('')
+  const [filtraModello, setFiltraModello] = useState('')
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, SetPostsPerPage] = useState(2);
 
@@ -52,7 +57,7 @@ function Filtro() {
   }, [])
 
 
-  const handleInputChange = (e) => {
+  const cercaComp = (e) => {
     const searchTerm = e.target.value;
     setCercaComponente(searchTerm)
 
@@ -61,8 +66,15 @@ function Filtro() {
       componente.nome.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    console.log(typeof filteredItems)
+
     setComponentiFiltrati(filteredItems);
   }
+
+  const filtraComp = (e) => {
+    alert('CIAOO')
+  }
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = componentiFiltrati.slice(indexOfFirstPost, indexOfLastPost);
@@ -85,14 +97,25 @@ function Filtro() {
         </div>
       <div className='container-fluid px-4 border'>
         <div className="row d-flex align-items-end  justify-content-end border py-2">
-        <div className="col-lg-4 ">
-            <h2>Tuuuca</h2>
+        <div className="col-lg-4 mb-3">
+        <input className='mb-2'
+            type="text"
+            value={filtraMarca}
+            onChange={filtraComp}
+            placeholder='Inserisci la marca'
+        />
+        <input
+            type="text"
+            value={filtraModello}
+            onChange={filtraComp}
+            placeholder='Inserisci il modello'
+        />
         </div>
         <div className="col-lg-4 mb-4">
         <input
             type="text"
             value={cercaComponente}
-            onChange={handleInputChange}
+            onChange={cercaComp}
             placeholder='Inserisci il termine di ricerca'
         />
         </div>
