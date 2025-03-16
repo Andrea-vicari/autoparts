@@ -11,7 +11,7 @@ function ElencoComponentiPage() {
   return (
     <>
     <Navbar />
-    <NuovoFiltro />
+    <Filtro />
     <Footer />
     </>
   )

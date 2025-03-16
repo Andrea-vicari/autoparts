@@ -12,6 +12,10 @@ const vediComponenti = async (req, res)=> {
 
 }
 
+const aggiungiComponente = async (req, res)=>{
+
+}
+
 // Vedi singolo componente
 const vediSingoloComp = async (req, res)=> {
 
@@ -165,6 +169,7 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
+        aggiungiComponente,
 	      vediSingoloComp,
         cancellaSingoloComponente,
         cercaComponente,
