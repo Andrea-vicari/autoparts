@@ -94,7 +94,7 @@ function Filtro() {
         <div className='container text-center mt-5 pb-1'>
         <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
         </div>
-        </div>
+    </div>
       <div className='container-fluid px-4 border'>
         <div className="row d-flex align-items-end  justify-content-end border py-2">
         <div className="col-lg-4 mb-3">
