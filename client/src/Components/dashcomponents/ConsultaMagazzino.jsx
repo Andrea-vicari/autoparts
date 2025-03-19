@@ -20,6 +20,8 @@ function ConsultaMagazzino() {
   const [campata, setCampata] = useState('')
   const [ripiano, setRipiano] = useState('')
   const [cassetta, setCassetta] = useState('')
+  const [consultaCliccata, setConsultaCliccata] = useState(false)
+
 
   const [componente, setComponente] = useState([]);
 
@@ -28,7 +30,7 @@ function ConsultaMagazzino() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('somebody clicked me')
+    setConsultaCliccata(true)
     setCampata(campata)
     setCassetta(cassetta)
     setScaffale(scaffale)
@@ -217,7 +219,7 @@ function ConsultaMagazzino() {
       </div>
 
 			}
-			{lunghezzaLista == 0 &&
+			{lunghezzaLista == 0 && consultaCliccata == true &&
 				<ListaVuotaConsulta />
 
 			}

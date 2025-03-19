@@ -29,7 +29,7 @@ function NuovoFiltro() {
   const [nomeFilter, setNomeFilter] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, SetPostsPerPage] = useState(2);
+  const [postsPerPage, setPostsPerPage] = useState(2);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/componenti')
@@ -82,11 +82,7 @@ function NuovoFiltro() {
       <div className="container-fluid mt-2">
         <h5 className="mx-2 mb-1">Filtra</h5>
         <div className="row mb-3">
-        <div className="col-sm-4 themed-grid-col">.col-sm-4</div>
-        <div className="col-sm-4 themed-grid-col">.col-sm-4</div>
-        <div className="col-sm-4 themed-grid-col">.col-sm-4</div>
-      </div>
-        <div>
+        <div className="col-sm-8">
         <input
           className="mb-2 mx-2"
           type="text"
@@ -108,13 +104,22 @@ function NuovoFiltro() {
           value={nomeFilter}
           onChange={(e) => setNomeFilter(e.target.value)}
         />
-
         </div>
-        <div>
+        <div className="col-sm-2">.col-sm-4</div>
+        <div className="col-sm-2">
         <Link to="/nuovocomponente" type="button" className="btn btn-success">
             <i className="bi bi-plus-circle mx-2">
             </i>Aggiungi Componente
           </Link>
+
+        </div>
+      </div>
+        <div>
+
+
+        </div>
+        <div>
+
         </div>
 
 
@@ -149,7 +154,7 @@ function NuovoFiltro() {
           </div>
         </div>
 
-    </section>
+         </section>
     </>
   );
 }

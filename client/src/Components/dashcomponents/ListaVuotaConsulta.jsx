@@ -28,7 +28,7 @@ function ListaVuotaConsulta () {
           <div className="row mb-3">
 
 
-			<h2>Nessun componenet</h2>
+			      <h2 className="text-center my-4">Nessun componente trovato in questa ubicazione</h2>
 
           </div>
         </div>

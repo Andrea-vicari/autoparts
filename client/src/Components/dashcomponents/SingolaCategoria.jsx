@@ -17,7 +17,7 @@ function SingolaCategoria() {
 
 
   const { user } = UseAuthContext()
-  
+
   let clicked = useLocation();
 
   singolaCat = clicked.state
@@ -48,10 +48,7 @@ function SingolaCategoria() {
   }, [user])
 
 
-  // Clona array componente
-  var componenteCopy = [...componente];
-  console.log("componenteCopy")
-  console.log(componenteCopy)
+
 
 
   return (
