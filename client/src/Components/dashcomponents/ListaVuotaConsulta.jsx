@@ -1,21 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 
 function ListaVuotaConsulta () {
 
   const themeType = useSelector((state) => state.counter.value)
 
-  let bgType, textType, tableType;
+  let bgType, textType;
 
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-  themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
-
-
-
 
   return (
     <React.Fragment>

@@ -1,8 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
-import { UseAuthContext } from "../../hooks/UseAuthContext";
-import {  Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import {  Link, useLocation,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import logo from "../../assets/images/logo-autoparts-footer.svg";
@@ -17,10 +16,6 @@ const ModificaComponente = () =>{
 
   themeType == "ligth" ? bgType = "bg-light" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-
-
-  const { user } = UseAuthContext()
-  console.log(user)
 
   let clicked = useLocation();
   prodSingle = clicked.state
@@ -43,11 +38,8 @@ const ModificaComponente = () =>{
   }
 
   useEffect(() => {
-    if (user) {
       makeAPICall();
-    }
-
-  }, [user])
+  }, [])
 
   // Use state modifica componenti tranne immagine
   const [comp, setComp] = useState({
@@ -169,12 +161,19 @@ const ModificaComponente = () =>{
 
         <div className="d-flex justify-content-center align-items-center py-5">
           <div className={"p-3 rounded w-100 " + bgType + textType}>
-            <h2 className={textType}>Visualizza / Modifica prodotto</h2>
+            <h2 className={textType}>Visualizza/  Modifica componente</h2>
 		 {prodottoSingolo.map((e) => {
                 return (
 
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} key={e.unicoID}>
               <div className="row g-3">
+              <div className="mb-3 col-md-10">
+                  <p>Clicca sull'immagine per modificarla</p>
+                  <button className='btn' onClick={(e)=>openModal(e)}>
+                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 320 }} />
+                  </button>
+
+                </div>
                 <div className="mb-3 col-md-4">
                   <label htmlFor='nome'>Nome</label>
                     <input
@@ -331,13 +330,7 @@ const ModificaComponente = () =>{
                       onChange={onChange}
                     />
                 </div>
-                <div className="mb-3 col-md-10">
-                  <p>Clicca sull'immagine per modificarla</p>
-                  <button className='btn' onClick={(e)=>openModal(e)}>
-                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 320 }} />
-                  </button>
 
-                </div>
               </div>
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-
+import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,8 @@ function ConsultaCategorie() {
   themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
+
+  const { user } = UseAuthContext()
 
   const [listaComponenti, setListaComponenti] = useState([]);
 
@@ -30,37 +32,37 @@ function ConsultaCategorie() {
   }
 
   useEffect(() => {
-
+    if (user) {
       makeAPICall();
+    }
 
-
-  }, [])
+  }, [user])
 
   // Clona array listaComponenti
   var listaComponentiCopy = [...listaComponenti];
   console.log("listaComponentiCopy")
   console.log(listaComponentiCopy)
-
+  
   var arrayCategorie = []
-
-
-
+  
+  
+  
    //Looppa in listaComponentiCopy e se prop == categoria pusha in arrayCategorie
    for (let i = 0; i < listaComponentiCopy.length; i++) {
 
-    for (let keyprodotto in listaComponentiCopy[i]) {
+    for (let keyprodotto in listaComponentiCopy[i]) {		
 
-      keyprodotto == "categoria" ? arrayCategorie.push(listaComponentiCopy[i][keyprodotto]) : true
+      keyprodotto == "categoria" ? arrayCategorie.push(listaComponentiCopy[i][keyprodotto]) : true  	
 
       }
     }
-
+	
 	console.log(arrayCategorie)
 	var arraySingoleCat = [];
-
+	
 	function eliminateDuplicates(arr) {
     const arrayClone = [...arr];
-
+    
     let supportObject = {};
 
 
@@ -70,7 +72,7 @@ function ConsultaCategorie() {
     for (let i in supportObject) {
       arraySingoleCat.push((i));
     }
-
+    
     return arraySingoleCat;
 }
 
@@ -78,7 +80,7 @@ function ConsultaCategorie() {
 	eliminateDuplicates(arrayCategorie)
 	console.log("****")
 	console.log(arraySingoleCat)
-
+	
 
 
   return (
@@ -101,7 +103,7 @@ function ConsultaCategorie() {
 			  <Link className="col-sm-2 border mx-1 pt-3 mb-3"  key={e} to={`/singolacategoria/${e}`} state={e}>
 			  <i className="fs-1 bi bi-arrow-right-circle"></i>
 			  <p className="pt-3">{e}</p>
-
+			  
 			  </Link>
 			  )
               })}

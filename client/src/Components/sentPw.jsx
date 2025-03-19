@@ -7,13 +7,9 @@ function SentPw() {
 
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
-    let bgType, textType, buttonType;
+    let bgType, textType;
     themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-black"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-    themeType == "ligth" ? buttonType = "btn-outline-dark" : buttonType = "btn-outline-light"
-
-
-
 
 
   return (
@@ -23,16 +19,16 @@ function SentPw() {
         <div className="container-fluid px-5 mt-5 pt-5">
 
             <div className="container">
-             
-             
+
+
              <div className="card mx-auto w-75">
 			  <div className="card-body">
 			    <h5 className="card-title">Controlla la tua email</h5>
 			    <p className="card-text">Ti è stato inviato via mail un link attraverso il quale potrai cambiare la tua password</p>
-			
+
 			  </div>
-		 
-                
+
+
               </div>
             </div>
 

@@ -8,10 +8,10 @@ function ResetPw() {
   const navigate = useNavigate()
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
-    let bgType, textType, buttonType;
+    let bgType, textType;
     themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-    themeType == "ligth" ? buttonType = "btn-outline-dark" : buttonType = "btn-outline-light"
+
 
     // Submit functions
     const [email, setEmail] = useState('')
@@ -62,7 +62,7 @@ function ResetPw() {
               <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-5 mt-5 mb-5" + " " + bgType}>
                 <h1 className='text-primary text-uppercase'>Resetta la Password</h1>
                 <p>Inserisci la tua e-mail e clicca Cambia per richiedere il reset della password</p>
-                
+
                 <div className={"mx-auto" + textType}>
                   <form onSubmit={handleSubmit}>
 

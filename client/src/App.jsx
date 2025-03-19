@@ -1,10 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import { UseAuthContext } from "./hooks/UseAuthContext";
-import { useDispatch } from 'react-redux'
-import { user_fit, admin } from './redux/UserSlice'
-import { useEffect } from 'react';
-
 
 import ScrollToTop from './Components/ScrollToTop';
 
@@ -25,24 +21,10 @@ import SingolaCategoriaPage from './pages/dashpages/SingolaCategoriaPage';
 import ConsultaMagazzinoPage from './pages/dashpages/ConsultaMagazzinoPage';
 
 
-function App() {1
+function App() {
 
-  const {user} = UseAuthContext()
+  const { user } = UseAuthContext()
 
-  const dispatchRole = useDispatch()
-
-  if(user === null){
-
-    useEffect(() => {
-    dispatchRole(user_fit())
-  });
-  }
-
-  if(user !== null && user.user_id == "6654d132c3e78209fb9b37da"){
-    useEffect(() => {
-    dispatchRole(admin())
-  });
-  }
 
   return (
     <React.Fragment>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import  {useNavigate, Link} from 'react-router-dom'
+import  {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import logo from "../../assets/images/logo-autoparts-footer.svg";
 import uniqid from 'uniqid';
@@ -33,7 +33,7 @@ const NuovoComponente = () => {
 	   const [modello, setModello] = useState('')
 	   const [versione, setVersione] = useState('')
      const [file, setFile] = useState()
-     const navigate = useNavigate()
+
 
     const handleSubmit = (e) => {
         e.preventDefault()

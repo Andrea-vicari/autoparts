@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { Link } from 'react-router-dom';
 import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
 import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
@@ -16,11 +15,7 @@ function Dashboard() {
     themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
 
-    const role = useSelector((state) => state.setRole.value)
 
-    const {user} = UseAuthContext()
-
-    console.log(role)
 
     return (
         <React.Fragment>
@@ -79,7 +74,7 @@ function Dashboard() {
                     <img src={consultaCat} className="img-fluid rounded mb-2"/>
                         <p>Sezione dove ricercare un componente secondo la categoria</p>
                         <Link to="/consultacategorie" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA CATEGORIE</Link>
-                        
+
                     </div>
                     </div>
                 </div>

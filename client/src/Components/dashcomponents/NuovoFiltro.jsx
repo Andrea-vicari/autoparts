@@ -6,7 +6,6 @@ import Lista from './Lista'
 import Pagination from './Pagination'
 
 
-
 function NuovoFiltro() {
 
 
@@ -79,7 +78,7 @@ function NuovoFiltro() {
         </div>
         </div>
 
-      <div className="container-fluid mt-2">
+      <div className={"container-fluid mt-2 py-3" + " " + bgType + " " + textType}>
         <h5 className="mx-2 mb-1">Filtra</h5>
         <div className="row mb-3">
         <div className="col-sm-8">

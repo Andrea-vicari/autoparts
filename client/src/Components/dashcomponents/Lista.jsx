@@ -6,15 +6,11 @@ const Lista = ({ componenti, loading }) => {
 
     const themeType = useSelector((state) => state.counter.value)
 
-    let bgType, textType, tableType;
 
     console.log("== &&&& ===0")
     console.log(componenti)
 
 
-    themeType == "ligth" ? bgType = "bg-ligth" : bgType = "bg-dark"
-    themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-    themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
     if (loading) {
         return (

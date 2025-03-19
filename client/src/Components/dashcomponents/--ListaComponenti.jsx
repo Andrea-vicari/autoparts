@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { UseAuthContext } from "../../hooks/UseAuthContext";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Lista from './Lista'
@@ -17,7 +16,6 @@ function ListaComponenti() {
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
   themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
-  const { user } = UseAuthContext()
 
   const [componenti, setComponenti] = useState([]);
   const [loading, setLoading] = useState(false);

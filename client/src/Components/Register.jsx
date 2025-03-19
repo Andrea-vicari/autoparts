@@ -8,10 +8,9 @@ import { useState } from "react";
 function Register() {
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
-    let bgType, textType, buttonType;
+    let bgType, textType;
     themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-black"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
-    themeType == "ligth" ? buttonType = "btn-outline-dark" : buttonType = "btn-outline-light"
 
     // Submit functions
     const [username, setUsername] = useState('')
