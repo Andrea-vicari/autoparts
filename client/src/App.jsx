@@ -13,7 +13,6 @@ import SentPassword from './pages/SentPassword';
 import DashboardPage from './pages/dashpages/DashboardPage';
 import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
-//import ElencoComponentiPagePaginato from './pages/dashpages/ElencoComponentiPagePaginato';
 import CancellaComponentePage from './pages/dashpages/CancellaComponentePage';
 import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';

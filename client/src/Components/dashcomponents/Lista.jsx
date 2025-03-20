@@ -28,7 +28,10 @@ const Lista = ({ componenti, loading }) => {
             : componenti.map((data, index) => (
                 <tr key={index}>
                 <td><img src={`http://localhost:8080/images/${data.file}`} style={{ width: 120 }} /></td>
-                <td className='pt-3'>{data.codice}</td>
+                <td className='pt-3'>
+                  <a href={'https://www.google.com/search?q=' + data.codice} target="_blank">{data.codice}</a>
+
+                </td>
                 <td className='pt-3'>{data.nome}</td>
                 <td className='pt-3'>{data.categoria}</td>
                 <td className='pt-3'>{data.condizione}</td>

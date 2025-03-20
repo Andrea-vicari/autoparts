@@ -156,7 +156,7 @@ const ModificaComponente = () =>{
       }
 
     return (
-      <div className={"container-fluid py-5 " + bgType}>
+      <div className={"container-fluid pt-0 " + bgType}>
       <div className={"container py-5 " + bgType}>
 
         <div className="d-flex justify-content-center align-items-center py-5">

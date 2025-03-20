@@ -69,6 +69,9 @@ function ListaComponenti() {
     setCurrentPage(pageNumber);
   }
 
+  var totaleComponenti = componenti.length
+  console.log(totaleComponenti)
+
   return (
     <>
           <div className='container-fluid pt-1 mt-5 bg-login'>
@@ -78,10 +81,21 @@ function ListaComponenti() {
         </div>
         </div>
 
-      <div className={"container-fluid mt-2 py-3" + " " + bgType + " " + textType}>
+      <div className={"container-fluid mt-2 mb-0 py-3" + " " + bgType + " " + textType}>
+      <div className="row mb-3">
+        <div className="col-sm-4">
+          <p>Totale componenti: {totaleComponenti}</p>
+        </div>
+        <div className="col-sm-4">
+          Componenti venduti:
+        </div>
+        <div className="col-sm-4">
+          .col-md-4
+        </div>
+      </div>
         <h3 className="mx-2 mb-1">Filtra il componente</h3>
-        <div className="row mb-3">
-        <div className="col-sm-8">
+        <div className="row">
+        <div className="col-sm-6 border">
         <input
           className="mb-2 mx-2"
           type="text"
@@ -104,29 +118,32 @@ function ListaComponenti() {
           onChange={(e) => setNomeFilter(e.target.value)}
         />
         </div>
-        <div className="col-sm-2">.col-sm-4</div>
+        <div className="col-sm-2 border">
+        <Link to="/consultamagazzino" type="button" className="btn btn-outline-warning">
+            <i className="bi bi-zoom-in mx-2">
+            </i>Consulta Magazzino
+        </Link>
+
+        </div>
         <div className="col-sm-2">
-        <Link to="/nuovocomponente" type="button" className="btn btn-success">
+        <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
             <i className="bi bi-plus-circle mx-2">
             </i>Aggiungi Componente
-          </Link>
+        </Link>
+
+        </div>
+        <div className="col-sm-2">
+        <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
+            <i className="bi bi-plus-circle mx-2">
+            </i>Aggiungi Componente
+        </Link>
 
         </div>
       </div>
-        <div>
-
-
-        </div>
-        <div>
-
-        </div>
-
-
-
 
       </div>
           <section className={"py-3" + " " + bgType + " " + textType}>
-        <div className="container-fluid mt-2 pt-0">
+        <div className="container-fluid mt-1 pt-0">
           <div className='table-responsive-lg mt-2'>
             <table className={"table table-striped table-hover" + " " + tableType}>
               <thead className='text-uppercase'>

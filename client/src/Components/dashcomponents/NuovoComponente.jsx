@@ -157,7 +157,7 @@ const NuovoComponente = () => {
                   <strong>Peso Componente</strong>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Inserisci peso Componente"
                   autoComplete="off"
                   name="text"
