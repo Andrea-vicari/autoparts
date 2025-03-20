@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -6,9 +5,11 @@ import { Link } from 'react-router-dom';
 import Lista from './Lista'
 import Pagination from './Pagination'
 
-function Filtro() {
 
-    const themeType = useSelector((state) => state.counter.value)
+function ListaComponenti() {
+
+
+  const themeType = useSelector((state) => state.counter.value)
 
   let bgType, textType, tableType;
 
@@ -21,19 +22,13 @@ function Filtro() {
   const [loading, setLoading] = useState(true)
   // initialize the error state as null
   const [error, setError] = useState(null)
-  const [cercaComponente, setCercaComponente] = useState('')
   const [componentiFiltrati, setComponentiFiltrati] = useState([])
-
-  // Filtra comp
-  const [filtraMarca, setFiltraMarca] = useState('')
-  const [filtraModello, setFiltraModello] = useState('')
-
+  const [marcaFilter, setMarcaFilter] = useState('');
+  const [modelloFilter, setModelloFilter] = useState('');
+  const [nomeFilter, setNomeFilter] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, SetPostsPerPage] = useState(2);
-
-
-
+  const [postsPerPage, setPostsPerPage] = useState(2);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/componenti')
@@ -57,27 +52,15 @@ function Filtro() {
   }, [])
 
 
-  const cercaComp = (e) => {
-    const searchTerm = e.target.value;
-    setCercaComponente(searchTerm)
-
-    // filter the items using the componenti state
-    const filteredItems = componenti.filter((componente) =>
-      componente.nome.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    console.log(typeof filteredItems)
-
-    setComponentiFiltrati(filteredItems);
-  }
-
-  const filtraComp = (e) => {
-    alert('CIAOO')
-  }
+  const filteredProducts = componenti.filter((product) =>
+    product.marca.toLowerCase().includes(marcaFilter.toLowerCase()) &&
+    product.modello.toLowerCase().includes(modelloFilter.toLowerCase()) &&
+    product.nome.toLowerCase().includes(nomeFilter.toLowerCase())
+  );
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = componentiFiltrati.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
 
   console.log("currentPosts")
   console.log(currentPosts)
@@ -86,51 +69,63 @@ function Filtro() {
     setCurrentPage(pageNumber);
   }
 
-
-   return (
+  return (
     <>
-    <div className='container-fluid pt-1 mt-5 bg-login'>
+          <div className='container-fluid pt-1 mt-5 bg-login'>
 
         <div className='container text-center mt-5 pb-1'>
         <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
         </div>
-    </div>
-      <div className='container-fluid px-4 border'>
-        <div className="row d-flex align-items-end  justify-content-end border py-2">
-        <div className="col-lg-4 mb-3">
-        <input className='mb-2'
-            type="text"
-            value={filtraMarca}
-            onChange={filtraComp}
-            placeholder='Inserisci la marca'
+        </div>
+
+      <div className={"container-fluid mt-2 py-3" + " " + bgType + " " + textType}>
+        <h3 className="mx-2 mb-1">Filtra il componente</h3>
+        <div className="row mb-3">
+        <div className="col-sm-8">
+        <input
+          className="mb-2 mx-2"
+          type="text"
+          placeholder="Inserisci la marca"
+          value={marcaFilter}
+          onChange={(e) => setMarcaFilter(e.target.value)}
         />
         <input
-            type="text"
-            value={filtraModello}
-            onChange={filtraComp}
-            placeholder='Inserisci il modello'
+          className="mb-2 mx-2"
+          type="text"
+          placeholder="Inserisci il modello"
+          value={modelloFilter}
+          onChange={(e) => setModelloFilter(e.target.value)}
         />
-        </div>
-        <div className="col-lg-4 mb-4">
         <input
-            type="text"
-            value={cercaComponente}
-            onChange={cercaComp}
-            placeholder='Inserisci il termine di ricerca'
+          className="mb-2 mx-2"
+          type="text"
+          placeholder="Inserisci il nome"
+          value={nomeFilter}
+          onChange={(e) => setNomeFilter(e.target.value)}
         />
         </div>
-        <div className="col-lg-4  d-flex justify-content-lg-end align-items-center">
-          <Link to="/nuovocomponente" type="button" className="btn btn-success">
+        <div className="col-sm-2">.col-sm-4</div>
+        <div className="col-sm-2">
+        <Link to="/nuovocomponente" type="button" className="btn btn-success">
             <i className="bi bi-plus-circle mx-2">
             </i>Aggiungi Componente
           </Link>
+
+        </div>
+      </div>
+        <div>
+
+
+        </div>
+        <div>
+
         </div>
 
 
 
-        </div>
-        </div>
-    <section className={"py-3" + " " + bgType + " " + textType}>
+
+      </div>
+          <section className={"py-3" + " " + bgType + " " + textType}>
         <div className="container-fluid mt-2 pt-0">
           <div className='table-responsive-lg mt-2'>
             <table className={"table table-striped table-hover" + " " + tableType}>
@@ -158,10 +153,9 @@ function Filtro() {
           </div>
         </div>
 
-    </section>
-
+         </section>
     </>
-  )
+  );
 }
 
-export default Filtro
+export default ListaComponenti;

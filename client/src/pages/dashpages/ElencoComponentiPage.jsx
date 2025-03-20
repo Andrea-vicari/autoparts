@@ -1,14 +1,14 @@
 import React from 'react'
 import Footer from '../../Components/Common/Footer';
 import Navbar from '../../Components/Common/DashNav';
-import NuovoFiltro from '../../Components/dashcomponents/NuovoFiltro';
+import ListaComponenti from '../../Components/dashcomponents/ListaComponenti';
 
 
 function ElencoComponentiPage() {
   return (
     <>
     <Navbar />
-    <NuovoFiltro/>
+    <ListaComponenti/>
     <Footer />
     </>
   )
