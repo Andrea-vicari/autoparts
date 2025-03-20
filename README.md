@@ -2,6 +2,7 @@
 <img src="https://github.com/Andrea-vicari/autoparts/blob/master/AUTOPARTS-GIT-COVER.jpg" width="800px">\
 Repository for Automotive warehouse React Application.\
 **Full STACK** application built with Node, Express, MongoDB and React.\
+sss
 ## Features
 * MERN Full Stack Project
 * Users registration made with BCrypt and JWT web Token
