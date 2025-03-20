@@ -1,5 +1,5 @@
 ## AUTOMOTIVE WAREHOUSE FULL STACK Application
-<img src="https://github.com/Andrea-vicari/Fitness-Center/blob/master/Fitness_Porfolio_cover.jpg" width="800px">\
+<img src="https://github.com/Andrea-vicari/autoparts/blob/master/AUTOPARTS-GIT-COVER.jpg" width="800px">\
 Repo for Fitness Center React Application.\
 **Full STACK** application built with Node, Express, MongoDB and React.\
 Both FrontEnd and Back End deployed on Vercel platform.
