@@ -2,15 +2,11 @@
 <img src="https://github.com/Andrea-vicari/autoparts/blob/master/AUTOPARTS-GIT-COVER.jpg" width="800px">\
 Repository for Automotive warehouse React Application.\
 **Full STACK** application built with Node, Express, MongoDB and React.\
-sss
+User can add Automotive components, filter by car model and type, check a single warehouse presence. 
 ## Features
 * MERN Full Stack Project
 * Users registration made with BCrypt and JWT web Token
 * Server built with Node.js and Express.js, Mongoose and MongoDB as database
-* A ristricted list of users have the "TRAINER" role
-* Trainers can see all users, insert workouts and approve workouts
-* Users can check its workout and register the date of the execution
-* Users can check its past workouts approved by the trainer
 
 ## Technologies
 * Node.js
