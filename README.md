@@ -1,23 +1,7 @@
 ## AUTOMOTIVE WAREHOUSE FULL STACK Application
 <img src="https://github.com/Andrea-vicari/autoparts/blob/master/AUTOPARTS-GIT-COVER.jpg" width="800px">\
-Repo for Fitness Center React Application.\
+Repository for Automotive warehouse React Application.\
 **Full STACK** application built with Node, Express, MongoDB and React.\
-Both FrontEnd and Back End deployed on Vercel platform.
-
- ### Demo
-👉 Live Deployment <a href="https://pulsefit-client.vercel.app/" target="_blank" > VERCEL</a>\
-👉 Video Demo on <a href="https://youtu.be/Gjjc0ujPXWE?feature=shared" target="_blank" > YouTube</a>
-
-### User-Test
-Use below credentials to log-in as a user (Some workouts are available)\
-👉 userdemo@fitnessreact.it\
-👉 D3moUser!
-
-### Trainer-Test
-Use below credentials to log-in as a trainer\
-👉 trainerDemo@fitnessreact.it\
-👉 D3moTrainer!
-
 ## Features
 * MERN Full Stack Project
 * Users registration made with BCrypt and JWT web Token
@@ -44,4 +28,20 @@ Use below credentials to log-in as a trainer\
 * express
 * jsonwebtoken
 * validator
+
+ ### Demo
+👉 Live Deployment <a href="https://pulsefit-client.vercel.app/" target="_blank" > VERCEL</a>\
+👉 Video Demo on <a href="https://youtu.be/Gjjc0ujPXWE?feature=shared" target="_blank" > YouTube</a>
+
+### User-Test
+Use below credentials to log-in as a user (Some workouts are available)\
+👉 userdemo@fitnessreact.it\
+👉 D3moUser!
+
+### Trainer-Test
+Use below credentials to log-in as a trainer\
+👉 trainerDemo@fitnessreact.it\
+👉 D3moTrainer!
+
+
 
