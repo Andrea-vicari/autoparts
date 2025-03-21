@@ -10,7 +10,7 @@ User can add Automotive components, filter by car model and type, check a single
 
 ## TODO
 * Modal image in Lista
-*
+* Scaricare json totale componenti
 
 ## Technologies
 * Node.js
