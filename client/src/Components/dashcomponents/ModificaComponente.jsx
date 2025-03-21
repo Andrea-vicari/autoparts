@@ -119,11 +119,11 @@ const ModificaComponente = () =>{
       marca:comp.marca,
       modello:comp.modello,
       versione:comp.versione,
-      // file:comp.file
+      file:comp.file
     };
 
     axios
-      .put(`http://localhost:8080/api/componenti/modifica/${prodSingle}`, data)
+      .patch(`http://localhost:8080/api/componenti/modifica/${prodSingle}`, data)
       .then((res) => {
         navigate(`/dashboardpage`);
       })

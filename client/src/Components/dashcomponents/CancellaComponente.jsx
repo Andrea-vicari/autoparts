@@ -59,8 +59,8 @@ function CancellaComponente() {
                 <div className={"row pt-3 mt-5"  + " " + bgType + " " + textType}>
                    <div className="col-sm-10 text-center pt-5 pb-5">
 				<i className='bi bi-trash fs-1'></i>
-                   	<h4>Richiesta cancellazione componente</h4>
-                   	<p>Stai per cancellare il componente</p>
+                   	<h3>Richiesta cancellazione componente</h3>
+                   	<h4>Stai per cancellare il componente</h4>
 				 <button onClick={()=>cancellaProd()} type="button" className="btn btn-large btn-outline-success mx-1">
                         <i className='bi bi-trash'></i> OK, CANCELLA
                       </button>

@@ -28,7 +28,7 @@ function ListaComponenti() {
   const [nomeFilter, setNomeFilter] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(2);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/componenti')
@@ -51,6 +51,11 @@ function ListaComponenti() {
       })
   }, [])
 
+  const resettaRicerca = () =>{
+    setMarcaFilter('')
+    setModelloFilter('')
+    setNomeFilter('')
+  }
 
   const filteredProducts = componenti.filter((product) =>
     product.marca.toLowerCase().includes(marcaFilter.toLowerCase()) &&
@@ -97,26 +102,28 @@ function ListaComponenti() {
         <div className="row">
         <div className="col-sm-6 border">
         <input
-          className="mb-2 mx-2"
+          className="mb-2 mx-2 pb-1"
+          type="text"
+          placeholder="Inserisci il nome"
+          value={nomeFilter}
+          onChange={(e) => setNomeFilter(e.target.value)}
+        />
+        <input
+          className="mb-2 mx-2 pb-1"
           type="text"
           placeholder="Inserisci la marca"
           value={marcaFilter}
           onChange={(e) => setMarcaFilter(e.target.value)}
         />
         <input
-          className="mb-2 mx-2"
+          className="mb-2 mx-2 pb-1"
           type="text"
           placeholder="Inserisci il modello"
           value={modelloFilter}
           onChange={(e) => setModelloFilter(e.target.value)}
         />
-        <input
-          className="mb-2 mx-2"
-          type="text"
-          placeholder="Inserisci il nome"
-          value={nomeFilter}
-          onChange={(e) => setNomeFilter(e.target.value)}
-        />
+
+        <button className='btn btn-outline-info' onClick={()=>resettaRicerca()}>RESET</button>
         </div>
         <div className="col-sm-2 border">
         <Link to="/consultamagazzino" type="button" className="btn btn-outline-warning">

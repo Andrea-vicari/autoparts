@@ -34,6 +34,13 @@ const NuovoComponente = () => {
 	   const [versione, setVersione] = useState('')
      const [file, setFile] = useState()
 
+     function closeModal(){
+      document.getElementById('modale_Componente').classList.remove("d-block")
+    }
+    function openModal(){
+      document.getElementById('modale_Componente').classList.add("d-block")
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -61,11 +68,13 @@ const NuovoComponente = () => {
         axios.post('http://localhost:8080/api/componenti', formData)
         .then(res => {
             if(res.data === "Success") {
-                window.location.href = "/"
+                openModal()
             }
         })
         .catch(err => console.log(err))
       }
+
+
 
   return (
     <div className={"container-fluid py-5 " + bgType}>
