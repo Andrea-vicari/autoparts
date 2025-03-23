@@ -9,8 +9,17 @@ User can add Automotive components, filter by car model and type, check a single
 * Server built with Node.js and Express.js, Mongoose and MongoDB as database
 
 ## TODO
-* Modal image in Lista
 * Scaricare json totale componenti
+* Articoli per pagina selezionabile ==> OOOOOK
+* Aggiungere status "Disponibile" o "Venduto" al componente
+* Stampa etichette con QR code
+* Multiple Upload
+* Persistent disk o Amazon AWS
+
+## CLIENT
+* https://autoparts-gfw2.onrender.com
+
+
 
 ## Technologies
 * Node.js

@@ -1,15 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import LigthBox from './LigthBox';
+
 
 const Lista = ({ componenti, loading }) => {
 
-    const themeType = useSelector((state) => state.counter.value)
-
-
     console.log("== &&&& ===0")
     console.log(componenti)
-
 
 
     if (loading) {
@@ -19,7 +16,6 @@ const Lista = ({ componenti, loading }) => {
     }
 
 
-
     return (
         <>
 
@@ -27,7 +23,7 @@ const Lista = ({ componenti, loading }) => {
               <h2 className='text-center pt-3 pb-3'>Nessun componente trovato</h2>
             : componenti.map((data, index) => (
                 <tr key={index}>
-                <td><img src={`http://localhost:8080/images/${data.file}`} style={{ width: 120 }} /></td>
+                <td><LigthBox immagine={data.file}/></td>
                 <td className='pt-3'>
                   <a href={'https://www.google.com/search?q=' + data.codice} target="_blank">{data.codice}</a>
 
@@ -57,8 +53,13 @@ const Lista = ({ componenti, loading }) => {
                     <i className='bi bi-printer'></i>
                   </button>
                 </td>
+
+
+
               </tr>
+
             ))}
+
         </>
     )
 }

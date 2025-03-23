@@ -28,7 +28,7 @@ function ListaComponenti() {
   const [nomeFilter, setNomeFilter] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [postsPerPage, setPostsPerPage] = useState(3);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/componenti')
@@ -114,23 +114,20 @@ function ListaComponenti() {
         <button className='btn btn-outline-info py-1 rounded-0' onClick={()=>resettaRicerca()}>RESET</button>
         </div>
         <div className="col-sm-2 border d-none d-sm-block">
-        <div className='py-3'>
-          <label>
-          Componenti per pagina:
-          <select value={postsPerPage}
-            onChange={e => setPostsPerPage(e.target.value)}
-            className='mx-3' name="compPerPage">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-          </select>
-        </label>
-        </div>
-
+        <Link to="/consultamagazzino" type="button" className="btn btn-outline-warning">
+            <i className="bi bi-zoom-in mx-2">
+            </i>Consulta Magazzino
+        </Link>
 
         </div>
+        <div className="col-sm-2 d-none d-sm-block">
+        <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
+            <i className="bi bi-plus-circle mx-2">
+            </i>Aggiungi Componente
+        </Link>
 
-        <div className="col-sm-3 d-none d-sm-block">
+        </div>
+        <div className="col-sm-2 d-none d-sm-block">
         <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
             <i className="bi bi-plus-circle mx-2">
             </i>Aggiungi Componente

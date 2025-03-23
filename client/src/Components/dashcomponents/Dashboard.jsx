@@ -23,7 +23,7 @@ function Dashboard() {
     <div className={"container-fluid pb-5 pt-5"+ " " + bgType + " " + textType} id='pricing'>
         <div className='w-75 mx-auto'>
         <h1 className="section-title pt-5">Dashboard</h1>
-        <p className='mb-5 text-center fs-3 lh-1'>Pagina principale dove accedere alle sezioni del gestionale, peer consultare i componenti, aggiungere componenti, consultare il magazzino ed i componenti divisi per categoria</p>
+        <p className='mb-5 text-center fs-3 lh-1 d-none d-sm-block'>Pagina principale dove accedere alle sezioni del gestionale, per consultare i componenti, aggiungere componenti, consultare il magazzino ed i componenti divisi per categoria</p>
         </div>
 
 
