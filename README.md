@@ -9,6 +9,7 @@ User can add Automotive components, filter by car model and type, check a single
 * Server built with Node.js and Express.js, Mongoose and MongoDB as database
 
 ## TODO
+* METTI A POSTO I LINK SIA SERVER CHE CLIENT
 * Scaricare json totale componenti
 * Articoli per pagina selezionabile ==> OOOOOK
 * Aggiungere status "Disponibile" o "Venduto" al componente
@@ -18,6 +19,8 @@ User can add Automotive components, filter by car model and type, check a single
 
 ## CLIENT
 * https://autoparts-gfw2.onrender.com
+## SERVER
+* https://autoparts-server-vdxv.onrender.com
 
 
 
