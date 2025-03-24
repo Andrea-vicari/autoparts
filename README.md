@@ -17,6 +17,21 @@ User can add Automotive components, filter by car model and type, check a single
 * Multiple Upload
 * Persistent disk o Amazon AWS
 
+## RENDER DEPLOYMENT NOTES
+* Prima da terminale digitare npm run build
+* CLIENT:
+* Prima fare deploy del client come static site usando come settings:
+* Root directory: client
+* Build Command: npm run build
+* Publish Directory : ./dist
+* SERVER:
+* Scegliere New > Web service
+* Name: autoparts server
+* Root Directory: server
+* Build Command: npm install
+* Start Command: node server.js
+* NEL CASO CAMBIARE I PERCORSI IN SERVER E CLIENT CON GLI INDIRIZZI SOTTOSTANTI
+
 ## CLIENT
 * https://autoparts-gfw2.onrender.com
 ## SERVER
