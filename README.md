@@ -11,7 +11,6 @@ User can add Automotive components, filter by car model and type, check a single
 ## TODO
 * METTI A POSTO I LINK SIA SERVER CHE CLIENT
 * Scaricare json totale componenti
-* Articoli per pagina selezionabile ==> OOOOOK
 * Aggiungere status "Disponibile" o "Venduto" al componente
 * Stampa etichette con QR code
 * Multiple Upload
@@ -32,10 +31,16 @@ User can add Automotive components, filter by car model and type, check a single
 * Start Command: node server.js
 * NEL CASO CAMBIARE I PERCORSI IN SERVER E CLIENT CON GLI INDIRIZZI SOTTOSTANTI
 
-## CLIENT
+## CLIENT RENDER
 * https://autoparts-gfw2.onrender.com
-## SERVER
+## SERVER RENDER
 * https://autoparts-server-vdxv.onrender.com
+
+## VERCEL DEPLOYMENT NOTES
+## CLIENT VERCEL
+* https://autoparts-client.vercel.app/login
+## SERVER VERCEL
+* https://autoparts-flame.vercel.app/api/componenti
 
 
 
