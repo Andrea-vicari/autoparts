@@ -42,8 +42,6 @@ User can add Automotive components, filter by car model and type, check a single
 ## SERVER VERCEL
 * https://autoparts-flame.vercel.app/api/componenti
 
-
-
 ## Technologies
 * Node.js
 * Express
