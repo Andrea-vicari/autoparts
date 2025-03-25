@@ -1,5 +1,5 @@
 const Componenti = require('../models/componentiModel');
-const mongoose = require('mongoose');
+
 
 // Vedi tutti i componenti
 const vediComponenti = async (req, res)=> {
@@ -12,9 +12,6 @@ const vediComponenti = async (req, res)=> {
 
 }
 
-const aggiungiComponente = async (req, res)=>{
-
-}
 
 // Vedi singolo componente
 const vediSingoloComp = async (req, res)=> {
@@ -169,8 +166,7 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
-        aggiungiComponente,
-	      vediSingoloComp,
+        vediSingoloComp,
         cancellaSingoloComponente,
         cercaComponente,
         singolaCategoria,

@@ -1,13 +1,21 @@
 const express = require('express');
 const Componenti = require('../models/componentiModel');
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser')
 const multer = require('multer')
 const path = require('path')
 
+const put = require ('@vercel/blob');
+
+
+
 const router = express.Router();
 
+ async function PUT(request) {
+	const form = await request.formData();
+	const file = form.get('file');
+	const blob = await put(file.name, file, { access: 'public' });
 
+	return Response.json(blob);
+  }
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -38,7 +46,7 @@ router.post('/', upload.single('file'), (req, res) => {
 		      marca:req.body.marca,
 		      modello:req.body.modello,
 		      versione:req.body.versione,
-          file: req.file.filename
+          	  file: req.file.filename
       })
         .then(result => res.json("Success"))
         .catch(err => res.json(err))
@@ -63,7 +71,6 @@ const {vediComponenti, aggiungiComponente, vediSingoloComp, cancellaSingoloCompo
 // Get
 router.get('/', vediComponenti);
 
-router.post('/', aggiungiComponente)
 
 // Get single
 router.get('/:id', vediSingoloComp);

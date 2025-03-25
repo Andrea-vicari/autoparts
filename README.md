@@ -17,7 +17,7 @@ User can add Automotive components, filter by car model and type, check a single
 * Persistent disk o Amazon AWS
 
 ## RENDER DEPLOYMENT NOTES
-* Prima da terminale digitare npm run build
+* Prima da terminale, directory client digitare npm run build
 * CLIENT:
 * Prima fare deploy del client come static site usando come settings:
 * Root directory: client
@@ -30,11 +30,6 @@ User can add Automotive components, filter by car model and type, check a single
 * Build Command: npm install
 * Start Command: node server.js
 * NEL CASO CAMBIARE I PERCORSI IN SERVER E CLIENT CON GLI INDIRIZZI SOTTOSTANTI
-
-## CLIENT RENDER
-* https://autoparts-gfw2.onrender.com
-## SERVER RENDER
-* https://autoparts-server-vdxv.onrender.com
 
 ## VERCEL DEPLOYMENT NOTES
 ## CLIENT VERCEL
