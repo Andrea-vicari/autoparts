@@ -38,7 +38,7 @@ User can add Automotive components, filter by car model and type, check a single
 
 ## VERCEL DEPLOYMENT NOTES
 ## CLIENT VERCEL
-* https://autoparts-client.vercel.app/login
+* https://autoparts-client.vercel.app/
 ## SERVER VERCEL
 * https://autoparts-flame.vercel.app/api/componenti
 
