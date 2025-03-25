@@ -1,5 +1,5 @@
 const Componenti = require('../models/componentiModel');
-const mongoose = require('mongoose');
+
 
 // Vedi tutti i componenti
 const vediComponenti = async (req, res)=> {
