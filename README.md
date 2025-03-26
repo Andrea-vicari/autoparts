@@ -17,10 +17,10 @@ User can add Automotive components, filter by car model and type, check a single
 * Persistent disk o Amazon AWS
 
  ### Demo
-👉 Live Deployment <a href="https://pulsefit-client.vercel.app/" target="_blank" > VERCEL</a>\
+👉 Live Deployment <a href="https://autoparts-client.vercel.app/" target="_blank" > VERCEL</a>\
 
 
-### User-Test
+### Login-Test
 Use below credentials to login to dashboard\
 👉 userdemo@autoparts-react.it\
 👉 D3moUser!
