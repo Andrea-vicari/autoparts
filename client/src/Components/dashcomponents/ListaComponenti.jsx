@@ -31,7 +31,7 @@ function ListaComponenti() {
   const [postsPerPage, setPostsPerPage] = useState(5);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/componenti')
+    fetch('https://autoparts-flame.vercel.app/api/componenti')
       .then(response => response.json())
       .then(componentiDalServer => {
         console.log("*****")
@@ -85,10 +85,10 @@ function ListaComponenti() {
         </div>
       </div>
 
-      <div className={"container-fluid mt-2 mb-0 py-3" + " " + bgType + " " + textType}>
-        <h3 className="mx-2 mb-1">Filtra il componente</h3>
-        <div className="row mt-4">
-        <div className="col-sm-6 border py-2">
+      <div className={"container-fluid mb-0 py-3" + " " + bgType + " " + textType}>
+        <h4 className="mx-2 mb-1" id='filtro_compon'>Filtra il componente</h4>
+        <div className="row border-bottom">
+        <div className="col-sm-6 py-2 pt-3">
         <input
           className="mb-2 mx-2 pb-1"
           type="text"
@@ -113,7 +113,7 @@ function ListaComponenti() {
 
         <button className='btn btn-outline-info py-1 rounded-0' onClick={()=>resettaRicerca()}>RESET</button>
         </div>
-        <div className="col-sm-2 border d-none d-sm-block">
+        <div className="col-sm-2 d-none d-sm-block">
         <div className='py-3'>
           <label>
           Componenti per pagina:
@@ -131,10 +131,14 @@ function ListaComponenti() {
         </div>
 
         <div className="col-sm-3 d-none d-sm-block">
-        <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
-            <i className="bi bi-plus-circle mx-2">
-            </i>Aggiungi Componente
-        </Link>
+          <div className='pt-3'>
+            <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
+              <i className="bi bi-plus-circle mx-2">
+              </i>Aggiungi Componente
+            </Link>
+
+          </div>
+
 
         </div>
       </div>

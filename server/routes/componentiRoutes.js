@@ -60,7 +60,7 @@ router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
 
 })
 
-const {vediComponenti, aggiungiComponente, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente, filtraComponente} = require('../controllers/componentiController');
+const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente, filtraComponente} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);

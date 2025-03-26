@@ -51,7 +51,7 @@ router.patch('/:id', uploadImage.single('file'), async (req, res)=>{
     */
 
     const { id } = req.params;
-    console.log("OIBO'!!!")
+
     // console.log(req.file.filename)
     console.log(id)
 

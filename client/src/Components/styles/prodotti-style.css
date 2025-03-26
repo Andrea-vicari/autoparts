@@ -1,9 +1,5 @@
 /* FOGLIO DI STILE PER LA PAGINA ELENCO PRODOTTI */
 
-/* HOVER GIALLO ALLA RIGA DI OGNI SINGOLO PRODOTTO */
-#riga-prodotto:hover{
-    background-color: #e0de0b
-}
 
 /*FONT SIZE DELL UBICAZIONE */
 #modello-componente{font-size: 0.7rem}
@@ -15,6 +11,14 @@
     background-size: cover;
 
   }
+
+/* Margine del div del filtra componente da mobile*/
+@media (max-width: 576px) {
+  #filtro_compon{
+    margin-top: 1.9rem;
+  }
+}
+
 
 /* MODAL IMAGES */
 #myImg {

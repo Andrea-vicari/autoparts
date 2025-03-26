@@ -11,7 +11,7 @@ export const useSignup = () =>{
         setisLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:8080/api/users/signup', {
+        const response = await fetch('https://autoparts-flame.vercel.app/api/users/signup', {
 
             method: 'POST',
             body: JSON.stringify({email, password, username}),

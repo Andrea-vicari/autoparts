@@ -25,7 +25,7 @@ function ResetPw() {
       setEmail(email)
       const user = {email}
 
-      const response = await fetch('http://localhost:8080/api/users/forgot-password', {
+      const response = await fetch('https://autoparts-flame.vercel.app/api/users/forgot-password', {
 
           method: 'POST',
           body: JSON.stringify(user),

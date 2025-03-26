@@ -26,7 +26,7 @@ const ModificaComponente = () =>{
   // Chiamata API al singolo prodotto
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti/${prodSingle}`, { mode: 'cors' });
+      const response = await fetch(`https://autoparts-flame.vercel.app/api/componenti/${prodSingle}`, { mode: 'cors' });
       const prodottoSingolo = await response.json();
       setProdottoSingolo(prodottoSingolo)
       console.log("======")
@@ -67,7 +67,7 @@ const ModificaComponente = () =>{
 
     useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/componenti/${prodSingle}`)
+      .get(`https://autoparts-flame.vercel.app/api/componenti/${prodSingle}`)
       .then((res) => {
 
         setComp({
@@ -123,7 +123,7 @@ const ModificaComponente = () =>{
     };
 
     axios
-      .patch(`http://localhost:8080/api/componenti/modifica/${prodSingle}`, data)
+      .patch(`https://autoparts-flame.vercel.app/api/componenti/modifica/${prodSingle}`, data)
       .then((res) => {
         navigate(`/dashboardpage`);
       })
@@ -137,7 +137,7 @@ const ModificaComponente = () =>{
 
         const formdata = new FormData()
         formdata.append('file', file)
-        axios.patch(`http://localhost:8080/api/componenti/aggiornaimage/${prodSingle}`, formdata)
+        axios.patch(`https://autoparts-flame.vercel.app/api/componenti/aggiornaimage/${prodSingle}`, formdata)
         .then(res=> res.status == 200 ? alert('Immagine caricata correttamente') : false)
          .catch(err => setError(err))
         console.log(error)
@@ -170,7 +170,7 @@ const ModificaComponente = () =>{
               <div className="mb-3 col-md-10">
                   <p>Clicca sull'immagine per modificarla</p>
                   <button className='btn' onClick={(e)=>openModal(e)}>
-                  <img src={`http://localhost:8080/images/${e.file}`} style={{ width: 320 }} />
+                  <img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 320 }} />
                   </button>
 
                 </div>

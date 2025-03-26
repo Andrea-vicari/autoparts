@@ -18,7 +18,7 @@ function ConsultaCategorie() {
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti`, { mode: 'cors' });
+      const response = await fetch(`https://autoparts-flame.vercel.app/api/componenti`, { mode: 'cors' });
       const listaComponenti = await response.json();
       setListaComponenti(listaComponenti)
 

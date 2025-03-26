@@ -45,7 +45,6 @@ const vediSingoloComp = async (req, res)=> {
 const cancellaSingoloComponente = async (req, res) =>{
 
    const { id } = req.params;
-   console.log("== KINGBOY ==")
    console.log("RICHIESTA CANCELLAZIONE PRODOTTO")
    console.log(id)
 
@@ -94,7 +93,6 @@ const singolaCategoria = async (req, res)=> {
 
     console.log("== ******** ==")
     console.log("Req from /id")
-    console.log("FERRA LI!!!!!")
 
     const { id } = req.params;
 
@@ -159,7 +157,6 @@ const filtraComponente = async (req, res)=> {
 const modificaComponente = async (req, res)=> {
 
 	const { id } = req.params;
-    console.log("== KINGBOY ==")
     console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
     console.log(id)
 

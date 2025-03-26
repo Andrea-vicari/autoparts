@@ -35,7 +35,10 @@ function Dashboard() {
                         <h4 className="my-0 fw-normal">Elenco componenti</h4>
                     </div>
                     <div className="card-body">
+                    <Link to="/elencocomponenti">
                     <img src={nuovoProdImg} className="img-fluid rounded mb-2"/>
+                    </Link>
+
                         <p>Accedi alla lista completa dei componenti presenti nel magazzino</p>
                         <Link to="/elencocomponenti" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">Vai all'elenco</Link>
                     </div>
@@ -47,7 +50,10 @@ function Dashboard() {
                         <h4 className="my-0 fw-normal">Aggiungi Componente</h4>
                     </div>
                     <div className="card-body">
-                    <img src={addProdImg} className="img-fluid rounded mb-2"/>
+                        <Link to="/nuovocomponente">
+                        <img src={addProdImg} className="img-fluid rounded mb-2"/>
+                        </Link>
+
                         <p>Sezione dove inserire un nuovo componente nel magazzino</p>
                         <Link to="/nuovocomponente" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">AGGIUNGI COMPONENTE</Link>
                     </div>
@@ -59,9 +65,12 @@ function Dashboard() {
                         <h4 className="my-0 fw-normal">Consulta Magazzino</h4>
                     </div>
                     <div className="card-body">
-                    <img src={consultaImg} className="img-fluid rounded mb-2"/>
+                        <Link to="/consultamagazzino">
+                        <img src={consultaImg} className="img-fluid rounded mb-2"/>
+                        </Link>
+
                         <p>Sezione dove ricercare un componente inserendone ubicazione</p>
-                        <Link to="/consultamagazzino" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA MAGAZZINO</Link>
+                        <Link  type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA MAGAZZINO</Link>
                     </div>
                     </div>
                 </div>
@@ -71,7 +80,10 @@ function Dashboard() {
                         <h4 className="my-0 fw-normal">Consulta Categorie</h4>
                     </div>
                     <div className="card-body">
-                    <img src={consultaCat} className="img-fluid rounded mb-2"/>
+                        <Link to="/consultacategorie">
+                        <img src={consultaCat} className="img-fluid rounded mb-2"/>
+                        </Link>
+
                         <p>Sezione dove ricercare un componente secondo la categoria</p>
                         <Link to="/consultacategorie" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA CATEGORIE</Link>
 

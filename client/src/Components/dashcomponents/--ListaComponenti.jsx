@@ -31,7 +31,7 @@ function ListaComponenti() {
   const [postsPerPage, setPostsPerPage] = useState(3);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/componenti')
+    fetch('https://autoparts-flame.vercel.app/api/componenti')
       .then(response => response.json())
       .then(componentiDalServer => {
         console.log("*****")

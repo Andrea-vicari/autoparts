@@ -23,7 +23,7 @@ app.use(cors(
     {
         // Use this in production (DO NOT PUT FINAL SLASH!!) //
         // Important!!: Do not forget allowedHeaders
-        origin: ["http://localhost:5173"],
+        origin: ["https://autoparts-client.vercel.app"],
         methods: ["POST", "GET", "PUT", "PATCH", "DELETE"],
         credentials: true,
         allowedHeaders: ['Content-Type'], // Specify allowed headers

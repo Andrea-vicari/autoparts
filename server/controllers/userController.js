@@ -105,7 +105,7 @@ const forgotPassword = async (req, res)=> {
             from: 'andrea.vicari77@gmail.com',
             to: email,
             subject: 'Reset password',
-            text: 'Password reset requested from PulseFit - Click the link to reset your password' + ' '  + `http://localhost:5173/newpassword/${token}`
+            text: 'Password reset requested from PulseFit - Click the link to reset your password' + ' '  + `https://autoparts-client.vercel.app/newpassword/${token}`
           };
 
           transporter.sendMail(mailOptions, function(error, info){

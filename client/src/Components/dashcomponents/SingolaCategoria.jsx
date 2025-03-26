@@ -26,7 +26,7 @@ function SingolaCategoria() {
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/componenti/singolacategoria/${singolaCat}`, { mode: 'cors' });
+      const response = await fetch(`https://autoparts-flame.vercel.app/api/componenti/singolacategoria/${singolaCat}`, { mode: 'cors' });
       const componente = await response.json();
       setComponente(componente)
 
@@ -81,7 +81,7 @@ function SingolaCategoria() {
                 {componente.map((e) => {
                   return (
                     <tr key={e._id}>
-                      <td><img src={`http://localhost:8080/images/${e.file}`} style={{ width: 120 }} /></td>
+                      <td><img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 120 }} /></td>
                       <td className='pt-3'>{e.codice}</td>
                       <td className='pt-3'>{e.nome}</td>
                       <td className='pt-3'>{e.categoria}</td>

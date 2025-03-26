@@ -39,7 +39,7 @@ function CancellaComponente() {
 
 	openModal()
 
-  axios.delete(`http://localhost:8080/api/componenti/delete/${componenteDaCancID}`)
+  axios.delete(`https://autoparts-flame.vercel.app/api/componenti/delete/${componenteDaCancID}`)
 
 
  }

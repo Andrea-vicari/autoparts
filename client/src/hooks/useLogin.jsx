@@ -11,7 +11,7 @@ export const useLogin = () =>{
         setisLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:8080/api/users/login', {
+        const response = await fetch('https://autoparts-flame.vercel.app/api/users/login', {
             mode:"cors",
             method: 'POST',
             body: JSON.stringify({email, password}),

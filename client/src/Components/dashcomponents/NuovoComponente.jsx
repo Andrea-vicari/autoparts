@@ -65,7 +65,7 @@ const NuovoComponente = () => {
 		    formData.append('versione', versione),
         formData.append('unicoID', unicoID)
 
-        axios.post('http://localhost:8080/api/componenti', formData)
+        axios.post('https://autoparts-flame.vercel.app/api/componenti', formData)
         .then(res => {
             if(res.data === "Success") {
                 openModal()
