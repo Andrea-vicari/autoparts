@@ -3,19 +3,13 @@ const Componenti = require('../models/componentiModel');
 const multer = require('multer')
 const path = require('path')
 
-const put = require ('@vercel/blob');
+
 
 
 
 const router = express.Router();
 
- async function PUT(request) {
-	const form = await request.formData();
-	const file = form.get('file');
-	const blob = await put(file.name, file, { access: 'public' });
 
-	return Response.json(blob);
-  }
 
 // Configure multer storage
 const storage = multer.diskStorage({
