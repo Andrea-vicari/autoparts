@@ -15,6 +15,7 @@ app.use(express.json());
 
 //app.use(express.static(path.join(process.cwd(), 'public')))
 //app.use('public', express.static(path.join(__dirname,'public')));
+// USA questo per far comparire le immagini da /public/images
 app.use(express.static(path.join(__dirname, 'public')));
 
 console.log(process.cwd())
