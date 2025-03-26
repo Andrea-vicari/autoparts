@@ -11,14 +11,14 @@ export default function LigthBox({immagine}) {
 
 
 
-      <img src={`https://autoparts-flame.vercel.app/images/${immagine}`} style={{ width: 120 }} type="button" onClick={() => setOpen(true)}/>
+      <img src={`https://autoparts-flame.vercel.app/public/images/${immagine}`} style={{ width: 120 }} type="button" onClick={() => setOpen(true)}/>
 
 
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={[
-          { src: `https://autoparts-flame.vercel.app/images/${immagine}` }
+          { src: `https://autoparts-flame.vercel.app/public/images/${immagine}` }
         ]}
       />
     </>
