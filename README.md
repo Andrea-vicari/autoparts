@@ -9,12 +9,29 @@ User can add Automotive components, filter by car model and type, check a single
 * Server built with Node.js and Express.js, Mongoose and MongoDB as database
 
 ## TODO
-* METTI A POSTO I LINK SIA SERVER CHE CLIENT
+* Lista da consulta magazzino e categorie: Non c'è il componente Lightbox
 * Scaricare json totale componenti
 * Aggiungere status "Disponibile" o "Venduto" al componente
 * Stampa etichette con QR code
 * Multiple Upload
 * Persistent disk o Amazon AWS
+
+ ### Demo
+👉 Live Deployment <a href="https://pulsefit-client.vercel.app/" target="_blank" > VERCEL</a>\
+
+
+### User-Test
+Use below credentials to login to dashboard\
+👉 userdemo@autoparts-react.it\
+👉 D3moUser!
+
+## VERCEL DEPLOYMENT
+## CLIENT VERCEL
+* https://autoparts-client.vercel.app/
+## SERVER VERCEL
+* https://autoparts-flame.vercel.app/api/componenti
+
+
 
 ## RENDER DEPLOYMENT NOTES
 * Prima da terminale, directory client digitare npm run build
@@ -31,11 +48,7 @@ User can add Automotive components, filter by car model and type, check a single
 * Start Command: node server.js
 * NEL CASO CAMBIARE I PERCORSI IN SERVER E CLIENT CON GLI INDIRIZZI SOTTOSTANTI
 
-## VERCEL DEPLOYMENT NOTES
-## CLIENT VERCEL
-* https://autoparts-client.vercel.app/
-## SERVER VERCEL
-* https://autoparts-flame.vercel.app/api/componenti
+
 
 ## Technologies
 * Node.js

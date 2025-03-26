@@ -28,7 +28,7 @@ function Login() {
         <section className="py-5 bg-login">
 
         <div className="container-fluid px-5">
-          <div className='w-75 mx-auto'>
+          <div className='w-100 mx-auto'>
             <div className="row">
 
               <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-3" + " " + bgType}>
