@@ -9,8 +9,9 @@ function Login() {
     // Dark Theme logics
     const themeType = useSelector((state) => state.counter.value)
     let bgType, textType;
-    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-black"
+    themeType == "ligth" ? bgType = "bg-body-secondary" : bgType = "bg-dark"
     themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
+
 
     // Submit functions
     const [email, setEmail] = useState('')
@@ -25,13 +26,13 @@ function Login() {
 
   return (
     <React.Fragment>
-        <section className="py-5 bg-login">
+        <section className="py-5 bg-login mt-5 pb-5">
 
-        <div className="container-fluid px-5">
+        <div className="container-fluid px-5 pb-5 mb-5">
           <div className='w-100 mx-auto'>
             <div className="row">
 
-              <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-3" + " " + bgType}>
+              <div className={"mt-5 rounded-3 col-sm-10 mx-auto pt-5 pb-5" + " " + bgType}>
                 <h1 className='text-primary text-uppercase'>Benvenuto!</h1>
                 <p>Accedi per inserire o consultare articoli nel magazzino virtuale</p>
                 <div className={"mx-auto" + textType}>
@@ -43,7 +44,7 @@ function Login() {
                       </label>
                       <input
                         type="email"
-                        placeholder="Insert Email"
+                        placeholder="Inserisci email"
                         autoComplete="off"
                         name="email"
                         className="form-control rounded-0"
@@ -57,7 +58,7 @@ function Login() {
                       </label>
                       <input
                         type="password"
-                        placeholder="Insert Password"
+                        placeholder="Inserisci Password"
                         name="password"
                         className="form-control rounded-0"
                         onChange={(e) => setPassword(e.target.value)}
@@ -69,10 +70,6 @@ function Login() {
                     </button>
                     {error && <div className="error text-danger fs-4 mt-3">{error}</div>}
                   </form>
-                  <p className="mt-5">Non hai in account?</p>
-                  <Link to="/register" className="btn btn-warning border w-100 bg-light rounded-0 text-decoration-none">
-                    Registrati
-                  </Link>
                   <p className="mt-5">Password dimenticata?</p>
                   <Link to="/resetpassword" className="btn btn-warning border w-100 bg-light rounded-0 text-decoration-none">
                     Resetta password
