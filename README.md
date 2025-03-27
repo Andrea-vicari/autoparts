@@ -68,18 +68,6 @@ Use below credentials to login to dashboard\
 * jsonwebtoken
 * validator
 
- ### Demo
-👉 Live Deployment <a href="https://pulsefit-client.vercel.app/" target="_blank" > VERCEL</a>\
-👉 Video Demo on <a href="https://youtu.be/Gjjc0ujPXWE?feature=shared" target="_blank" > YouTube</a>
-
-### User-Test
-Use below credentials to log-in as a user (Some workouts are available)\
-👉 userdemo@fitnessreact.it\
-👉 D3moUser!
-
-### Trainer-Test
-Use below credentials to log-in as a trainer\
-👉 trainerDemo@fitnessreact.it\
 👉 D3moTrainer!
 
 
