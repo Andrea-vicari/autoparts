@@ -68,7 +68,6 @@ Use below credentials to login to dashboard\
 * jsonwebtoken
 * validator
 
-👉 D3moTrainer!
 
 
 
