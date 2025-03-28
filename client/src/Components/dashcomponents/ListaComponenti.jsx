@@ -140,12 +140,19 @@ function ListaComponenti() {
               </i>Aggiungi Componente
             </Link>
             */}
+          </div>
+        </div>
+        <div className="col-sm-3 d-none d-sm-block">
+          <div className='pt-3'>
 
+            <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
+              <i className="bi bi-plus-circle mx-2">
+              </i>Aggiungi Componente
+            </Link>
 
           </div>
-
-
         </div>
+
       </div>
 
       </div>
