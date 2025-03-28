@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 
-function Dowloader() {
+function Downloader() {
 
         const [componenti, setComponenti] = useState([])
         // initialize the loading state as true
