@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import ListaVuotaConsulta from './ListaVuotaConsulta'
+import LigthBox from './LigthBox';
 
 
 function ConsultaMagazzino() {
@@ -176,7 +177,8 @@ function ConsultaMagazzino() {
                 {componente.map((e) => {
                   return (
                     <tr key={e._id}>
-                      <td><img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 120 }} /></td>
+                      <td><LigthBox immagine={e.file}/></td>
+		      {/* <td><img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 120 }} /></td> */}
                       <td className='pt-3'>{e.codice}</td>
                       <td className='pt-3'>{e.nome}</td>
                       <td className='pt-3'>{e.categoria}</td>
