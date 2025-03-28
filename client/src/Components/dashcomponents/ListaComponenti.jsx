@@ -120,7 +120,7 @@ function ListaComponenti() {
           Componenti per pagina:
           <select value={postsPerPage}
             onChange={e => setPostsPerPage(e.target.value)}
-            className='mx-5' name="compPerPage">
+            className='mx-3' name="compPerPage">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
