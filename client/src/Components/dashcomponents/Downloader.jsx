@@ -44,21 +44,12 @@ function Downloader() {
       a.remove()
     }
 
-    // Cambia UserData
-    const exportToJson = e => {
-      e.preventDefault()
-      downloadFile({
-        data: JSON.stringify(componenti.nome),
-        fileName: 'users.json',
-        fileType: 'text/json',
-      })
-    }
     const exportToCsv = e => {
       e.preventDefault()
       // Headers for each column
       let headers = ['Nome']
       // Convert users data to a csv
-      let usersCsv = componenti.users.reduce((acc, user) => {
+      let usersCsv = componenti.reduce((acc, user) => {
         const { nome } = user
         acc.push([nome].join(','))
         return acc
@@ -98,9 +89,6 @@ function Downloader() {
         </tbody>
       </table>
       <div className='actionBtns'>
-        <button type='button' onClick={exportToJson}>
-          Export to JSON
-        </button>
         <button type='button' onClick={exportToCsv}>
           Export to CSV
         </button>
