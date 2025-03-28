@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
-
+import LigthBox from './LigthBox';
 var singolaCat
 
 function SingolaCategoria() {
