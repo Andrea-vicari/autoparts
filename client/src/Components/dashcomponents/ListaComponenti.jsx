@@ -115,12 +115,12 @@ function ListaComponenti() {
         <button className='btn btn-outline-info py-1 rounded-0' onClick={()=>resettaRicerca()}>RESET</button>
         </div>
         <div className="col-sm-2 d-none d-sm-block">
-        <div className='py-3'>
+        <div className='py-4'>
           <label>
           Componenti per pagina:
           <select value={postsPerPage}
             onChange={e => setPostsPerPage(e.target.value)}
-            className='mx-3' name="compPerPage">
+            className='mx-5' name="compPerPage">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
