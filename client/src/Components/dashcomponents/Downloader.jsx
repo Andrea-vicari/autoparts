@@ -1,4 +1,4 @@
-import React from 'react'
+.import React from 'react'
 import { useState, useEffect } from 'react'
 
 
@@ -89,8 +89,8 @@ function Downloader() {
           {componenti.map(user => {
             const { nome } = user
             return (
-              <tr key={_id}>
-                <td>{nome}</td>
+              <tr key={user._id}>
+                <td>{user.nome}</td>
                 
               </tr>
             )
