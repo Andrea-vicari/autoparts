@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Lista from './Lista'
+import Downloader from './Downloader';
 import Pagination from './Pagination'
 
 
@@ -132,10 +133,14 @@ function ListaComponenti() {
 
         <div className="col-sm-3 d-none d-sm-block">
           <div className='pt-3'>
+            <Downloader componenti={componenti}/>
+            {/*
             <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
               <i className="bi bi-plus-circle mx-2">
               </i>Aggiungi Componente
             </Link>
+            */}
+
 
           </div>
 
