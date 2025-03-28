@@ -4,6 +4,9 @@ import React from 'react'
 
 function Downloader({ componenti }) {
 
+      var dataCreazioneFileCSV = new Date().toDateString()
+      console.log(dataCreazioneFileCSV)
+
       const downloadFile = ({ data, fileName, fileType }) => {
       const blob = new Blob([data], { type: fileType })
       const a = document.createElement('a')

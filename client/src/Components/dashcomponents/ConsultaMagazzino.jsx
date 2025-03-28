@@ -65,7 +65,7 @@ function ConsultaMagazzino() {
 
       <section className={"py-3" + " " + bgType + " " + textType}>
 
-        <div className="container-fluid mt-0 pt-0">
+        <div className="container mt-0 pt-0">
           <div className="d-flex justify-content-center align-items-center py-5">
             <div className={"p-3 rounded w-100 " + bgType + textType}>
               <h2 className={textType}>Inserisci Scaffale, Campata, Ripiano e cassetta e poi clicca Consulta</h2>
