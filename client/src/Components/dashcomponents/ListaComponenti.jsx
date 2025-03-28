@@ -130,21 +130,22 @@ function ListaComponenti() {
 
 
         </div>
+        <div className="d-flex justify-content-end">
+          <div className="col-sm-2 d-none d-sm-block">
+            <div className='pt-3'>
+              <Downloader componenti={componenti}/>
 
-        <div className="col-sm-2 d-none d-sm-block">
-          <div className='pt-3'>
-            <Downloader componenti={componenti}/>
-
+            </div>
           </div>
-        </div>
-        <div className="col-sm-2 d-none d-sm-block">
-          <div className='pt-3'>
+          <div className="col-sm-2 d-none d-sm-block">
+            <div className='pt-3'>
 
-            <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
-              <i className="bi bi-plus-circle mx-2">
-              </i>Aggiungi Componente
-            </Link>
+              <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
+                <i className="bi bi-plus-circle mx-2">
+                </i>Aggiungi Componente
+              </Link>
 
+            </div>
           </div>
         </div>
 
