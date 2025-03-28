@@ -8,7 +8,7 @@ function ElencoComponentiPage() {
   return (
     <>
     <Navbar />
-    <Downloader />
+    <ListaComponenti />
     <Footer />
     </>
   )
