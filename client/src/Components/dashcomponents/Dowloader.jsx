@@ -1,7 +1,34 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 
 function Dowloader() {
+
+        const [componenti, setComponenti] = useState([])
+        // initialize the loading state as true
+        const [loading, setLoading] = useState(true)
+        // initialize the error state as null
+        const [error, setError] = useState(null)
+
+        useEffect(() => {
+       fetch('https://autoparts-flame.vercel.app/api/componenti')
+      .then(response => response.json())
+      .then(componentiDalServer => {
+        console.log("*****")
+        console.log(componentiDalServer)
+        setComponenti(componentiDalServer)
+        })
+      .catch(err => {
+        console.log(err)
+        // update the error state
+        setError(err)
+      })
+      .finally(() => {
+        // wether we sucessfully get the users or not,
+        // we update the loading state
+        setLoading(false)
+      })
+  }, [])
 
       const downloadFile = ({ data, fileName, fileType }) => {
       const blob = new Blob([data], { type: fileType })
