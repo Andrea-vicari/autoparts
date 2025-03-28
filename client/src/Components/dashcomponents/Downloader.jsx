@@ -22,13 +22,13 @@ function Downloader({ componenti }) {
     const esportaCsv = e => {
       e.preventDefault()
       // Headers for each column
-      let headers = ['Nome']
+      let headers = ['nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID']
 
       let listaCsv = componenti.reduce((acc, componentiLista) => {
-        {/* const { id, name, surname, age } = user */}
-        const { nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, modello, versione, anno, unicoID } = componentiLista
-        {/* acc.push([id, name, surname, age].join(',')) */}
-        acc.push([nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, modello, versione, anno, unicoID].join(','))
+
+        const { nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID } = componentiLista
+
+        acc.push([nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID].join(','))
         return acc
       }, [])
       downloadFile({
