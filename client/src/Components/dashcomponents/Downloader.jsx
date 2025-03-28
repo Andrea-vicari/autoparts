@@ -33,7 +33,7 @@ function Downloader({ componenti }) {
       }, [])
       downloadFile({
         data: [...headers, ...usersCsv].join('\n'),
-        fileName: 'users.csv',
+        fileName: 'ListaComponenti' + "-" + dataCreazioneFileCSV + '.csv',
         fileType: 'text/csv',
       })
     }
