@@ -1,4 +1,4 @@
-.import React from 'react'
+import React from 'react'
 import { useState, useEffect } from 'react'
 
 
@@ -43,7 +43,7 @@ function Downloader() {
       a.dispatchEvent(clickEvt)
       a.remove()
     }
-    
+
     // Cambia UserData
     const exportToJson = e => {
       e.preventDefault()
@@ -72,7 +72,7 @@ function Downloader() {
 
 
 
-  
+
   return (
     <div className='App'>
       <h1>How to download CSV and JSON files in React</h1>
@@ -91,7 +91,7 @@ function Downloader() {
             return (
               <tr key={user._id}>
                 <td>{user.nome}</td>
-                
+
               </tr>
             )
           })}
