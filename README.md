@@ -9,7 +9,7 @@ User can add Automotive components, filter by car model and type, check a single
 * Server built with Node.js and Express.js, Mongoose and MongoDB as database
 
 ## TODO
-* Lista da consulta magazzino e categorie: Non c'è il componente Lightbox
+* Lista da consulta magazzino: Non c'è il componente Lightbox
 * Scaricare json totale componenti
 * Aggiungere status "Disponibile" o "Venduto" al componente
 * Stampa etichette con QR code
