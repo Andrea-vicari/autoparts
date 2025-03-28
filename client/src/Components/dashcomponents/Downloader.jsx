@@ -38,7 +38,8 @@ function Downloader({ componenti }) {
     <>
 
         <button onClick={exportToCsv} type="button" className="btn btn-outline-success">
-          Export to CSV
+        <i className="bi bi-plus-circle mx-2">
+        </i>Esporta Lista CSV
         </button>
 
     </>
