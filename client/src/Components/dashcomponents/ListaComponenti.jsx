@@ -130,14 +130,14 @@ function ListaComponenti() {
 
 
         </div>
-        <div className="d-flex justify-content-end">
-          <div className="col-sm-2 d-none d-sm-block">
+
+          <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
               <Downloader componenti={componenti}/>
 
             </div>
           </div>
-          <div className="col-sm-2 d-none d-sm-block">
+          <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
 
               <Link to="/nuovocomponente" type="button" className="btn btn-outline-success">
@@ -151,7 +151,7 @@ function ListaComponenti() {
 
       </div>
 
-      </div>
+
           <section className={"py-3" + " " + bgType + " " + textType}>
         <div className="container-fluid mt-1 pt-0">
           <div className='table-responsive-lg mt-2'>
