@@ -37,7 +37,7 @@ function Downloader({ componenti }) {
   return (
     <>
 
-        <button onClick={exportToCsv} type="button" className="btn btn-outline-success">
+        <button onClick={exportToCsv} type="button" className="btn btn-outline-success rounded-0">
         <i className="bi bi-file-earmark-arrow-down mx-2">
         </i>Esporta Lista CSV
         </button>
