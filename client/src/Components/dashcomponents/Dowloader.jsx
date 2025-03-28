@@ -48,7 +48,7 @@ function Dowloader() {
     const exportToJson = e => {
       e.preventDefault()
       downloadFile({
-        data: JSON.stringify(usersData.users),
+        data: JSON.stringify(componenti.nome),
         fileName: 'users.json',
         fileType: 'text/json',
       })
@@ -56,11 +56,11 @@ function Dowloader() {
     const exportToCsv = e => {
       e.preventDefault()
       // Headers for each column
-      let headers = ['Id,Name,Surname,Age']
+      let headers = ['Nome']
       // Convert users data to a csv
-      let usersCsv = usersData.users.reduce((acc, user) => {
-        const { id, name, surname, age } = user
-        acc.push([id, name, surname, age].join(','))
+      let usersCsv = componenti.users.reduce((acc, user) => {
+        const { nome } = user
+        acc.push([nome].join(','))
         return acc
       }, [])
       downloadFile({
@@ -110,4 +110,4 @@ function Dowloader() {
     </div>
   )
 }
-export default Dowloader
+export default Downloader
