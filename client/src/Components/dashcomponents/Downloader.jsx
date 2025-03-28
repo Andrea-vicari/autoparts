@@ -86,8 +86,8 @@ function Downloader() {
           </tr>
         </thead>
         <tbody>
-          {componenti.users.map(user => {
-            const { id, name, surname, age } = user
+          {componenti.map(user => {
+            const { nome } = user
             return (
               <tr key={id}>
                 <td>{id}</td>
