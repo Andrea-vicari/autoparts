@@ -67,15 +67,23 @@ function Downloader() {
   return (
     <div className='App'>
       <h1>How to download CSV and JSON files in React</h1>
-      <table className='usersTable'>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Age</th>
-          </tr>
-        </thead>
+      <table className={"table table-striped table-hover"}>
+      <thead className='text-uppercase'>
+                <tr>
+                  <th scope="col">Immagine</th>
+                  <th scope="col">Codice</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Cat</th>
+                  <th scope="col">Condizione</th>
+                  <th scope="col">Marca</th>
+                  <th scope="col">Modello</th>
+                  <th scope="col">Versione</th>
+                  <th scope="col">Anno</th>
+                  <th scope="col">Ubicazione</th>
+                  <th scope="col">Peso</th>
+                  <th scope="col">Gestisci</th>
+                </tr>
+              </thead>
         <tbody>
           {componenti.map(user => {
             const { nome } = user
