@@ -3,15 +3,14 @@
 Repository for Automotive warehouse React Application.\
 **Full STACK** application built with Node, Express, MongoDB and React.\
 User can add Automotive components, filter by car model and type, check a single warehouse presence.
-## Features
-* MERN Full Stack Project
-* Users registration made with BCrypt and JWT web Token
-* Server built with Node.js and Express.js, Mongoose and MongoDB as database
+    ## Features
+    * MERN Full Stack Project
+    * Users registration made with BCrypt and JWT web Token
+    * Server built with Node.js and Express.js, Mongoose and MongoDB as database
 
 ## TODO
-* Scaricare json totale componenti
+* Creare componente DownloadEtichette => in PDF con QR code
 * Aggiungere status "Disponibile" o "Venduto" al componente
-* Stampa etichette con QR code
 * Multiple Upload
 * Persistent disk o Amazon AWS
 

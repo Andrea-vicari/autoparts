@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Downloader({ componenti }) {
+function ScaricaListaCompCSV({ componenti }) {
 
       var dataCreazioneFileCSV = new Date().toDateString()
       console.log(dataCreazioneFileCSV)
@@ -48,4 +48,4 @@ function Downloader({ componenti }) {
     </>
   )
 }
-export default Downloader
+export default ScaricaListaCompCSV
