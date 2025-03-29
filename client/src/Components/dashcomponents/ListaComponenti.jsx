@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Lista from './Lista'
 import ScaricaListaCompCSV from './ScaricaListaCompCSV';
-import Etichetta from './Etichetta';
+// import Etichetta from './Etichetta';
 import Pagination from './Pagination'
 
 
@@ -134,9 +134,8 @@ function ListaComponenti() {
 
           <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
-              {/* <ScaricaListaCompCSV componenti={componenti}/> */}
 
-              <Etichetta componenti={componenti}/>
+              <ScaricaListaCompCSV componenti={componenti}/>
 
             </div>
           </div>
