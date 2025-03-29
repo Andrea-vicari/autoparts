@@ -33,8 +33,8 @@ function Etichetta({ componenti }) {
       }, [])
       downloadFile({
         data: [...headers, ...listaCsv].join('\n'),
-        fileName: 'ListaComponenti' + "-" + dataCreazioneEtichetta + '.csv',
-        fileType: 'text/csv',
+        fileName: 'ListaComponenti' + "-" + dataCreazioneEtichetta + '.pdf',
+        fileType: 'file/pdf',
       })
     }
   return (
@@ -42,7 +42,7 @@ function Etichetta({ componenti }) {
 
         <button onClick={esportaCsv} type="button" className="btn btn-outline-success rounded-0">
         <i className="bi bi-file-earmark-arrow-down mx-2">
-        </i>Esporta Lista CSV
+        </i>Scarica Etichetta
         </button>
 
     </>
