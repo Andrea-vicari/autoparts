@@ -132,7 +132,7 @@ function ListaComponenti() {
 
         </div>
 
-          <div className="col-sm-2 d-sm-flex justify-content-end">
+          <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
 
               <ScaricaListaCompCSV componenti={componenti}/>
