@@ -49,9 +49,7 @@ const Lista = ({ componenti, loading }) => {
                   <Link to={`/cancellacomponente/${data.unicoID}`} state={data.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
                     <i className='bi bi-trash'></i>
                   </Link>
-                  <button type="button" className="btn btn-sm btn-outline-danger mx-1">
-                    <i className='bi bi-printer'></i>
-                  </button>
+
                 </td>
 
 
