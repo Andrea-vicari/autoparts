@@ -1,51 +1,49 @@
 const express = require('express');
 const Componenti = require('../models/componentiModel');
 const multer = require('multer')
-const path = require('path')
-
-
-
-
+const cloudinary = require('cloudinary').v2;
 
 const router = express.Router();
 
+async function handleUpload(file) {
 
+    const res = await cloudinary.uploader.upload(file, {
+    resource_type: "auto",
+    });
+    console.log(res)
+    return res;
+}
 
-// Configure multer storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/images');
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
-  }
+const storage = new multer.memoryStorage();
+
+const upload = multer({
+  storage,
 });
-const upload = multer({ storage: storage });
 
-router.post('/', upload.single('file'), (req, res) => {
-    	  Componenti.create({
-			  nome: req.body.nome,
-			  unicoID: req.body.unicoID,
-			  categoria:req.body.categoria,
-			  annoImmatricolazione:req.body.annoImmatricolazione,
-			  categoria: req.body.categoria,
-			  descrizione: req.body.descrizione,
-			  codice:req.body.codice,
-		      condizione:req.body.condizione,
-		      peso:req.body.peso,
-		      campata:req.body.campata,
-		      scaffale:req.body.scaffale,
-		      ripiano:req.body.ripiano,
-		      cassetta:req.body.cassetta,
-		      marca:req.body.marca,
-		      modello:req.body.modello,
-		      versione:req.body.versione,
-          	  file: req.file.filename
-      })
-        .then(result => res.json("Success"))
-        .catch(err => res.json(err))
-} )
+const {creaComponente, vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente, filtraComponente} = require('../controllers/componentiController');
 
+router.post("/upload", upload.single("my_file"), async (req, res) => {
+	try {
+	  const b64 = Buffer.from(req.file.buffer).toString("base64");
+	  let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+
+	  const cldRes = await handleUpload(dataURI);
+
+	  res.json(cldRes);
+	} catch (error) {
+	  console.log(error);
+	  res.send({
+		message: error.message,
+	  });
+	}
+  });
+
+router.post('/crea-componente', creaComponente);
+
+
+
+
+/*
 router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
 
 	const { id } = req.params;
@@ -59,8 +57,8 @@ router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
 
 
 })
+*/
 
-const {vediComponenti, vediSingoloComp, cancellaSingoloComponente, cercaComponente, singolaCategoria, singolaUbicazione, modificaComponente, filtraComponente} = require('../controllers/componentiController');
 
 // Get
 router.get('/', vediComponenti);
@@ -87,7 +85,7 @@ router.get('/filtra/:marca/:modello', filtraComponente);
 
 
 // Nuovo aggiorna
-router.put('/modifica/:id', modificaComponente);
+router.patch('/modifica/:id', modificaComponente);
 
 // Pagination
 

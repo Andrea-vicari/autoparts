@@ -1,6 +1,26 @@
 const Componenti = require('../models/componentiModel');
 
 
+// Create a NEW workout:
+const creaComponente = async (req, res)=> {
+
+  console.log("Req from /crea-componente")
+  console.log(req.body)
+
+
+    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine, unicoID} = req.body
+
+    try{
+        const singoloComponente = await Componenti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine, unicoID})
+        res.status(200).json(singoloComponente)
+    }
+
+    catch(error){
+        res.status(400).json({error: error.message})
+    }
+
+}
+
 // Vedi tutti i componenti
 const vediComponenti = async (req, res)=> {
 
@@ -20,7 +40,12 @@ const vediSingoloComp = async (req, res)=> {
     console.log("Req from /id")
     console.log("Vedi singolo componente")
 
+
+
     const { id } = req.params;
+
+    console.log(id)
+
 
      const singoloComponente = await Componenti.find({"unicoID":id});
 
@@ -150,6 +175,9 @@ const modificaComponente = async (req, res)=> {
     console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
     console.log(id)
 
+    console.log("BODY della request")
+    console.log(req)
+
 	Componenti.findOneAndUpdate({unicoID: id}, req.body)
     .then(comp => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
@@ -163,6 +191,7 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediComponenti,
+        creaComponente,
         vediSingoloComp,
         cancellaSingoloComponente,
         cercaComponente,

@@ -58,7 +58,7 @@ const componentiSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    file:{
+    urlImmagine:{
             type: String,
             required: false
     },

@@ -1,14 +1,14 @@
 import React from 'react'
 import Footer from '../../Components/Common/Footer';
 import Navbar from '../../Components/Common/DashNav';
-import NuovoComponente from '../../Components/dashcomponents/NuovoComponente';
+import AggiungiImmagine from '../../Components/dashcomponents/AggiungiImmagine';
 
 
 function NuovoComponentePage() {
   return (
     <>
     <Navbar />
-    <NuovoComponente />
+    <AggiungiImmagine />
     <Footer />
     </>
   )

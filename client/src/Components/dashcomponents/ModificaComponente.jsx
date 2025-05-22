@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 import {  Link, useLocation,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import logo from "../../assets/images/logo-autoparts-footer.svg";
 
 var prodSingle
 
-const ModificaComponente = () =>{
+const ModificaComponente = ({immagine}) =>{
 
   const themeType = useSelector((state) => state.counter.value)
 
@@ -19,6 +18,10 @@ const ModificaComponente = () =>{
 
   let clicked = useLocation();
   prodSingle = clicked.state
+
+  console.log(prodSingle)
+
+  console.log(immagine)
 
   const [error, setError] = useState(null)
   const [prodottoSingolo, setProdottoSingolo] = useState([]);
@@ -41,6 +44,13 @@ const ModificaComponente = () =>{
       makeAPICall();
   }, [])
 
+
+
+  //console.log(prodottoSingolo[0].nome)
+
+  //prodottoSingolo.map(ele=>{console.log(ele.nome)})
+
+
   // Use state modifica componenti tranne immagine
   const [comp, setComp] = useState({
     nome: '',
@@ -56,12 +66,11 @@ const ModificaComponente = () =>{
     annoImmatricolazione:'',
     marca: '',
     modello: '',
-    versione:''
+    versione:'',
+    urlImmagine:immagine
   });
 
 
-     // Set file della modifica immagine
-	const [file, setFile ] = useState()
 
   const navigate = useNavigate();
 
@@ -84,7 +93,8 @@ const ModificaComponente = () =>{
           annoImmatricolazione:res.data.annoImmatricolazione,
           marca:res.data.marca,
           modello:res.data.modello,
-          versione:res.data.versione
+          versione:res.data.versione,
+          urlImmagine:immagine
           });
           console.log(res)
       })
@@ -98,6 +108,7 @@ const ModificaComponente = () =>{
 
 
     const onChange = (e) => {
+
     setComp({ ...comp, [e.target.name]: e.target.value });
   };
 
@@ -119,7 +130,7 @@ const ModificaComponente = () =>{
       marca:comp.marca,
       modello:comp.modello,
       versione:comp.versione,
-      file:comp.file
+      urlImmagine:immagine
     };
 
     axios
@@ -133,49 +144,28 @@ const ModificaComponente = () =>{
       });
   };
 
-        const modImage = () =>{
 
-        const formdata = new FormData()
-        formdata.append('file', file)
-        axios.patch(`https://autoparts-flame.vercel.app/api/componenti/aggiornaimage/${prodSingle}`, formdata)
-        .then(res=> res.status == 200 ? alert('Immagine caricata correttamente') : false)
-         .catch(err => setError(err))
-        console.log(error)
-        console.log(file)
-      }
 
-	// Modale
-	      function closeModal(){
-        document.getElementById('modale_mod_img').classList.remove("d-block")
 
-      }
-      function openModal(e){
-	  e.preventDefault()
-        document.getElementById('modale_mod_img').classList.add("d-block")
-
-      }
 
     return (
-      <div className={"container-fluid pt-0 " + bgType}>
-      <div className={"container py-5 " + bgType}>
+      <>
 
-        <div className="d-flex justify-content-center align-items-center py-5">
+      <div className={"container-fluid pt-0 " + bgType}>
+      <div className={"container  " + bgType}>
+
+        <div className="d-flex justify-content-center align-items-center ">
           <div className={"p-3 rounded w-100 " + bgType + textType}>
-            <h2 className={textType}>Visualizza/  Modifica componente</h2>
+
+
 		 {prodottoSingolo.map((e) => {
                 return (
 
             <form onSubmit={onSubmit} key={e.unicoID}>
               <div className="row g-3">
-              <div className="mb-3 col-md-10">
-                  <p>Clicca sull'immagine per modificarla</p>
-                  <button className='btn' onClick={(e)=>openModal(e)}>
-                  <img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 320 }} />
-                  </button>
-
-                </div>
                 <div className="mb-3 col-md-4">
                   <label htmlFor='nome'>Nome</label>
+
                     <input
                       type='text'
                       placeholder= {e.nome}
@@ -184,6 +174,10 @@ const ModificaComponente = () =>{
                       value={comp.nome}
                       onChange={onChange}
                     />
+
+
+
+
                 </div>
                 <div className="mb-3 col-md-4">
                   <label htmlFor='descrizione'>Descrizione</label>
@@ -350,41 +344,6 @@ const ModificaComponente = () =>{
               </Link>
 
 
-			<div className="modal modal-sheet bg-dark px-4 py-md-5" tabIndex="-1" role="dialog" id="modale_mod_img">
-              <div className='container'>
-                <div className='px-5'>
-                  <div className="modal-dialog-centered bg-dark" role="document">
-                    <div className="modal-content rounded-4 shadow bg-dark" >
-                      <div className="modal-header d-flex justify-content-between">
-
-                        <h2 className="modal-title text-white text-center">CARICA IMMAGINE</h2>
-
-                      </div>
-                      <div className="modal-body py-3 text-white">
-                      <div className="mb-3">
-                          <label htmlFor="formFile" className="form-label">Seleziona il file e clicca CARICA</label>
-                          <input className="form-control" type="file" required={true} id="formFile" onChange={(e)=> setFile(e.target.files[0])}/>
-                          <button className='btn btn-primary mt-3' onClick={modImage}>CARICA</button>
-                        {error && <p className='fs-3 text-danger mt-3'>Prego, Seleziona un immagine</p>}
-
-                      </div>
-
-                      </div>
-
-                      <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-
-                        <div className="modal-footer">
-                          <button type="button" onClick={()=>closeModal()} className="btn btn-danger align-items-center" data-bs-dismiss="modal" aria-label="Close">
-                          <i className='fa fa-times px-2 fs-4'></i>OK, Chiudi
-                          </button>
-                        </div>
-                      </div>
-                  </div>
-                  </div>
-                </div>
-
-              </div>
-              </div>
 
 
 
@@ -392,7 +351,7 @@ const ModificaComponente = () =>{
         </div>
       </div>
       </div>
-
+      </>
   );
 
 }

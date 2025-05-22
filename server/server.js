@@ -3,20 +3,26 @@ const express = require('express');
 const mongoose = require('mongoose')
 require ('dotenv').config();
 const app = express();
-const cookieParser = require('cookie-parser')
-const path = require('path');
+const cloudinary = require('cloudinary').v2;
+
+// Return "https" URLs by setting secure: true
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_APIKEY,
+    api_secret: process.env.CLOUDINARY_APISECRET,
+    secure: false
+});
+
+
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({extended:true, limit: '50mb'}));
+
+// const cookieParser = require('cookie-parser')
+// const path = require('path');
 
 
 
-app.use(express.json());
-
-
-//app.use(express.static('public'))
-
-//app.use(express.static(path.join(process.cwd(), 'public')))
-//app.use('public', express.static(path.join(__dirname,'public')));
-// USA questo per far comparire le immagini da /public/images
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 console.log(process.cwd())
 
@@ -32,7 +38,7 @@ app.use(cors(
     }
 ));
 
-app.use(cookieParser())
+// app.use(cookieParser())
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(()=>{

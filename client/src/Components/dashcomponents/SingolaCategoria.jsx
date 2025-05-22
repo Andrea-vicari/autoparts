@@ -82,7 +82,7 @@ function SingolaCategoria() {
                   return (
                     <tr key={e._id}>
                       <td><LigthBox immagine={e.file}/></td>
-                      {/*<td><img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 120 }} /></td>*/}                      
+                      {/*<td><img src={`https://autoparts-flame.vercel.app/images/${e.file}`} style={{ width: 120 }} /></td>*/}
                       <td className='pt-3'>{e.codice}</td>
                       <td className='pt-3'>{e.nome}</td>
                       <td className='pt-3'>{e.categoria}</td>

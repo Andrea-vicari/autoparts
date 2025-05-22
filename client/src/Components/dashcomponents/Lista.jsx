@@ -23,7 +23,7 @@ const Lista = ({ componenti, loading }) => {
               <h2 className='text-center pt-3 pb-3'>Nessun componente trovato</h2>
             : componenti.map((data, index) => (
                 <tr key={index}>
-                <td><LigthBox immagine={data.file}/></td>
+                <td><LigthBox immagine={data.urlImmagine}/></td>
                 <td className='pt-3'>
                   <a href={'https://www.google.com/search?q=' + data.codice} target="_blank">{data.codice}</a>
 
