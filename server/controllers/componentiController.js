@@ -47,7 +47,7 @@ const vediSingoloComp = async (req, res)=> {
     console.log(id)
 
 
-     const singoloComponente = await Componenti.find({"unicoID":id});
+     const singoloComponente = await Componenti.find({"_id":id});
 
     if(!singoloComponente){
       return res.status(400).json({error: "No singoloComponente found"})
@@ -65,7 +65,7 @@ const cancellaSingoloComponente = async (req, res) =>{
 
    try{
 
-   const componente = await Componenti.findOneAndDelete({unicoID: id})
+   const componente = await Componenti.findOneAndDelete({_id: id})
 
    if(!componente){
        //console.log({error: error.message})
@@ -178,7 +178,7 @@ const modificaComponente = async (req, res)=> {
     console.log("BODY della request")
     console.log(req)
 
-	Componenti.findOneAndUpdate({unicoID: id}, req.body)
+	Componenti.findOneAndUpdate({_id: id}, req.body)
     .then(comp => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' }
