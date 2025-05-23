@@ -43,10 +43,10 @@ const Lista = ({ componenti, loading }) => {
                 </td>
                 <td className='pt-3'>{data.peso} Kg</td>
                 <td className='pt-3'>
-                  <Link to={`/modificacomponente/${data.unicoID}`} state={data.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                  <Link to={`/modificacomponente/${data._id}`} state={data._id} type="button" className="btn btn-sm btn-outline-danger mx-1">
                     <i className='bi bi-zoom-in'></i>
                   </Link>
-                  <Link to={`/cancellacomponente/${data.unicoID}`} state={data.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                  <Link to={`/cancellacomponente/${data._id}`} state={data._id} type="button" className="btn btn-sm btn-outline-danger mx-1">
                     <i className='bi bi-trash'></i>
                   </Link>
 
