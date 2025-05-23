@@ -9,14 +9,13 @@ User can add Automotive components, filter by car model and type, check a single
     * Server built with Node.js and Express.js, Mongoose and MongoDB as database\
 
 ## TODO
+* Eliminare UNIQ sia dai componenti che dai pacchetti node npm
 * Creare componente DownloadEtichette => in PDF con QR code
 * Aggiungere status "Disponibile" o "Venduto" al componente
 * Multiple Upload
-* Persistent disk o Amazon AWS
 
  ### Demo
 👉 Live Deployment <a href="https://autoparts-client.vercel.app/" target="_blank" > VERCEL</a>\
-
 
 ### Login-Test
 Use below credentials to login to dashboard\
@@ -45,8 +44,6 @@ Use below credentials to login to dashboard\
 * Build Command: npm install
 * Start Command: node server.js
 * NEL CASO CAMBIARE I PERCORSI IN SERVER E CLIENT CON GLI INDIRIZZI SOTTOSTANTI
-
-
 
 ## Technologies
 * Node.js
