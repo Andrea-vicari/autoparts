@@ -20,7 +20,7 @@ const ModificaImmagine = () => {
   let clicked = useLocation();
   prodSingle = clicked.state
 
-  console.log(prodSingle)
+
 
   const [error, setError] = useState(null)
   const [prodottoSingolo, setProdottoSingolo] = useState([]);
@@ -49,6 +49,9 @@ const ModificaImmagine = () => {
   useEffect(() => {
     makeAPICall();
   }, [])
+
+  console.log("prodSingle from ModificaImmagine.jsx")
+  console.log(prodSingle)
 
   const handleSelectFile = (e) => setFile(e.target.files[0]);
 
