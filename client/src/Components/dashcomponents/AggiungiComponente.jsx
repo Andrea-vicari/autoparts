@@ -2,9 +2,9 @@ import React, { use } from 'react'
 import  {Link} from 'react-router-dom'
 import { useState } from 'react';
 import logo from "../../assets/images/logo-autoparts-footer.svg";
-import uniqid from 'uniqid';
 
-var unicoID = uniqid()
+
+
 
 function AggiungiComponente({ urlImmagine }) {
 
@@ -12,7 +12,6 @@ function AggiungiComponente({ urlImmagine }) {
 
       const [nome, setNome] = useState()
       const [descrizione, setDescrizione] = useState()
-      const [codUni, setCodUni] = useState('')
       const [codice, setCodice] = useState('')
       const [condizione, setCondizione] = useState('')
       const [peso, setPeso] = useState('')
@@ -34,9 +33,8 @@ function AggiungiComponente({ urlImmagine }) {
       const handleSubmit = async (e) => {
         e.preventDefault()
         setFile(urlImmagine)
-        setCodUni(unicoID)
 
-        const componente = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine   , unicoID}
+        const componente = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine}
 
         console.log(componente)
 

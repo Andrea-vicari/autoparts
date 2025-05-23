@@ -99,10 +99,10 @@ function SingolaCategoria() {
                       </td>
                       <td className='pt-3'>{e.peso} Kg</td>
                       <td className='pt-3'>
-                        <Link to={`/modificacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                        <Link to={`/modificacomponente/${e._id}`} state={e._id} type="button" className="btn btn-sm btn-outline-danger mx-1">
                           <i className='bi bi-zoom-in'></i>
                         </Link>
-                        <Link to={`/cancellacomponente/${e.unicoID}`} state={e.unicoID} type="button" className="btn btn-sm btn-outline-danger mx-1">
+                        <Link to={`/cancellacomponente/${e._id}`} state={e._id} type="button" className="btn btn-sm btn-outline-danger mx-1">
                           <i className='bi bi-trash'></i>
                         </Link>
                         <button type="button" className="btn btn-sm btn-outline-danger mx-1">

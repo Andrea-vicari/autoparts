@@ -48,7 +48,7 @@ router.patch('/aggiornaimage/:id', upload.single('file'), async (req, res)=>{
 
 	const { id } = req.params;
    //const componente = await Componenti.findByIdAndUpdate(id,{image:req.file.filename})
-   const componente = await Componenti.findOneAndUpdate({unicoID: id}, {file:req.file.filename})
+   const componente = await Componenti.findOneAndUpdate({_id: id}, {file:req.file.filename})
 
     if(!componente){
         return res.status(400).json({error: "Nessun componente trovato"})

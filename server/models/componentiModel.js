@@ -61,10 +61,6 @@ const componentiSchema = new mongoose.Schema({
     urlImmagine:{
             type: String,
             required: false
-    },
-    unicoID:{
-        type: String,
-        required: false
     }
 
 },{ timestamps:true })

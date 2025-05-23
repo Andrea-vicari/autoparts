@@ -161,7 +161,7 @@ const ModificaComponente = ({immagine}) =>{
 		 {prodottoSingolo.map((e) => {
                 return (
 
-            <form onSubmit={onSubmit} key={e.unicoID}>
+            <form onSubmit={onSubmit} key={e._id}>
               <div className="row g-3">
                 <div className="mb-3 col-md-4">
                   <label htmlFor='nome'>Nome</label>

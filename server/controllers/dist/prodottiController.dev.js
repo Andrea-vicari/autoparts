@@ -32,13 +32,13 @@ var viewAllProdotti = function viewAllProdotti(req, res) {
 
 
 var createNewProdotti = function createNewProdotti(req, res) {
-  var _req$body, nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, unicoID, prodotti;
+  var _req$body, nome, categoria, tipologia, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, prodotti;
 
   return regeneratorRuntime.async(function createNewProdotti$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          _req$body = req.body, nome = _req$body.nome, categoria = _req$body.categoria, tipologia = _req$body.tipologia, descrizione = _req$body.descrizione, codice = _req$body.codice, condizione = _req$body.condizione, peso = _req$body.peso, scaffale = _req$body.scaffale, campata = _req$body.campata, ripiano = _req$body.ripiano, cassetta = _req$body.cassetta, marca = _req$body.marca, modello = _req$body.modello, versione = _req$body.versione, annoImmatricolazione = _req$body.annoImmatricolazione, unicoID = _req$body.unicoID; // Add doc to the Mongo DB
+          _req$body = req.body, nome = _req$body.nome, categoria = _req$body.categoria, tipologia = _req$body.tipologia, descrizione = _req$body.descrizione, codice = _req$body.codice, condizione = _req$body.condizione, peso = _req$body.peso, scaffale = _req$body.scaffale, campata = _req$body.campata, ripiano = _req$body.ripiano, cassetta = _req$body.cassetta, marca = _req$body.marca, modello = _req$body.modello, versione = _req$body.versione, annoImmatricolazione = _req$body.annoImmatricolazione = _req$body._id; // Add doc to the Mongo DB
 
           _context2.prev = 1;
           _context2.next = 4;
@@ -58,7 +58,7 @@ var createNewProdotti = function createNewProdotti(req, res) {
             modello: modello,
             versione: versione,
             annoImmatricolazione: annoImmatricolazione,
-            unicoID: unicoID
+            _id: _id
           }));
 
         case 4:
@@ -105,7 +105,7 @@ var deleteProdotto = function deleteProdotto(req, res) {
           _context3.prev = 4;
           _context3.next = 7;
           return regeneratorRuntime.awrap(Prodotti.findOneAndDelete({
-            unicoID: id
+            _id: id
           }));
 
         case 7:
@@ -154,7 +154,7 @@ var vediSingoloProd = function vediSingoloProd(req, res) {
           console.log("======");
           console.log("Req from /id");
           console.log("Vedi singolo prodotto");
-          id = req.params.id; // const prodotti = await Prodotti.find({"unicoID":id});
+          id = req.params.id; // const prodotti = await Prodotti.find({"_id":id});
 
           _context4.next = 6;
           return regeneratorRuntime.awrap(Prodotti.findById(id));

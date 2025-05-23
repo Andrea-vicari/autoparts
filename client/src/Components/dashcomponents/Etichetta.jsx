@@ -22,13 +22,13 @@ function Etichetta({ componenti }) {
     const esportaCsv = e => {
       e.preventDefault()
       // Headers for each column
-      let headers = ['nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID']
+      let headers = ['nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno']
 
       let listaCsv = componenti.reduce((acc, componentiLista) => {
 
-        const { nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID } = componentiLista
+        const { nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno } = componentiLista
 
-        acc.push([nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno, unicoID].join(','))
+        acc.push([nome, categoria, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, anno].join(','))
         return acc
       }, [])
       downloadFile({

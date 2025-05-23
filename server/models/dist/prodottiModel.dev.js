@@ -67,10 +67,6 @@ var prodottiSchema = new mongoose.Schema({
     type: String,
     required: false,
     "default": "prodottoThumb.png"
-  },
-  unicoID: {
-    type: String,
-    required: true
   }
 }, {
   timestamps: true

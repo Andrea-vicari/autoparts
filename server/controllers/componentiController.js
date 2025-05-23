@@ -8,10 +8,10 @@ const creaComponente = async (req, res)=> {
   console.log(req.body)
 
 
-    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine, unicoID} = req.body
+    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
 
     try{
-        const singoloComponente = await Componenti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine, unicoID})
+        const singoloComponente = await Componenti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
         res.status(200).json(singoloComponente)
     }
 
