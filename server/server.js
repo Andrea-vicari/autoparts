@@ -17,6 +17,8 @@ cloudinary.config({
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({extended:true, limit: '50mb'}));
 
+console.log(cloudinary.config())
+
 // const cookieParser = require('cookie-parser')
 // const path = require('path');
 
