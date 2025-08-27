@@ -8,6 +8,7 @@ const router = express.Router();
 async function handleUpload(file) {
 
     const res = await cloudinary.uploader.upload(file, {
+	folder:"Autoparts",
     resource_type: "auto",
     });
     console.log(res)
