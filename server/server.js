@@ -53,8 +53,10 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const usersRoutes = require('./routes/users');
 const componentiRoutes = require('./routes/componentiRoutes');
+const veicoliRoutes = require('./routes/veicoliRoutes');
 
 app.use('/api/users', usersRoutes)
 app.use('/api/componenti', componentiRoutes)
+app.use('/api/veicoli', veicoliRoutes)
 
 
