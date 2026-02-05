@@ -1,4 +1,4 @@
-const Componenti = require('../models/componentiModel');
+const Veicoli = require('../models/veicoliModel');
 
 
 // Create a NEW workout:
@@ -11,7 +11,7 @@ const creaComponente = async (req, res)=> {
     const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
 
     try{
-        const singoloComponente = await Componenti.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
+        const singoloComponente = await Veicoli.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
         res.status(200).json(singoloComponente)
     }
 
@@ -21,13 +21,13 @@ const creaComponente = async (req, res)=> {
 
 }
 
-// Vedi tutti i componenti
-const vediComponenti = async (req, res)=> {
+// Vedi tutti i Veicoli
+const vediVeicoli = async (req, res)=> {
 
     console.log("Req from /")
-    console.log("View all Componenti")
+    console.log("View all Veicoli")
 
-    const singoloComponente = await Componenti.find({}).sort({createdAt: -1});
+    const singoloComponente = await Veicoli.find({}).sort({createdAt: -1});
     res.status(200).json(singoloComponente)
 
 }
@@ -47,7 +47,7 @@ const vediSingoloComp = async (req, res)=> {
     console.log(id)
 
 
-     const singoloComponente = await Componenti.find({"_id":id});
+     const singoloComponente = await Veicoli.find({"_id":id});
 
     if(!singoloComponente){
       return res.status(400).json({error: "No singoloComponente found"})
@@ -65,7 +65,7 @@ const cancellaSingoloComponente = async (req, res) =>{
 
    try{
 
-   const componente = await Componenti.findOneAndDelete({_id: id})
+   const componente = await Veicoli.findOneAndDelete({_id: id})
 
    if(!componente){
        //console.log({error: error.message})
@@ -92,9 +92,9 @@ const cercaComponente = async (req, res)=> {
     console.log(id)
 
 
-     //const singoloCompSearched = await Componenti.find({"nome":id});
+     //const singoloCompSearched = await Veicoli.find({"nome":id});
 
-     const singoloCompSearched = await Componenti.find({nome : {$regex : id, $options:"i"}});
+     const singoloCompSearched = await Veicoli.find({nome : {$regex : id, $options:"i"}});
 
     if(!singoloCompSearched){
       return res.status(400).json({error: "No singoloCompSearched found"})
@@ -111,7 +111,7 @@ const singolaCategoria = async (req, res)=> {
 
     const { id } = req.params;
 
-     const singolaCat = await Componenti.find({"categoria":id});
+     const singolaCat = await Veicoli.find({"categoria":id});
 
     if(!singolaCat){
             return res.status(400).json({error: "No singoloCompSearched found"})
@@ -132,7 +132,7 @@ const singolaUbicazione = async (req, res)=> {
     console.log(ripiano)
     console.log(cassetta)
 
-    const singolaUbic = await Componenti.find({"scaffale":scaffale,"campata":campata, "ripiano":ripiano,"cassetta":cassetta});
+    const singolaUbic = await Veicoli.find({"scaffale":scaffale,"campata":campata, "ripiano":ripiano,"cassetta":cassetta});
 
     if(!singolaUbic){
     console.log("Not found")
@@ -153,9 +153,9 @@ const filtraComponente = async (req, res)=> {
     console.log(marca)
     console.log(modello)
 
-    //const compoFiltrato = await Componenti.find({"marca":marca,"modello":modello});
+    //const compoFiltrato = await Veicoli.find({"marca":marca,"modello":modello});
 
-    const compoFiltrato = await Componenti.find({marca : {$regex : marca, $options:"i"},modello: {$regex : modello, $options:"i"}});
+    const compoFiltrato = await Veicoli.find({marca : {$regex : marca, $options:"i"},modello: {$regex : modello, $options:"i"}});
 
     if(!compoFiltrato){
     console.log("Not found")
@@ -178,7 +178,7 @@ const modificaComponente = async (req, res)=> {
     console.log("BODY della request")
     console.log(req)
 
-	Componenti.findOneAndUpdate({_id: id}, req.body)
+	Veicoli.findOneAndUpdate({_id: id}, req.body)
     .then(comp => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' }
@@ -190,7 +190,7 @@ const modificaComponente = async (req, res)=> {
 }
 
 module.exports = {
-        vediComponenti,
+        vediVeicoli,
         creaComponente,
         vediSingoloComp,
         cancellaSingoloComponente,
