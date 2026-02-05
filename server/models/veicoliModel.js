@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const componentiSchema = new mongoose.Schema({
+const veicoliSchema = new mongoose.Schema({
 
     nome:{
         type: String,
@@ -66,4 +66,4 @@ const componentiSchema = new mongoose.Schema({
 },{ timestamps:true })
 
 
-module.exports = mongoose.model("veicoliModel", componentiSchema);
+module.exports = mongoose.model("veicoliModel", veicoliSchema);
