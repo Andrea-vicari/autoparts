@@ -9,7 +9,7 @@ User can add Automotive components, filter by car model and type, check a single
     * Server built with Node.js and Express.js, Mongoose and MongoDB as database\
 
 ## TODO
-* https://www.w3tutorials.net/blog/ebay-nodejs/
+* Guarda https://www.w3tutorials.net/blog/ebay-nodejs/
 * Creare componente DownloadEtichette => in PDF con QR code
 * Aggiungere status "Disponibile" o "Venduto" al componente
 * Multiple Upload
