@@ -27,14 +27,16 @@ function AggiungiVeicolo({ urlImmagine }) {
       const [file, setFile] = useState('')
 
 
-
+     /*
+     await Veicoli.create({marca, modello, versione, annoImmatricolazione, urlImmagine})
+     */
 
 
       const handleSubmit = async (e) => {
         e.preventDefault()
         setFile(urlImmagine)
 
-        const componente = {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine}
+        const componente = {{marca, modello, versione, annoImmatricolazione, urlImmagine}}
 
         console.log(componente)
 
