@@ -2,17 +2,17 @@ const Veicoli = require('../models/veicoliModel');
 
 
 // Create a NEW workout:
-const creaComponente = async (req, res)=> {
+const creaVeicolo = async (req, res)=> {
 
-  console.log("Req from /crea-componente")
+  console.log("Req from /crea-Veicolo")
   console.log(req.body)
 
 
     const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
 
     try{
-        const singoloComponente = await Veicoli.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
-        res.status(200).json(singoloComponente)
+        const singoloVeicolo = await Veicoli.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
+        res.status(200).json(singoloVeicolo)
     }
 
     catch(error){
@@ -27,18 +27,18 @@ const vediVeicoli = async (req, res)=> {
     console.log("Req from /")
     console.log("View all Veicoli")
 
-    const singoloComponente = await Veicoli.find({}).sort({createdAt: -1});
-    res.status(200).json(singoloComponente)
+    const singoloVeicolo = await Veicoli.find({}).sort({createdAt: -1});
+    res.status(200).json(singoloVeicolo)
 
 }
 
 
-// Vedi singolo componente
-const vediSingoloComp = async (req, res)=> {
+// Vedi singolo Veicolo
+const vediSingoloVeicolo = async (req, res)=> {
 
     console.log("======")
     console.log("Req from /id")
-    console.log("Vedi singolo componente")
+    console.log("Vedi singolo Veicolo")
 
 
 
@@ -47,17 +47,17 @@ const vediSingoloComp = async (req, res)=> {
     console.log(id)
 
 
-     const singoloComponente = await Veicoli.find({"_id":id});
+     const singoloVeicolo = await Veicoli.find({"_id":id});
 
-    if(!singoloComponente){
-      return res.status(400).json({error: "No singoloComponente found"})
+    if(!singoloVeicolo){
+      return res.status(400).json({error: "No singoloVeicolo found"})
     }
-    res.status(200).json(singoloComponente);
+    res.status(200).json(singoloVeicolo);
 
 }
 
-// Cancella singolo componente
-const cancellaSingoloComponente = async (req, res) =>{
+// Cancella singolo Veicolo
+const cancellaSingoloVeicolo = async (req, res) =>{
 
    const { id } = req.params;
    console.log("RICHIESTA CANCELLAZIONE PRODOTTO")
@@ -65,14 +65,14 @@ const cancellaSingoloComponente = async (req, res) =>{
 
    try{
 
-   const componente = await Veicoli.findOneAndDelete({_id: id})
+   const Veicolo = await Veicoli.findOneAndDelete({_id: id})
 
-   if(!componente){
+   if(!Veicolo){
        //console.log({error: error.message})
        return res.status(400).json({error: "Nessun prodotto trovato"})
      }
-   console.log(componente)
-   res.status(200).json(componente);
+   console.log(Veicolo)
+   res.status(200).json(Veicolo);
    }
 
     catch(error){
@@ -81,8 +81,8 @@ const cancellaSingoloComponente = async (req, res) =>{
    }
 }
 
-// Cerca componente
-const cercaComponente = async (req, res)=> {
+// Cerca Veicolo
+const cercaVeicolo = async (req, res)=> {
 
 
     const { id } = req.params;
@@ -144,10 +144,10 @@ const singolaUbicazione = async (req, res)=> {
 }
 
 // Filtra x Marca e Modello
-const filtraComponente = async (req, res)=> {
+const filtraVeicolo = async (req, res)=> {
 
     console.log("== ******** ==")
-    console.log("RICHIESTA FILTRO COMPONENTE")
+    console.log("RICHIESTA FILTRO Veicolo")
     const { marca, modello } = req.params;
 
     console.log(marca)
@@ -168,11 +168,11 @@ const filtraComponente = async (req, res)=> {
 }
 
 
-// MOdifica componente
-const modificaComponente = async (req, res)=> {
+// MOdifica Veicolo
+const modificaVeicolo = async (req, res)=> {
 
 	const { id } = req.params;
-    console.log("RICHIESTA AGGIORNAMENTO COMPONENTE")
+    console.log("RICHIESTA AGGIORNAMENTO Veicolo")
     console.log(id)
 
     console.log("BODY della request")
@@ -191,12 +191,12 @@ const modificaComponente = async (req, res)=> {
 
 module.exports = {
         vediVeicoli,
-        creaComponente,
-        vediSingoloComp,
-        cancellaSingoloComponente,
-        cercaComponente,
+        creaVeicolo,
+        vediSingoloVeicolo,
+        cancellaSingoloVeicolo,
+        cercaVeicolo,
         singolaCategoria,
         singolaUbicazione,
-        modificaComponente,
-        filtraComponente
+        modificaVeicolo,
+        filtraVeicolo
 }
