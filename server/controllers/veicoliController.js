@@ -8,10 +8,10 @@ const creaVeicolo = async (req, res)=> {
   console.log(req.body)
 
 
-    const {nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
+    const {marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
 
     try{
-        const singoloVeicolo = await Veicoli.create({nome, categoria, descrizione, codice, condizione, peso, scaffale, campata, ripiano, cassetta, marca, modello, versione, annoImmatricolazione, urlImmagine})
+        const singoloVeicolo = await Veicoli.create({marca, modello, versione, annoImmatricolazione, urlImmagine})
         res.status(200).json(singoloVeicolo)
     }
 
