@@ -5,6 +5,7 @@ import nuovoProdImg from '../../assets/images/elenco-prodotti.jpg'
 import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
 import consultaImg from '../../assets/images/consultaMagazzino.jpg'
 import consultaCat from '../../assets/images/login_bg.jpg'
+import aggiungiAuto from '../../assets/images/AggiungiVeicolo.jpg'
 
 function Dashboard() {
 
@@ -90,6 +91,22 @@ function Dashboard() {
                     </div>
                     </div>
                 </div>
+				<div className="col">
+                    <div className={"card mb-4 rounded-3 shadow-sm border-primary" + " " + bgType + " " + textType}>
+                    <div className="card-header py-3 text-bg-primary">
+                        <h4 className="my-0 fw-normal">Aggiungi Veicolo</h4>
+                    </div>
+                    <div className="card-body">
+                        <Link to="/nuovoveicolo">
+                        <img src={aggiungiAuto} className="img-fluid rounded mb-2"/>
+                        </Link>
+
+                        <p>Sezione dove ricercare un componente secondo la categoria</p>
+                        <Link to="/nuovoveicolo" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA CATEGORIE</Link>
+
+                    </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -100,4 +117,3 @@ function Dashboard() {
 }
 
 export default Dashboard
-
