@@ -35,12 +35,13 @@ router.post("/upload", upload.single("my_file"), async (req, res) => {
 	  });
 	}
   });
-router.post('/crea-veicolo', creaVeicolo);
+
 
 const {vediVeicoli, creaVeicolo} = require('../controllers/veicoliController');
 
 // Get
 router.get('/', vediVeicoli);
+router.post('/crea-veicolo', creaVeicolo);
 
 
 
