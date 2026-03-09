@@ -14,6 +14,7 @@ function AggiungiVeicolo({ urlImmagine }) {
       const [modello, setModello] = useState('')
       const [versione, setVersione] = useState('')
       const [file, setFile] = useState('')
+      const [targa, setTarga] = useState('')
 
 
 
