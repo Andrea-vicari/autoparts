@@ -11,7 +11,7 @@ const creaVeicolo = async (req, res)=> {
     const {marca, modello, versione, annoImmatricolazione, urlImmagine} = req.body
 
     try{
-        const singoloVeicolo = await Veicoli.create({marca, modello, versione, annoImmatricolazione, urlImmagine})
+        const singoloVeicolo = await Veicoli.create({marca, modello, versione, annoImmatricolazione, urlImmagine, targa})
         res.status(200).json(singoloVeicolo)
     }
 
