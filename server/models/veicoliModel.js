@@ -21,6 +21,10 @@ const veicoliSchema = new mongoose.Schema({
     urlImmagine:{
             type: String,
             required: false
+    },
+    targa:{
+            type: String,
+            required: false
     }
 
 },{ timestamps:true })
