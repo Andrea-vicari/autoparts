@@ -37,7 +37,7 @@ router.post("/upload", upload.single("my_file"), async (req, res) => {
   });
 router.post('/crea-veicolo', creaComponente);
 
-const {vediVeicoli} = require('../controllers/veicoliController');
+const {vediVeicoli, creaVeicolo} = require('../controllers/veicoliController');
 
 // Get
 router.get('/', vediVeicoli);
