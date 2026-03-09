@@ -3,7 +3,7 @@ import axios from 'axios'
 import  {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import logo from "../../assets/images/logo-autoparts-footer.svg";
-import AggiungiVeicolo from './AggiungiVeicolo';
+import AggiungiVeicolo from './aggiungiVeicolo';
 
 
 const AggiungiImmagineVeicolo = () => {
