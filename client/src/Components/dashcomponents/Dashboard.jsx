@@ -102,8 +102,8 @@ function Dashboard() {
                         </Link>
 
                         <p>Sezione dove ricercare un componente secondo la categoria</p>
-                        <Link to="/nuovoveicolo" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">CONSULTA CATEGORIE</Link>
-
+                        <Link to="/nuovoveicolo" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">AGGIUNGI VEICOLO</Link>
+                        
                     </div>
                     </div>
                 </div>
