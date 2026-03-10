@@ -6,7 +6,7 @@ import addProdImg from '../../assets/images/aggiungi-prodotto.jpg'
 import consultaImg from '../../assets/images/consultaMagazzino.jpg'
 import consultaCat from '../../assets/images/login_bg.jpg'
 import aggiungiAuto from '../../assets/images/AggiungiVeicolo.jpg'
-import vediVeicoli from '../../assets/images/vediVeicoli.jpg'
+import vediVeicoli from '../../assets/images/VediVeicoli.jpg'
 
 function Dashboard() {
 
