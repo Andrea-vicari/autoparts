@@ -24,14 +24,14 @@ function AggiungiVeicolo({ urlImmagine }) {
         e.preventDefault()
         setFile(urlImmagine)
 
-        const componente = {marca, modello, versione, annoImmatricolazione, urlImmagine, targa}
+        const singoloVeicolo = {marca, modello, versione, annoImmatricolazione, urlImmagine, targa}
 
-        console.log(componente)
+        console.log(singoloVeicolo)
 
         const response = await fetch('https://autoparts-flame.vercel.app/api/veicoli/crea-veicolo', {
 
           method: 'POST',
-          body: JSON.stringify(veicolo),
+          body: JSON.stringify(singoloVeicolo),
           headers:{
               'Content-Type': 'application/json'
             }
