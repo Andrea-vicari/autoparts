@@ -14,6 +14,7 @@ import DashboardPage from './pages/dashpages/DashboardPage';
 import NuovoComponentePage from './pages/dashpages/NuovoComponentePage';
 import NuovoVeicoloPage from './pages/dashpages/NuovoVeicoloPage';
 import ElencoComponentiPage from './pages/dashpages/ElencoComponentiPage';
+import ElencoVeicoliPage from './pages/dashpages/ElencoVeicoliPage';
 import CancellaComponentePage from './pages/dashpages/CancellaComponentePage';
 import ModificaComponentePage from './pages/dashpages/ModificaComponentePage';
 import ConsultaCategoriePage from './pages/dashpages/ConsultaCategoriePage';
@@ -38,7 +39,7 @@ function App() {
             <Route path="/dashboardpage" element={user ? <DashboardPage /> : <Navigate to="/login"/>} />
 		    <Route path="/cancellacomponente/:id" element={<CancellaComponentePage/>} />
             <Route path="/elencocomponenti" element={user ? <ElencoComponentiPage /> : <Navigate to="/login"/>} />
-
+            <Route path="/elencoveicoli" element={user ? <ElencoVeicoliPage /> : <Navigate to="/login"/>} />
             <Route path="/consultacategorie" element={user ? <ConsultaCategoriePage /> : <Navigate to="/login"/>} />
             <Route path="/consultamagazzino" element={user ? <ConsultaMagazzinoPage /> : <Navigate to="/login"/>} />
             <Route path="/singolacategoria/:id" element={<SingolaCategoriaPage />} />
