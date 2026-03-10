@@ -31,7 +31,7 @@ function AggiungiVeicolo({ urlImmagine }) {
         const response = await fetch('https://autoparts-flame.vercel.app/api/componenti/crea-veicolo', {
 
           method: 'POST',
-          body: JSON.stringify(componente),
+          body: JSON.stringify(veicolo),
           headers:{
               'Content-Type': 'application/json'
             }
