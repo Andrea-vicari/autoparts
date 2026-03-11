@@ -19,9 +19,9 @@ const ListaV = ({ veicoli, loading }) => {
     return (
         <>
 
-            {componenti.length ===0 ?
+            {veicoli.length ===0 ?
               <h2 className='text-center pt-3 pb-3'>Nessun componente trovato</h2>
-            : componenti.map((data, index) => (
+            : veicoli.map((data, index) => (
                 <tr key={index}>
                 <td><LigthBox immagine={data.urlImmagine}/></td>
                 <td className='pt-3'>
