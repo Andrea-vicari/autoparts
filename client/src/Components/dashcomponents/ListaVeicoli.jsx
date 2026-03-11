@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import Lista from './Lista'
+import ListaV from './ListaV'
 import ScaricaListaCompCSV from './ScaricaListaCompCSV';
 // import Etichetta from './Etichetta';
 import Pagination from './Pagination'
@@ -168,7 +168,7 @@ function ListaVeicoli() {
                 </tr>
               </thead>
               <tbody>
-                <Lista veicoli={currentPosts} loading={loading} />
+                <ListaV veicoli={currentPosts} loading={loading} />
               </tbody>
             </table>
             <Pagination length={veicoli.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
