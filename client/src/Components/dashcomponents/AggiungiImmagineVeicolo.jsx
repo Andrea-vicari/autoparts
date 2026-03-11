@@ -50,7 +50,7 @@ const AggiungiImmagineVeicolo = () => {
 
       <div className="d-flex justify-content-center align-items-center py-5">
         <div className={"p-3 rounded w-100 " + bgType + textType}>
-          <h2 className={textType}>Aggiungi nuovo componente</h2>
+          <h2 className={textType}>Aggiungi nuovo veicolo</h2>
           <div className="mb-3 col-md-4">
             <label htmlFor="immagine" className="text-primary">
                <strong>Carica Immagine</strong>
