@@ -159,8 +159,6 @@ function ListaVeicoli() {
                   <th scope="col">Modello</th>
                   <th scope="col">Versione</th>
                   <th scope="col">Anno</th>
-                  <th scope="col">Ubicazione</th>
-                  <th scope="col">Peso</th>
                   <th scope="col">Gestisci</th>
                 </tr>
               </thead>
