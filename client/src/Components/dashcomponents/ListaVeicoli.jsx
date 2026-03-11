@@ -19,12 +19,12 @@ function ListaVeicoli() {
   themeType == "ligth" ? textType = "" : textType = "text-bg-dark"
   themeType == "ligth" ? tableType = "table-ligth" : tableType = "table-dark"
 
-  const [componenti, setComponenti] = useState([])
+  const [veicoli, setveicoli] = useState([])
   // initialize the loading state as true
   const [loading, setLoading] = useState(true)
   // initialize the error state as null
   const [error, setError] = useState(null)
-  const [componentiFiltrati, setComponentiFiltrati] = useState([])
+  const [veicoliFiltrati, setveicoliFiltrati] = useState([])
   const [marcaFilter, setMarcaFilter] = useState('');
   const [modelloFilter, setModelloFilter] = useState('');
   const [nomeFilter, setNomeFilter] = useState('');
@@ -33,13 +33,13 @@ function ListaVeicoli() {
   const [postsPerPage, setPostsPerPage] = useState(5);
 
   useEffect(() => {
-    fetch('https://autoparts-flame.vercel.app/api/componenti')
+    fetch('https://autoparts-flame.vercel.app/api/veicoli')
       .then(response => response.json())
-      .then(componentiDalServer => {
+      .then(veicoliDalServer => {
         console.log("*****")
-        console.log(componentiDalServer)
-        setComponenti(componentiDalServer)
-        setComponentiFiltrati(componentiDalServer)
+        console.log(veicoliDalServer)
+        setveicoli(veicoliDalServer)
+        setveicoliFiltrati(veicoliDalServer)
       })
       .catch(err => {
         console.log(err)
@@ -59,7 +59,7 @@ function ListaVeicoli() {
     setNomeFilter('')
   }
 
-  const filteredProducts = componenti.filter((product) =>
+  const filteredProducts = veicoli.filter((product) =>
     product.marca.toLowerCase().includes(marcaFilter.toLowerCase()) &&
     product.modello.toLowerCase().includes(modelloFilter.toLowerCase()) &&
     product.nome.toLowerCase().includes(nomeFilter.toLowerCase())
@@ -76,14 +76,14 @@ function ListaVeicoli() {
     setCurrentPage(pageNumber);
   }
 
-  var totaleComponenti = componenti.length
-  console.log(totaleComponenti)
+  var totaleveicoli = veicoli.length
+  console.log(totaleveicoli)
 
   return (
     <>
       <div className='container-fluid pt-1 mt-5 bg-login d-none d-sm-block'>
         <div className='container text-center mt-5 pb-1'>
-          <h1 className='display-2 text-white text-uppercase'>Elenco Componenti</h1>
+          <h1 className='display-2 text-white text-uppercase'>Elenco veicoli</h1>
         </div>
       </div>
 
@@ -118,7 +118,7 @@ function ListaVeicoli() {
         <div className="col-sm-2 d-none d-sm-block">
         <div className='py-4'>
           <label>
-          Componenti per pagina:
+          veicoli per pagina:
           <select value={postsPerPage}
             onChange={e => setPostsPerPage(e.target.value)}
             className='mx-3' name="compPerPage">
@@ -135,7 +135,7 @@ function ListaVeicoli() {
           <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
 
-              <ScaricaListaCompCSV componenti={componenti}/>
+              <ScaricaListaCompCSV veicoli={veicoli}/>
 
             </div>
           </div>
@@ -175,10 +175,10 @@ function ListaVeicoli() {
                 </tr>
               </thead>
               <tbody>
-                <Lista componenti={currentPosts} loading={loading} />
+                <Lista veicoli={currentPosts} loading={loading} />
               </tbody>
             </table>
-            <Pagination length={componenti.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
+            <Pagination length={veicoli.length} postsPerPage={postsPerPage} handlePagination={handlePagination} currentPage={currentPage} />
           </div>
         </div>
 
