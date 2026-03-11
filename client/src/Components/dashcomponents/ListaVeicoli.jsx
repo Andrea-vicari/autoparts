@@ -27,7 +27,7 @@ function ListaVeicoli() {
   const [veicoliFiltrati, setveicoliFiltrati] = useState([])
   const [marcaFilter, setMarcaFilter] = useState('');
   const [modelloFilter, setModelloFilter] = useState('');
-  const [nomeFilter, setNomeFilter] = useState('');
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
@@ -56,13 +56,13 @@ function ListaVeicoli() {
   const resettaRicerca = () =>{
     setMarcaFilter('')
     setModelloFilter('')
-    setNomeFilter('')
+    
   }
 
   const filteredProducts = veicoli.filter((product) =>
     product.marca.toLowerCase().includes(marcaFilter.toLowerCase()) &&
     product.modello.toLowerCase().includes(modelloFilter.toLowerCase()) &&
-    product.nome.toLowerCase().includes(nomeFilter.toLowerCase())
+    
   );
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -91,13 +91,7 @@ function ListaVeicoli() {
         <h4 className="mx-2 mb-1" id='filtro_compon'>Filtra il componente</h4>
         <div className="row border-bottom">
         <div className="col-sm-6 py-2 pt-3">
-        <input
-          className="mb-2 mx-2 pb-1"
-          type="text"
-          placeholder="Inserisci il nome"
-          value={nomeFilter}
-          onChange={(e) => setNomeFilter(e.target.value)}
-        />
+       
         <input
           className="mb-2 mx-2 pb-1"
           type="text"
