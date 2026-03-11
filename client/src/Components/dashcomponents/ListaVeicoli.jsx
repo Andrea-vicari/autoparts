@@ -154,10 +154,7 @@ function ListaVeicoli() {
               <thead className='text-uppercase'>
                 <tr>
                   <th scope="col">Immagine</th>
-                  <th scope="col">Codice</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Cat</th>
-                  <th scope="col">Condizione</th>
+
                   <th scope="col">Marca</th>
                   <th scope="col">Modello</th>
                   <th scope="col">Versione</th>
