@@ -61,7 +61,7 @@ function ListaVeicoli() {
 
   const filteredProducts = veicoli.filter((product) =>
     product.marca.toLowerCase().includes(marcaFilter.toLowerCase()) &&
-    product.modello.toLowerCase().includes(modelloFilter.toLowerCase()) &&
+    product.modello.toLowerCase().includes(modelloFilter.toLowerCase())
     
   );
 
