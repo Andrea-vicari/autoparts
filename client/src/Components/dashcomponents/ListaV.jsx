@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import LigthBox from './LigthBox';
 
 
-const ListaV = ({ componenti, loading }) => {
+const ListaV = ({ veicoli, loading }) => {
 
     console.log("== &&&& ===0")
-    console.log(componenti)
+    console.log(veicoli)
 
 
     if (loading) {
