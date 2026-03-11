@@ -135,9 +135,9 @@ function ListaVeicoli() {
           <div className="col-sm-2 d-none d-sm-flex justify-content-end">
             <div className='pt-3'>
 
-              <Link to="/nuovocomponente" type="button" className="btn btn-outline-success rounded-0">
+              <Link to="/nuovoveicolo" type="button" className="btn btn-outline-success rounded-0">
                 <i className="bi bi-plus-circle mx-2">
-                </i>Aggiungi Componente
+                </i>Aggiungi veicolo
               </Link>
 
             </div>
