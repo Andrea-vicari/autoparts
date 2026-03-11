@@ -76,8 +76,7 @@ function ListaVeicoli() {
     setCurrentPage(pageNumber);
   }
 
-  var totaleveicoli = veicoli.length
-  console.log(totaleveicoli)
+
 
   return (
     <>
