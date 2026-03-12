@@ -2,7 +2,7 @@ import React, { use } from 'react'
 import  {Link} from 'react-router-dom'
 import { useState } from 'react';
 import logo from "../../assets/images/logo-autoparts-footer.svg";
-
+import FruitPicker from './FruitPicker';
 
 
 
@@ -56,6 +56,7 @@ function AggiungiComponente({ urlImmagine }) {
     <form onSubmit={handleSubmit} className='mt-5'>
     <div className="row g-3">
     <div className="mb-3 col-md-4">
+        <FruitPicker />
     <label htmlFor="nome" className="text-primary">
           <strong>Nome Componente</strong>
     </label>
