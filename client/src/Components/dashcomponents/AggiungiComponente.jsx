@@ -206,66 +206,7 @@ function AggiungiComponente({ urlImmagine }) {
           required={true}
         />
       </div>
-      <div className="mb-3 col-md-4">
-        <label htmlFor="annoImmatricolazione" className="text-primary">
-          <strong>Anno Immatricolazione</strong>
-        </label>
-        <input
-          type="text"
-          placeholder="Inserisci anno immatricolazione"
-          autoComplete="off"
-          name="number"
-          className="form-control rounded-0"
-          onChange={(e) => setAnnoImmatricolazione(e.target.value)}
-          value={annoImmatricolazione}
-          required={true}
-        />
-      </div>
-      <div className="mb-3 col-md-4">
-        <label htmlFor="marca" className="text-primary">
-          <strong>Marca</strong>
-        </label>
-        <input
-          type="text"
-          placeholder="Inserisci marca"
-          autoComplete="off"
-          name="text"
-          className="form-control rounded-0"
-          onChange={(e) => setMarca(e.target.value)}
-          value={marca}
-          required={true}
-        />
-      </div>
-      <div className="mb-3 col-md-6">
-        <label htmlFor="modello" className="text-primary">
-          <strong>Modello</strong>
-        </label>
-        <input
-          type="text"
-          placeholder="Inserisci Modello"
-          autoComplete="off"
-          name="text"
-          className="form-control rounded-0"
-          onChange={(e) => setModello(e.target.value)}
-          value={modello}
-          required={true}
-        />
-      </div>
-      <div className="mb-3 col-md-4">
-        <label htmlFor="versione" className="text-primary">
-          <strong>Versione</strong>
-        </label>
-        <input
-          type="text"
-          placeholder="Inserisci Versione"
-          autoComplete="off"
-          name="text"
-          className="form-control rounded-0"
-          onChange={(e) => setVersione(e.target.value)}
-          value={versione}
-          required={true}
-        />
-      </div>
+
 
 
     </div>
