@@ -55,8 +55,9 @@ function AggiungiComponente({ urlImmagine }) {
   return (
     <form onSubmit={handleSubmit} className='mt-5'>
     <div className="row g-3">
-    <div className="mb-3 col-md-4">
         <FruitPicker />
+    <div className="mb-3 col-md-4">
+        
     <label htmlFor="nome" className="text-primary">
           <strong>Nome Componente</strong>
     </label>
