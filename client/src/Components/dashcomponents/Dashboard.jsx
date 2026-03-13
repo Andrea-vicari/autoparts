@@ -115,11 +115,11 @@ function Dashboard() {
                         <h4 className="my-0 fw-normal">Aggiungi Veicolo</h4>
                     </div>
                     <div className="card-body">
-                        <Link to="/nuovoveicolo">
+                        <Link to="/elencoveicoli">
                         <img src={vediVeicoli} className="img-fluid rounded mb-2"/>
                         </Link>
 
-                        <p>Sezione dove ricercare un componente secondo la categoria</p>
+                        <p>Sezione dove consultare i veicoli presenti</p>
                         <Link to="/elencoveicoli" type="button" className="w-100 btn btn-lg btn-primary text-uppercase">ELENCO VEICOLI</Link>
                         
                     </div>
